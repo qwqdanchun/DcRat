@@ -1,10 +1,6 @@
-# DcRat-beta
+# DcRat
 
-**DcRat是我本学期的c#期末作业**
-
-严格来说，这个项目从很久之前就开始准备了，很多小功能的代码早就写好的。这次正好趁着机会整合到一起，做一个小工具
-
-**配套项目（用于免杀）：https://github.com/qwqdanchun/Crypter**
+**DcRat是我疫情那个学期的c#期末作业**
 
 ## 介绍
 ##### 特点
@@ -68,17 +64,17 @@
   * Windows 10
 
 ##### TODO
-- 注册表编辑器（~~基本完成待整合~~，发现这个功能没有啥实际意义，如果想查看注册表，可以手动执行shell："reg export HKLM AppBkUp.reg"导出所有注册表，或者类似的操作来应付极少数需要处理注册表的情况）
-- 聊天记录提取（微信基本完成，qq还没有思路）
-- 浏览器等密码提取，上网记录（chrome更新太快了，跟不上）
+- 注册表编辑器（~~基本完成待整合~~，发现这个功能没有啥实际意义，懒得写了）
+- ~~聊天记录提取~~（需要注入进程获取解密的key，处理好再加）
+- 浏览器等密码提取，上网记录（暂时只支持chrome及edge，有需求的自己加路径）
 - 重绘UI（贫穷，等有钱了找人设计）
-- ~~hosts文件管理~~（没啥意义，太容易引起杀软提醒了，等找到无提示的方法再加）
+- ~~hosts文件管理~~（没啥意义，太容易引起杀软提醒了）
 - 语音视频的流传输
 - 中继服务器
 - ……
 
 ## 编译
-在Visual Studio 2019中打开解决方案即可编译，如果出现错误请自行查看Nuget包是否有误。
+在Visual Studio 2019中打开解决方案即可编译。
 
 ## 注意
 我（簞純）对您使用此软件可能执行的任何操作概不负责。您对使用此软件采取的任何措施承担全部责任。请注意，此应用程序仅用于教育目的，切勿被恶意使用。通过下载软件或软件的源代码，您自动接受此协议。
@@ -91,6 +87,7 @@
 * vanillarat - [@dannythesloth](https://dannythesloth.github.io/VanillaRAT/)
 * StreamLibrary - [@Rut0](https://github.com/Rut0/StreamLibrary)
 * AForge.NET - [@andrewkirillov](https://github.com/andrewkirillov/AForge.NET)
+* AsyncRAT - [@NYAN-x-CAT](https://github.com/NYAN-x-CAT/AsyncRAT-C-Sharp)
 
 
 
