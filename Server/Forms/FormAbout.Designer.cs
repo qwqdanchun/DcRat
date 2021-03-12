@@ -79,7 +79,8 @@
             this.richTextBox1.ShortcutsEnabled = false;
             this.richTextBox1.Size = new System.Drawing.Size(228, 166);
             this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "\n簞純制作，Made By qwqdanchun.\n\n\n更多信息，请访问:\nhttps://blog.qwqdanchun.cn/";
+            this.richTextBox1.Text = "\n作者：簞純 | qwqdanchun.\n\n交流加群：814084847\n\n作者博客：https://blog.qwqdanchun.com\n\n黑灰产、非法使用勿" +
+    "扰";
             this.richTextBox1.ZoomFactor = 1.1F;
             // 
             // FormAbout

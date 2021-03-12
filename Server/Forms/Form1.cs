@@ -1809,5 +1809,10 @@ namespace Server
                 }
             }
         }
+
+        private void 文档ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/qwqdanchun/DcRat");
+        }
     }
 }
