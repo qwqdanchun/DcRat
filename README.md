@@ -1,6 +1,6 @@
 # DcRat
 
-**DcRat是我疫情那个学期的c#期末作业**
+**DcRat是我疫情那个学期的c#期末作业**  
 [English](/README-EN.md)
 
 ## 介绍
