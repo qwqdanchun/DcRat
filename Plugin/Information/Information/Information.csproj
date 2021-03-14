@@ -49,9 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DevicesHelper.cs" />
-    <Compile Include="SystemHelper.cs" />
-    <Compile Include="GeoLocationHelper.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Packet.cs" />
     <Compile Include="Plugin.cs" />

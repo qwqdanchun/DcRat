@@ -20,7 +20,12 @@ namespace Server.Handle_Packet
         {
             try
             {
-                MessageBox.Show(unpack_msgpack.ForcePathObject("InforMation").AsString);
+                string tempPath = Path.Combine(Application.StartupPath, "ClientsFolder\\" + unpack_msgpack.ForcePathObject("ID").AsString + "\\Information");
+                string fullPath = tempPath + $"\\Information.txt";
+                if (!Directory.Exists(tempPath))
+                    Directory.CreateDirectory(tempPath);
+                File.WriteAllText(fullPath, unpack_msgpack.ForcePathObject("InforMation").AsString);
+                Process.Start("explorer.exe", fullPath);
             }
             catch (Exception ex)
             {
