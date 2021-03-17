@@ -90,13 +90,15 @@ Press [here](https://github.com/qwqdanchun/DcRat/releases/) to download the last
 ## Thanks
 
 * SiMay - [@koko](https://gitee.com/dWwwang/SiMayRemoteMonitorOS)
-* QuasarRAT - [@Quasar](https://github.com/quasar/QuasarRAT)
+* Quasar - [@Quasar](https://github.com/quasar/Quasar)
 * Lime-RAT - [@NYAN-x-CAT](https://github.com/NYAN-x-CAT/Lime-RAT)
 * vanillarat - [@dannythesloth](https://dannythesloth.github.io/VanillaRAT/)
 * StreamLibrary - [@Rut0](https://github.com/Rut0/StreamLibrary)
 * SharpChromium- [@djhohnstein](https://github.com/djhohnstein/SharpChromium)
 * AForge.NET - [@andrewkirillov](https://github.com/andrewkirillov/AForge.NET)
 * AsyncRAT - [@NYAN-x-CAT](https://github.com/NYAN-x-CAT/AsyncRAT-C-Sharp)
+* SimpleMsgPack.Net - [@ymofen](https://github.com/ymofen/SimpleMsgPack.Net/)
+* SharpSploit - [@cobbr](https://github.com/cobbr/SharpSploit)
 * and some other projects
 
 

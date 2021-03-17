@@ -136,6 +136,7 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -737,6 +738,7 @@
             this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.新建客户端ToolStripMenuItem,
             this.屏蔽客户端ToolStripMenuItem,
+            this.设置ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
             this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
@@ -745,21 +747,21 @@
             // 新建客户端ToolStripMenuItem
             // 
             this.新建客户端ToolStripMenuItem.Name = "新建客户端ToolStripMenuItem";
-            this.新建客户端ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.新建客户端ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.新建客户端ToolStripMenuItem.Text = "新建客户端";
             this.新建客户端ToolStripMenuItem.Click += new System.EventHandler(this.builderToolStripMenuItem1_Click);
             // 
             // 屏蔽客户端ToolStripMenuItem
             // 
             this.屏蔽客户端ToolStripMenuItem.Name = "屏蔽客户端ToolStripMenuItem";
-            this.屏蔽客户端ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.屏蔽客户端ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.屏蔽客户端ToolStripMenuItem.Text = "屏蔽客户端";
             this.屏蔽客户端ToolStripMenuItem.Click += new System.EventHandler(this.屏蔽客户端ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -929,7 +931,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(859, 195);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "轮播图";
+            this.tabPage3.Text = "屏幕墙";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // listView3
@@ -1017,6 +1019,13 @@
             // 
             this.columnHeader2.Text = "日志";
             this.columnHeader2.Width = 705;
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.设置ToolStripMenuItem.Text = "设置";
+            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1166,6 +1175,7 @@
         private System.Windows.Forms.ToolStripMenuItem 关闭UACToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 打开CD槽ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem win7ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
     }
 }
 

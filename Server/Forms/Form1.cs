@@ -1814,5 +1814,13 @@ namespace Server
         {
             Process.Start("https://github.com/qwqdanchun/DcRat");
         }
+
+        private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (FormSetting formSetting = new FormSetting())
+            {
+                formSetting.ShowDialog();
+            }
+        }
     }
 }

