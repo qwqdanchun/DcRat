@@ -44,7 +44,7 @@ namespace Server.Forms
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(321, 41);
             this.button1.TabIndex = 0;
-            this.button1.Text = "确认";
+            this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -55,7 +55,7 @@ namespace Server.Forms
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(72, 16);
             this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "钉钉通知";
+            this.checkBox1.Text = "DingDing";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox1
@@ -108,7 +108,7 @@ namespace Server.Forms
             this.Name = "FormSetting";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "设置";
+            this.Text = "Setting";
             this.Load += new System.EventHandler(this.FormSetting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

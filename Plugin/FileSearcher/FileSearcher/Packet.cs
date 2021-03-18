@@ -87,7 +87,7 @@ namespace Plugin
 
                 if (files.Count == 0)
                 {
-                    Log("文件查找: 未发现文件");
+                    Log("Nothing found.");
                 }
                 else
                 {

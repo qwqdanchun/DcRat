@@ -31,57 +31,57 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.contextMenuClient = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.远程管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.命令行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.桌面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.摄像头ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.文件ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.进程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.录音ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.窗口通知ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.开启ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.关闭ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.控制功能ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.发送文件ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.至硬盘ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.至内存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.发送通知ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.聊天ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.访问网站ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改壁纸ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.键盘记录ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.文件查找ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.恶意功能ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoteManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoteShellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoteScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoteCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileManagerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProcrssManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProgramNotificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StopToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoteControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SendFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.SendFileToDiskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SendFileToMemoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MessageBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChatToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.VisteWebsiteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChangeWallpaperToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.KeyloggerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MalwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dDOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.勒索ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.加密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.解密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关闭WDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.密码恢复ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关闭UACToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.打开CD槽ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.锁屏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.开启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关闭ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.客户端ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关闭ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.重启ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.升级ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.卸载ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.储存文件夹ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.重启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uAC提权ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.无提示不过360ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.过360核晶ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.有提示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.win7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.安装ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.过360启动项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.详细信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RansomwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EncryptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DecryptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DisableWDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PasswordRecoveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DisableUACToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenCDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LockScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StopToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.SystemControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StopToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.RestartToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.UpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShutDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RebootToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BypassUACAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SilentCleanupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FodhelperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RunasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CompMgmtLauncherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SchtaskInstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -104,13 +104,14 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.TimerTask = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新建客户端ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.屏蔽客户端ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.文档ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BuilderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -136,7 +137,6 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -158,187 +158,187 @@
             // contextMenuClient
             // 
             this.contextMenuClient.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.远程管理ToolStripMenuItem,
-            this.控制功能ToolStripMenuItem,
-            this.恶意功能ToolStripMenuItem,
-            this.锁屏ToolStripMenuItem,
-            this.系统管理ToolStripMenuItem,
-            this.uAC提权ToolStripMenuItem,
-            this.安装ToolStripMenuItem,
-            this.详细信息ToolStripMenuItem});
+            this.RemoteManagerToolStripMenuItem,
+            this.RemoteControlToolStripMenuItem,
+            this.MalwareToolStripMenuItem,
+            this.LockScreenToolStripMenuItem,
+            this.SystemControlToolStripMenuItem,
+            this.BypassUACAToolStripMenuItem,
+            this.InstallToolStripMenuItem,
+            this.InformationToolStripMenuItem});
             this.contextMenuClient.Name = "contextMenuStrip1";
             this.contextMenuClient.Size = new System.Drawing.Size(126, 180);
             // 
-            // 远程管理ToolStripMenuItem
+            // RemoteManagerToolStripMenuItem
             // 
-            this.远程管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.命令行ToolStripMenuItem,
-            this.桌面ToolStripMenuItem,
-            this.摄像头ToolStripMenuItem,
-            this.文件ToolStripMenuItem1,
-            this.进程ToolStripMenuItem,
-            this.录音ToolStripMenuItem,
-            this.窗口通知ToolStripMenuItem});
-            this.远程管理ToolStripMenuItem.Name = "远程管理ToolStripMenuItem";
-            this.远程管理ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.远程管理ToolStripMenuItem.Text = "远程管理";
+            this.RemoteManagerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RemoteShellToolStripMenuItem,
+            this.RemoteScreenToolStripMenuItem,
+            this.RemoteCameraToolStripMenuItem,
+            this.FileManagerToolStripMenuItem1,
+            this.ProcrssManagerToolStripMenuItem,
+            this.RecordToolStripMenuItem,
+            this.ProgramNotificationToolStripMenuItem});
+            this.RemoteManagerToolStripMenuItem.Name = "RemoteManagerToolStripMenuItem";
+            this.RemoteManagerToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.RemoteManagerToolStripMenuItem.Text = "Remote Manager";
             // 
-            // 命令行ToolStripMenuItem
+            // RemoteShellToolStripMenuItem
             // 
-            this.命令行ToolStripMenuItem.Name = "命令行ToolStripMenuItem";
-            this.命令行ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.命令行ToolStripMenuItem.Text = "命令行";
-            this.命令行ToolStripMenuItem.Click += new System.EventHandler(this.命令行ToolStripMenuItem_Click);
+            this.RemoteShellToolStripMenuItem.Name = "RemoteShellToolStripMenuItem";
+            this.RemoteShellToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.RemoteShellToolStripMenuItem.Text = "Remote Shell";
+            this.RemoteShellToolStripMenuItem.Click += new System.EventHandler(this.RemoteShellToolStripMenuItem_Click);
             // 
-            // 桌面ToolStripMenuItem
+            // RemoteScreenToolStripMenuItem
             // 
-            this.桌面ToolStripMenuItem.Name = "桌面ToolStripMenuItem";
-            this.桌面ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.桌面ToolStripMenuItem.Text = "桌面";
-            this.桌面ToolStripMenuItem.Click += new System.EventHandler(this.桌面ToolStripMenuItem_Click);
+            this.RemoteScreenToolStripMenuItem.Name = "RemoteScreenToolStripMenuItem";
+            this.RemoteScreenToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.RemoteScreenToolStripMenuItem.Text = "Remote Screen";
+            this.RemoteScreenToolStripMenuItem.Click += new System.EventHandler(this.RemoteScreenToolStripMenuItem_Click);
             // 
-            // 摄像头ToolStripMenuItem
+            // RemoteCameraToolStripMenuItem
             // 
-            this.摄像头ToolStripMenuItem.Name = "摄像头ToolStripMenuItem";
-            this.摄像头ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.摄像头ToolStripMenuItem.Text = "摄像头";
-            this.摄像头ToolStripMenuItem.Click += new System.EventHandler(this.摄像头ToolStripMenuItem_Click);
+            this.RemoteCameraToolStripMenuItem.Name = "RemoteCameraToolStripMenuItem";
+            this.RemoteCameraToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.RemoteCameraToolStripMenuItem.Text = "Remote Camera";
+            this.RemoteCameraToolStripMenuItem.Click += new System.EventHandler(this.RemoteCameraToolStripMenuItem_Click);
             // 
-            // 文件ToolStripMenuItem1
+            // FileManagerToolStripMenuItem1
             // 
-            this.文件ToolStripMenuItem1.Name = "文件ToolStripMenuItem1";
-            this.文件ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.文件ToolStripMenuItem1.Text = "文件";
-            this.文件ToolStripMenuItem1.Click += new System.EventHandler(this.文件ToolStripMenuItem1_Click);
+            this.FileManagerToolStripMenuItem1.Name = "FileManagerToolStripMenuItem1";
+            this.FileManagerToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.FileManagerToolStripMenuItem1.Text = "File Manager";
+            this.FileManagerToolStripMenuItem1.Click += new System.EventHandler(this.FileManagerToolStripMenuItem1_Click);
             // 
-            // 进程ToolStripMenuItem
+            // ProcrssManagerToolStripMenuItem
             // 
-            this.进程ToolStripMenuItem.Name = "进程ToolStripMenuItem";
-            this.进程ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.进程ToolStripMenuItem.Text = "进程";
-            this.进程ToolStripMenuItem.Click += new System.EventHandler(this.进程ToolStripMenuItem_Click);
+            this.ProcrssManagerToolStripMenuItem.Name = "ProcrssManagerToolStripMenuItem";
+            this.ProcrssManagerToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.ProcrssManagerToolStripMenuItem.Text = "Procrss Manager";
+            this.ProcrssManagerToolStripMenuItem.Click += new System.EventHandler(this.ProcrssManagerToolStripMenuItem_Click);
             // 
-            // 录音ToolStripMenuItem
+            // RecordToolStripMenuItem
             // 
-            this.录音ToolStripMenuItem.Name = "录音ToolStripMenuItem";
-            this.录音ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.录音ToolStripMenuItem.Text = "录音";
-            this.录音ToolStripMenuItem.Click += new System.EventHandler(this.录音ToolStripMenuItem_Click);
+            this.RecordToolStripMenuItem.Name = "RecordToolStripMenuItem";
+            this.RecordToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.RecordToolStripMenuItem.Text = "Record";
+            this.RecordToolStripMenuItem.Click += new System.EventHandler(this.RecordToolStripMenuItem_Click);
             // 
-            // 窗口通知ToolStripMenuItem
+            // ProgramNotificationToolStripMenuItem
             // 
-            this.窗口通知ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.开启ToolStripMenuItem1,
-            this.关闭ToolStripMenuItem2});
-            this.窗口通知ToolStripMenuItem.Name = "窗口通知ToolStripMenuItem";
-            this.窗口通知ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.窗口通知ToolStripMenuItem.Text = "窗口通知";
+            this.ProgramNotificationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StartToolStripMenuItem1,
+            this.StopToolStripMenuItem2});
+            this.ProgramNotificationToolStripMenuItem.Name = "ProgramNotificationToolStripMenuItem";
+            this.ProgramNotificationToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.ProgramNotificationToolStripMenuItem.Text = "Program Notification";
             // 
-            // 开启ToolStripMenuItem1
+            // StartToolStripMenuItem1
             // 
-            this.开启ToolStripMenuItem1.Name = "开启ToolStripMenuItem1";
-            this.开启ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
-            this.开启ToolStripMenuItem1.Text = "开启";
-            this.开启ToolStripMenuItem1.Click += new System.EventHandler(this.开启ToolStripMenuItem1_Click);
+            this.StartToolStripMenuItem1.Name = "StartToolStripMenuItem1";
+            this.StartToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.StartToolStripMenuItem1.Text = "Start";
+            this.StartToolStripMenuItem1.Click += new System.EventHandler(this.StartToolStripMenuItem1_Click);
             // 
-            // 关闭ToolStripMenuItem2
+            // StopToolStripMenuItem2
             // 
-            this.关闭ToolStripMenuItem2.Name = "关闭ToolStripMenuItem2";
-            this.关闭ToolStripMenuItem2.Size = new System.Drawing.Size(100, 22);
-            this.关闭ToolStripMenuItem2.Text = "关闭";
-            this.关闭ToolStripMenuItem2.Click += new System.EventHandler(this.关闭ToolStripMenuItem2_Click);
+            this.StopToolStripMenuItem2.Name = "StopToolStripMenuItem2";
+            this.StopToolStripMenuItem2.Size = new System.Drawing.Size(100, 22);
+            this.StopToolStripMenuItem2.Text = "Stop";
+            this.StopToolStripMenuItem2.Click += new System.EventHandler(this.StopToolStripMenuItem2_Click);
             // 
-            // 控制功能ToolStripMenuItem
+            // RemoteControlToolStripMenuItem
             // 
-            this.控制功能ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.发送文件ToolStripMenuItem1,
-            this.发送通知ToolStripMenuItem,
-            this.聊天ToolStripMenuItem1,
-            this.访问网站ToolStripMenuItem1,
-            this.修改壁纸ToolStripMenuItem1,
-            this.键盘记录ToolStripMenuItem1,
-            this.文件查找ToolStripMenuItem});
-            this.控制功能ToolStripMenuItem.Name = "控制功能ToolStripMenuItem";
-            this.控制功能ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.控制功能ToolStripMenuItem.Text = "控制功能";
+            this.RemoteControlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SendFileToolStripMenuItem1,
+            this.MessageBoxToolStripMenuItem,
+            this.ChatToolStripMenuItem1,
+            this.VisteWebsiteToolStripMenuItem1,
+            this.ChangeWallpaperToolStripMenuItem1,
+            this.KeyloggerToolStripMenuItem1,
+            this.FileSearchToolStripMenuItem});
+            this.RemoteControlToolStripMenuItem.Name = "RemoteControlToolStripMenuItem";
+            this.RemoteControlToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.RemoteControlToolStripMenuItem.Text = "Remote Control";
             // 
-            // 发送文件ToolStripMenuItem1
+            // SendFileToolStripMenuItem1
             // 
-            this.发送文件ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.至硬盘ToolStripMenuItem,
-            this.至内存ToolStripMenuItem});
-            this.发送文件ToolStripMenuItem1.Name = "发送文件ToolStripMenuItem1";
-            this.发送文件ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.发送文件ToolStripMenuItem1.Text = "发送文件";
+            this.SendFileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SendFileToDiskToolStripMenuItem,
+            this.SendFileToMemoryToolStripMenuItem});
+            this.SendFileToolStripMenuItem1.Name = "SendFileToolStripMenuItem1";
+            this.SendFileToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.SendFileToolStripMenuItem1.Text = "Send File";
             // 
-            // 至硬盘ToolStripMenuItem
+            // SendFileToDiskToolStripMenuItem
             // 
-            this.至硬盘ToolStripMenuItem.Name = "至硬盘ToolStripMenuItem";
-            this.至硬盘ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.至硬盘ToolStripMenuItem.Text = "至硬盘";
-            this.至硬盘ToolStripMenuItem.Click += new System.EventHandler(this.至硬盘ToolStripMenuItem_Click);
+            this.SendFileToDiskToolStripMenuItem.Name = "SendFileToDiskToolStripMenuItem";
+            this.SendFileToDiskToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.SendFileToDiskToolStripMenuItem.Text = "Send File To Disk";
+            this.SendFileToDiskToolStripMenuItem.Click += new System.EventHandler(this.SendFileToDiskToolStripMenuItem_Click);
             // 
-            // 至内存ToolStripMenuItem
+            // SendFileToMemoryToolStripMenuItem
             // 
-            this.至内存ToolStripMenuItem.Name = "至内存ToolStripMenuItem";
-            this.至内存ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.至内存ToolStripMenuItem.Text = "至内存";
-            this.至内存ToolStripMenuItem.Click += new System.EventHandler(this.至内存ToolStripMenuItem_Click);
+            this.SendFileToMemoryToolStripMenuItem.Name = "SendFileToMemoryToolStripMenuItem";
+            this.SendFileToMemoryToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.SendFileToMemoryToolStripMenuItem.Text = "Send File To Memory";
+            this.SendFileToMemoryToolStripMenuItem.Click += new System.EventHandler(this.SendFileToMemoryToolStripMenuItem_Click);
             // 
-            // 发送通知ToolStripMenuItem
+            // MessageBoxToolStripMenuItem
             // 
-            this.发送通知ToolStripMenuItem.Name = "发送通知ToolStripMenuItem";
-            this.发送通知ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.发送通知ToolStripMenuItem.Text = "发送通知";
-            this.发送通知ToolStripMenuItem.Click += new System.EventHandler(this.发送通知ToolStripMenuItem_Click);
+            this.MessageBoxToolStripMenuItem.Name = "MessageBoxToolStripMenuItem";
+            this.MessageBoxToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.MessageBoxToolStripMenuItem.Text = "MessageBox";
+            this.MessageBoxToolStripMenuItem.Click += new System.EventHandler(this.MessageBoxToolStripMenuItem_Click);
             // 
-            // 聊天ToolStripMenuItem1
+            // ChatToolStripMenuItem1
             // 
-            this.聊天ToolStripMenuItem1.Name = "聊天ToolStripMenuItem1";
-            this.聊天ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.聊天ToolStripMenuItem1.Text = "聊天";
-            this.聊天ToolStripMenuItem1.Click += new System.EventHandler(this.聊天ToolStripMenuItem1_Click);
+            this.ChatToolStripMenuItem1.Name = "ChatToolStripMenuItem1";
+            this.ChatToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.ChatToolStripMenuItem1.Text = "Chat";
+            this.ChatToolStripMenuItem1.Click += new System.EventHandler(this.ChatToolStripMenuItem1_Click);
             // 
-            // 访问网站ToolStripMenuItem1
+            // VisteWebsiteToolStripMenuItem1
             // 
-            this.访问网站ToolStripMenuItem1.Name = "访问网站ToolStripMenuItem1";
-            this.访问网站ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.访问网站ToolStripMenuItem1.Text = "访问网站";
-            this.访问网站ToolStripMenuItem1.Click += new System.EventHandler(this.访问网站ToolStripMenuItem1_Click);
+            this.VisteWebsiteToolStripMenuItem1.Name = "VisteWebsiteToolStripMenuItem1";
+            this.VisteWebsiteToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.VisteWebsiteToolStripMenuItem1.Text = "Viste Website";
+            this.VisteWebsiteToolStripMenuItem1.Click += new System.EventHandler(this.VisteWebsiteToolStripMenuItem1_Click);
             // 
-            // 修改壁纸ToolStripMenuItem1
+            // ChangeWallpaperToolStripMenuItem1
             // 
-            this.修改壁纸ToolStripMenuItem1.Name = "修改壁纸ToolStripMenuItem1";
-            this.修改壁纸ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.修改壁纸ToolStripMenuItem1.Text = "修改壁纸";
-            this.修改壁纸ToolStripMenuItem1.Click += new System.EventHandler(this.修改壁纸ToolStripMenuItem1_Click);
+            this.ChangeWallpaperToolStripMenuItem1.Name = "ChangeWallpaperToolStripMenuItem1";
+            this.ChangeWallpaperToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.ChangeWallpaperToolStripMenuItem1.Text = "Change Wallpaper";
+            this.ChangeWallpaperToolStripMenuItem1.Click += new System.EventHandler(this.ChangeWallpaperToolStripMenuItem1_Click);
             // 
-            // 键盘记录ToolStripMenuItem1
+            // KeyloggerToolStripMenuItem1
             // 
-            this.键盘记录ToolStripMenuItem1.Name = "键盘记录ToolStripMenuItem1";
-            this.键盘记录ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.键盘记录ToolStripMenuItem1.Text = "键盘记录";
-            this.键盘记录ToolStripMenuItem1.Click += new System.EventHandler(this.键盘记录ToolStripMenuItem1_Click);
+            this.KeyloggerToolStripMenuItem1.Name = "KeyloggerToolStripMenuItem1";
+            this.KeyloggerToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.KeyloggerToolStripMenuItem1.Text = "Keylogger";
+            this.KeyloggerToolStripMenuItem1.Click += new System.EventHandler(this.KeyloggerToolStripMenuItem1_Click);
             // 
-            // 文件查找ToolStripMenuItem
+            // FileSearchToolStripMenuItem
             // 
-            this.文件查找ToolStripMenuItem.Name = "文件查找ToolStripMenuItem";
-            this.文件查找ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.文件查找ToolStripMenuItem.Text = "文件查找";
-            this.文件查找ToolStripMenuItem.Click += new System.EventHandler(this.文件查找ToolStripMenuItem_Click);
+            this.FileSearchToolStripMenuItem.Name = "FileSearchToolStripMenuItem";
+            this.FileSearchToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.FileSearchToolStripMenuItem.Text = "File Search";
+            this.FileSearchToolStripMenuItem.Click += new System.EventHandler(this.FileSearchToolStripMenuItem_Click);
             // 
-            // 恶意功能ToolStripMenuItem
+            // MalwareToolStripMenuItem
             // 
-            this.恶意功能ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MalwareToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dDOSToolStripMenuItem,
-            this.勒索ToolStripMenuItem,
-            this.关闭WDToolStripMenuItem,
-            this.密码恢复ToolStripMenuItem,
-            this.关闭UACToolStripMenuItem,
-            this.打开CD槽ToolStripMenuItem});
-            this.恶意功能ToolStripMenuItem.Name = "恶意功能ToolStripMenuItem";
-            this.恶意功能ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.恶意功能ToolStripMenuItem.Text = "恶意功能";
+            this.RansomwareToolStripMenuItem,
+            this.DisableWDToolStripMenuItem,
+            this.PasswordRecoveryToolStripMenuItem,
+            this.DisableUACToolStripMenuItem,
+            this.OpenCDToolStripMenuItem});
+            this.MalwareToolStripMenuItem.Name = "MalwareToolStripMenuItem";
+            this.MalwareToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.MalwareToolStripMenuItem.Text = "Malware";
             // 
             // dDOSToolStripMenuItem
             // 
@@ -347,227 +347,227 @@
             this.dDOSToolStripMenuItem.Text = "DDOS";
             this.dDOSToolStripMenuItem.Click += new System.EventHandler(this.dDOSToolStripMenuItem_Click);
             // 
-            // 勒索ToolStripMenuItem
+            // RansomwareToolStripMenuItem
             // 
-            this.勒索ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.加密ToolStripMenuItem,
-            this.解密ToolStripMenuItem});
-            this.勒索ToolStripMenuItem.Name = "勒索ToolStripMenuItem";
-            this.勒索ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.勒索ToolStripMenuItem.Text = "勒索";
+            this.RansomwareToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EncryptToolStripMenuItem,
+            this.DecryptToolStripMenuItem});
+            this.RansomwareToolStripMenuItem.Name = "RansomwareToolStripMenuItem";
+            this.RansomwareToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.RansomwareToolStripMenuItem.Text = "Ransomware";
             // 
-            // 加密ToolStripMenuItem
+            // EncryptToolStripMenuItem
             // 
-            this.加密ToolStripMenuItem.Name = "加密ToolStripMenuItem";
-            this.加密ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.加密ToolStripMenuItem.Text = "加密";
-            this.加密ToolStripMenuItem.Click += new System.EventHandler(this.加密ToolStripMenuItem_Click);
+            this.EncryptToolStripMenuItem.Name = "EncryptToolStripMenuItem";
+            this.EncryptToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.EncryptToolStripMenuItem.Text = "Encrypt";
+            this.EncryptToolStripMenuItem.Click += new System.EventHandler(this.EncryptToolStripMenuItem_Click);
             // 
-            // 解密ToolStripMenuItem
+            // DecryptToolStripMenuItem
             // 
-            this.解密ToolStripMenuItem.Name = "解密ToolStripMenuItem";
-            this.解密ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.解密ToolStripMenuItem.Text = "解密";
-            this.解密ToolStripMenuItem.Click += new System.EventHandler(this.解密ToolStripMenuItem_Click);
+            this.DecryptToolStripMenuItem.Name = "DecryptToolStripMenuItem";
+            this.DecryptToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.DecryptToolStripMenuItem.Text = "Decrypt";
+            this.DecryptToolStripMenuItem.Click += new System.EventHandler(this.DecryptToolStripMenuItem_Click);
             // 
-            // 关闭WDToolStripMenuItem
+            // DisableWDToolStripMenuItem
             // 
-            this.关闭WDToolStripMenuItem.Name = "关闭WDToolStripMenuItem";
-            this.关闭WDToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.关闭WDToolStripMenuItem.Text = "关闭WD";
-            this.关闭WDToolStripMenuItem.Click += new System.EventHandler(this.关闭WDToolStripMenuItem_Click);
+            this.DisableWDToolStripMenuItem.Name = "DisableWDToolStripMenuItem";
+            this.DisableWDToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.DisableWDToolStripMenuItem.Text = "Disable WD";
+            this.DisableWDToolStripMenuItem.Click += new System.EventHandler(this.DisableWDToolStripMenuItem_Click);
             // 
-            // 密码恢复ToolStripMenuItem
+            // PasswordRecoveryToolStripMenuItem
             // 
-            this.密码恢复ToolStripMenuItem.Name = "密码恢复ToolStripMenuItem";
-            this.密码恢复ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.密码恢复ToolStripMenuItem.Text = "密码恢复";
-            this.密码恢复ToolStripMenuItem.Click += new System.EventHandler(this.密码恢复ToolStripMenuItem_Click);
+            this.PasswordRecoveryToolStripMenuItem.Name = "PasswordRecoveryToolStripMenuItem";
+            this.PasswordRecoveryToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.PasswordRecoveryToolStripMenuItem.Text = "Password Recovery";
+            this.PasswordRecoveryToolStripMenuItem.Click += new System.EventHandler(this.PasswordRecoveryToolStripMenuItem_Click);
             // 
-            // 关闭UACToolStripMenuItem
+            // DisableUACToolStripMenuItem
             // 
-            this.关闭UACToolStripMenuItem.Name = "关闭UACToolStripMenuItem";
-            this.关闭UACToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.关闭UACToolStripMenuItem.Text = "关闭UAC";
-            this.关闭UACToolStripMenuItem.Click += new System.EventHandler(this.关闭UACToolStripMenuItem_Click);
+            this.DisableUACToolStripMenuItem.Name = "DisableUACToolStripMenuItem";
+            this.DisableUACToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.DisableUACToolStripMenuItem.Text = "Disable UAC";
+            this.DisableUACToolStripMenuItem.Click += new System.EventHandler(this.DisableUACToolStripMenuItem_Click);
             // 
-            // 打开CD槽ToolStripMenuItem
+            // OpenCDToolStripMenuItem
             // 
-            this.打开CD槽ToolStripMenuItem.Name = "打开CD槽ToolStripMenuItem";
-            this.打开CD槽ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.打开CD槽ToolStripMenuItem.Text = "打开CD槽";
-            this.打开CD槽ToolStripMenuItem.Click += new System.EventHandler(this.打开CD槽ToolStripMenuItem_Click);
+            this.OpenCDToolStripMenuItem.Name = "OpenCDToolStripMenuItem";
+            this.OpenCDToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.OpenCDToolStripMenuItem.Text = "OpenCD";
+            this.OpenCDToolStripMenuItem.Click += new System.EventHandler(this.OpenCDToolStripMenuItem_Click);
             // 
-            // 锁屏ToolStripMenuItem
+            // LockScreenToolStripMenuItem
             // 
-            this.锁屏ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.开启ToolStripMenuItem,
-            this.关闭ToolStripMenuItem});
-            this.锁屏ToolStripMenuItem.Name = "锁屏ToolStripMenuItem";
-            this.锁屏ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.锁屏ToolStripMenuItem.Text = "锁屏";
+            this.LockScreenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StartToolStripMenuItem2,
+            this.StopToolStripMenuItem3});
+            this.LockScreenToolStripMenuItem.Name = "LockScreenToolStripMenuItem";
+            this.LockScreenToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.LockScreenToolStripMenuItem.Text = "Lock Screen";
             // 
-            // 开启ToolStripMenuItem
+            // StartToolStripMenuItem2
             // 
-            this.开启ToolStripMenuItem.Name = "开启ToolStripMenuItem";
-            this.开启ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.开启ToolStripMenuItem.Text = "开启";
-            this.开启ToolStripMenuItem.Click += new System.EventHandler(this.开启ToolStripMenuItem_Click);
+            this.StartToolStripMenuItem2.Name = "StartToolStripMenuItem2";
+            this.StartToolStripMenuItem2.Size = new System.Drawing.Size(100, 22);
+            this.StartToolStripMenuItem2.Text = "Start";
+            this.StartToolStripMenuItem2.Click += new System.EventHandler(this.StartToolStripMenuItem2_Click);
             // 
-            // 关闭ToolStripMenuItem
+            // StopToolStripMenuItem3
             // 
-            this.关闭ToolStripMenuItem.Name = "关闭ToolStripMenuItem";
-            this.关闭ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.关闭ToolStripMenuItem.Text = "关闭";
-            this.关闭ToolStripMenuItem.Click += new System.EventHandler(this.关闭ToolStripMenuItem_Click);
+            this.StopToolStripMenuItem3.Name = "StopToolStripMenuItem3";
+            this.StopToolStripMenuItem3.Size = new System.Drawing.Size(100, 22);
+            this.StopToolStripMenuItem3.Text = "Stop";
+            this.StopToolStripMenuItem3.Click += new System.EventHandler(this.StopToolStripMenuItem3_Click);
             // 
-            // 系统管理ToolStripMenuItem
+            // SystemControlToolStripMenuItem
             // 
-            this.系统管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.客户端ToolStripMenuItem,
-            this.系统ToolStripMenuItem});
-            this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
-            this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.系统管理ToolStripMenuItem.Text = "系统管理";
+            this.SystemControlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ClientControlToolStripMenuItem,
+            this.SystemToolStripMenuItem});
+            this.SystemControlToolStripMenuItem.Name = "SystemControlToolStripMenuItem";
+            this.SystemControlToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.SystemControlToolStripMenuItem.Text = "System Control";
             // 
-            // 客户端ToolStripMenuItem
+            // ClientControlToolStripMenuItem
             // 
-            this.客户端ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关闭ToolStripMenuItem1,
-            this.重启ToolStripMenuItem1,
-            this.升级ToolStripMenuItem,
-            this.卸载ToolStripMenuItem,
-            this.储存文件夹ToolStripMenuItem});
-            this.客户端ToolStripMenuItem.Name = "客户端ToolStripMenuItem";
-            this.客户端ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.客户端ToolStripMenuItem.Text = "客户端";
+            this.ClientControlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StopToolStripMenuItem1,
+            this.RestartToolStripMenuItem1,
+            this.UpdateToolStripMenuItem,
+            this.UninstallToolStripMenuItem,
+            this.ClientFolderToolStripMenuItem});
+            this.ClientControlToolStripMenuItem.Name = "ClientControlToolStripMenuItem";
+            this.ClientControlToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.ClientControlToolStripMenuItem.Text = "Client Control";
             // 
-            // 关闭ToolStripMenuItem1
+            // StopToolStripMenuItem1
             // 
-            this.关闭ToolStripMenuItem1.Name = "关闭ToolStripMenuItem1";
-            this.关闭ToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
-            this.关闭ToolStripMenuItem1.Text = "关闭";
-            this.关闭ToolStripMenuItem1.Click += new System.EventHandler(this.关闭ToolStripMenuItem1_Click);
+            this.StopToolStripMenuItem1.Name = "StopToolStripMenuItem1";
+            this.StopToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.StopToolStripMenuItem1.Text = "Stop";
+            this.StopToolStripMenuItem1.Click += new System.EventHandler(this.StopToolStripMenuItem1_Click);
             // 
-            // 重启ToolStripMenuItem1
+            // RestartToolStripMenuItem1
             // 
-            this.重启ToolStripMenuItem1.Name = "重启ToolStripMenuItem1";
-            this.重启ToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
-            this.重启ToolStripMenuItem1.Text = "重启";
-            this.重启ToolStripMenuItem1.Click += new System.EventHandler(this.重启ToolStripMenuItem1_Click);
+            this.RestartToolStripMenuItem1.Name = "RestartToolStripMenuItem1";
+            this.RestartToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.RestartToolStripMenuItem1.Text = "Restart";
+            this.RestartToolStripMenuItem1.Click += new System.EventHandler(this.RestartToolStripMenuItem1_Click);
             // 
-            // 升级ToolStripMenuItem
+            // UpdateToolStripMenuItem
             // 
-            this.升级ToolStripMenuItem.Name = "升级ToolStripMenuItem";
-            this.升级ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.升级ToolStripMenuItem.Text = "升级";
-            this.升级ToolStripMenuItem.Click += new System.EventHandler(this.升级ToolStripMenuItem_Click);
+            this.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem";
+            this.UpdateToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.UpdateToolStripMenuItem.Text = "Update";
+            this.UpdateToolStripMenuItem.Click += new System.EventHandler(this.UpdateToolStripMenuItem_Click);
             // 
-            // 卸载ToolStripMenuItem
+            // UninstallToolStripMenuItem
             // 
-            this.卸载ToolStripMenuItem.Name = "卸载ToolStripMenuItem";
-            this.卸载ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.卸载ToolStripMenuItem.Text = "卸载";
-            this.卸载ToolStripMenuItem.Click += new System.EventHandler(this.卸载ToolStripMenuItem_Click);
+            this.UninstallToolStripMenuItem.Name = "UninstallToolStripMenuItem";
+            this.UninstallToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.UninstallToolStripMenuItem.Text = "Uninstall";
+            this.UninstallToolStripMenuItem.Click += new System.EventHandler(this.UninstallToolStripMenuItem_Click);
             // 
-            // 储存文件夹ToolStripMenuItem
+            // ClientFolderToolStripMenuItem
             // 
-            this.储存文件夹ToolStripMenuItem.Name = "储存文件夹ToolStripMenuItem";
-            this.储存文件夹ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.储存文件夹ToolStripMenuItem.Text = "储存文件夹";
-            this.储存文件夹ToolStripMenuItem.Click += new System.EventHandler(this.储存文件夹ToolStripMenuItem_Click);
+            this.ClientFolderToolStripMenuItem.Name = "ClientFolderToolStripMenuItem";
+            this.ClientFolderToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.ClientFolderToolStripMenuItem.Text = "Client Folder";
+            this.ClientFolderToolStripMenuItem.Click += new System.EventHandler(this.ClientFolderToolStripMenuItem_Click);
             // 
-            // 系统ToolStripMenuItem
+            // SystemToolStripMenuItem
             // 
-            this.系统ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关机ToolStripMenuItem,
-            this.重启ToolStripMenuItem,
-            this.注销ToolStripMenuItem});
-            this.系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
-            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.系统ToolStripMenuItem.Text = "系统";
+            this.SystemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShutDownToolStripMenuItem,
+            this.RebootToolStripMenuItem,
+            this.LogoutToolStripMenuItem});
+            this.SystemToolStripMenuItem.Name = "SystemToolStripMenuItem";
+            this.SystemToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.SystemToolStripMenuItem.Text = "System";
             // 
-            // 关机ToolStripMenuItem
+            // ShutDownToolStripMenuItem
             // 
-            this.关机ToolStripMenuItem.Name = "关机ToolStripMenuItem";
-            this.关机ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.关机ToolStripMenuItem.Text = "关机";
-            this.关机ToolStripMenuItem.Click += new System.EventHandler(this.关机ToolStripMenuItem_Click);
+            this.ShutDownToolStripMenuItem.Name = "ShutDownToolStripMenuItem";
+            this.ShutDownToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.ShutDownToolStripMenuItem.Text = "Shut Down";
+            this.ShutDownToolStripMenuItem.Click += new System.EventHandler(this.ShutDownToolStripMenuItem_Click);
             // 
-            // 重启ToolStripMenuItem
+            // RebootToolStripMenuItem
             // 
-            this.重启ToolStripMenuItem.Name = "重启ToolStripMenuItem";
-            this.重启ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.重启ToolStripMenuItem.Text = "重启";
-            this.重启ToolStripMenuItem.Click += new System.EventHandler(this.重启ToolStripMenuItem_Click);
+            this.RebootToolStripMenuItem.Name = "RebootToolStripMenuItem";
+            this.RebootToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.RebootToolStripMenuItem.Text = "Reboot";
+            this.RebootToolStripMenuItem.Click += new System.EventHandler(this.RebootToolStripMenuItem_Click);
             // 
-            // 注销ToolStripMenuItem
+            // LogoutToolStripMenuItem
             // 
-            this.注销ToolStripMenuItem.Name = "注销ToolStripMenuItem";
-            this.注销ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.注销ToolStripMenuItem.Text = "注销";
-            this.注销ToolStripMenuItem.Click += new System.EventHandler(this.注销ToolStripMenuItem_Click);
+            this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
+            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.LogoutToolStripMenuItem.Text = "Logout";
+            this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click);
             // 
-            // uAC提权ToolStripMenuItem
+            // BypassUACAToolStripMenuItem
             // 
-            this.uAC提权ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.无提示不过360ToolStripMenuItem,
-            this.过360核晶ToolStripMenuItem,
-            this.有提示ToolStripMenuItem,
-            this.win7ToolStripMenuItem});
-            this.uAC提权ToolStripMenuItem.Name = "uAC提权ToolStripMenuItem";
-            this.uAC提权ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.uAC提权ToolStripMenuItem.Text = "UAC提权";
+            this.BypassUACAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SilentCleanupToolStripMenuItem,
+            this.FodhelperToolStripMenuItem,
+            this.RunasToolStripMenuItem,
+            this.CompMgmtLauncherToolStripMenuItem});
+            this.BypassUACAToolStripMenuItem.Name = "BypassUACAToolStripMenuItem";
+            this.BypassUACAToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.BypassUACAToolStripMenuItem.Text = "Bypass UAC";
             // 
-            // 无提示不过360ToolStripMenuItem
+            // SilentCleanupToolStripMenuItem
             // 
-            this.无提示不过360ToolStripMenuItem.Name = "无提示不过360ToolStripMenuItem";
-            this.无提示不过360ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.无提示不过360ToolStripMenuItem.Text = "win10 无360";
-            this.无提示不过360ToolStripMenuItem.Click += new System.EventHandler(this.无提示不过360ToolStripMenuItem_Click);
+            this.SilentCleanupToolStripMenuItem.Name = "SilentCleanupToolStripMenuItem";
+            this.SilentCleanupToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.SilentCleanupToolStripMenuItem.Text = "Silent Cleanup";
+            this.SilentCleanupToolStripMenuItem.Click += new System.EventHandler(this.SilentCleanupToolStripMenuItem_Click);
             // 
-            // 过360核晶ToolStripMenuItem
+            // FodhelperToolStripMenuItem
             // 
-            this.过360核晶ToolStripMenuItem.Name = "过360核晶ToolStripMenuItem";
-            this.过360核晶ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.过360核晶ToolStripMenuItem.Text = "win10 有360";
-            this.过360核晶ToolStripMenuItem.Click += new System.EventHandler(this.过360核晶ToolStripMenuItem_Click);
+            this.FodhelperToolStripMenuItem.Name = "FodhelperToolStripMenuItem";
+            this.FodhelperToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.FodhelperToolStripMenuItem.Text = "Fodhelper";
+            this.FodhelperToolStripMenuItem.Click += new System.EventHandler(this.FodhelperToolStripMenuItem_Click);
             // 
-            // 有提示ToolStripMenuItem
+            // RunasToolStripMenuItem
             // 
-            this.有提示ToolStripMenuItem.Name = "有提示ToolStripMenuItem";
-            this.有提示ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.有提示ToolStripMenuItem.Text = "通用 有提示";
-            this.有提示ToolStripMenuItem.Click += new System.EventHandler(this.有提示ToolStripMenuItem_Click);
+            this.RunasToolStripMenuItem.Name = "RunasToolStripMenuItem";
+            this.RunasToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.RunasToolStripMenuItem.Text = "Runas";
+            this.RunasToolStripMenuItem.Click += new System.EventHandler(this.RunasToolStripMenuItem_Click);
             // 
-            // win7ToolStripMenuItem
+            // CompMgmtLauncherToolStripMenuItem
             // 
-            this.win7ToolStripMenuItem.Name = "win7ToolStripMenuItem";
-            this.win7ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.win7ToolStripMenuItem.Text = "win7";
-            this.win7ToolStripMenuItem.Click += new System.EventHandler(this.win7ToolStripMenuItem_Click);
+            this.CompMgmtLauncherToolStripMenuItem.Name = "CompMgmtLauncherToolStripMenuItem";
+            this.CompMgmtLauncherToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.CompMgmtLauncherToolStripMenuItem.Text = "CompMgmtLauncher";
+            this.CompMgmtLauncherToolStripMenuItem.Click += new System.EventHandler(this.CompMgmtLauncherToolStripMenuItem_Click);
             // 
-            // 安装ToolStripMenuItem
+            // InstallToolStripMenuItem
             // 
-            this.安装ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.过360启动项ToolStripMenuItem});
-            this.安装ToolStripMenuItem.Name = "安装ToolStripMenuItem";
-            this.安装ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.安装ToolStripMenuItem.Text = "安装";
+            this.InstallToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SchtaskInstallToolStripMenuItem});
+            this.InstallToolStripMenuItem.Name = "InstallToolStripMenuItem";
+            this.InstallToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.InstallToolStripMenuItem.Text = "Install";
             // 
-            // 过360启动项ToolStripMenuItem
+            // SchtaskInstallToolStripMenuItem
             // 
-            this.过360启动项ToolStripMenuItem.Name = "过360启动项ToolStripMenuItem";
-            this.过360启动项ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.过360启动项ToolStripMenuItem.Text = "计划任务";
-            this.过360启动项ToolStripMenuItem.Click += new System.EventHandler(this.过360启动项ToolStripMenuItem_Click);
+            this.SchtaskInstallToolStripMenuItem.Name = "SchtaskInstallToolStripMenuItem";
+            this.SchtaskInstallToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.SchtaskInstallToolStripMenuItem.Text = "Schtask Install";
+            this.SchtaskInstallToolStripMenuItem.Click += new System.EventHandler(this.SchtaskInstallToolStripMenuItem_Click);
             // 
-            // 详细信息ToolStripMenuItem
+            // InformationToolStripMenuItem
             // 
-            this.详细信息ToolStripMenuItem.Name = "详细信息ToolStripMenuItem";
-            this.详细信息ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.详细信息ToolStripMenuItem.Text = "详细信息";
-            this.详细信息ToolStripMenuItem.Click += new System.EventHandler(this.详细信息ToolStripMenuItem_Click);
+            this.InformationToolStripMenuItem.Name = "InformationToolStripMenuItem";
+            this.InformationToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.InformationToolStripMenuItem.Text = "Information";
+            this.InformationToolStripMenuItem.Click += new System.EventHandler(this.InformationToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -591,8 +591,8 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(112, 17);
-            this.toolStripStatusLabel2.Text = "                    通知";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(155, 17);
+            this.toolStripStatusLabel2.Text = "                    Notification";
             this.toolStripStatusLabel2.Click += new System.EventHandler(this.ToolStripStatusLabel2_Click);
             // 
             // ping
@@ -614,13 +614,13 @@
             this.cLEARToolStripMenuItem});
             this.contextMenuLogs.Name = "contextMenuLogs";
             this.contextMenuLogs.ShowImageMargin = false;
-            this.contextMenuLogs.Size = new System.Drawing.Size(76, 26);
+            this.contextMenuLogs.Size = new System.Drawing.Size(82, 26);
             // 
             // cLEARToolStripMenuItem
             // 
             this.cLEARToolStripMenuItem.Name = "cLEARToolStripMenuItem";
-            this.cLEARToolStripMenuItem.Size = new System.Drawing.Size(75, 22);
-            this.cLEARToolStripMenuItem.Text = "删除";
+            this.cLEARToolStripMenuItem.Size = new System.Drawing.Size(81, 22);
+            this.cLEARToolStripMenuItem.Text = "Clear";
             this.cLEARToolStripMenuItem.Click += new System.EventHandler(this.CLEARToolStripMenuItem_Click);
             // 
             // contextMenuThumbnail
@@ -630,21 +630,21 @@
             this.sTARTToolStripMenuItem,
             this.sTOPToolStripMenuItem});
             this.contextMenuThumbnail.Name = "contextMenuStrip2";
-            this.contextMenuThumbnail.Size = new System.Drawing.Size(101, 48);
+            this.contextMenuThumbnail.Size = new System.Drawing.Size(104, 48);
             // 
             // sTARTToolStripMenuItem
             // 
             this.sTARTToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sTARTToolStripMenuItem.Name = "sTARTToolStripMenuItem";
-            this.sTARTToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.sTARTToolStripMenuItem.Text = "开始";
+            this.sTARTToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.sTARTToolStripMenuItem.Text = "Start";
             this.sTARTToolStripMenuItem.Click += new System.EventHandler(this.STARTToolStripMenuItem_Click);
             // 
             // sTOPToolStripMenuItem
             // 
             this.sTOPToolStripMenuItem.Name = "sTOPToolStripMenuItem";
-            this.sTOPToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.sTOPToolStripMenuItem.Text = "停止";
+            this.sTOPToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.sTOPToolStripMenuItem.Text = "Stop";
             this.sTOPToolStripMenuItem.Click += new System.EventHandler(this.STOPToolStripMenuItem_Click);
             // 
             // ThumbnailImageList
@@ -664,27 +664,27 @@
             this.dELETETASKToolStripMenuItem});
             this.contextMenuTasks.Name = "contextMenuStrip4";
             this.contextMenuTasks.ShowImageMargin = false;
-            this.contextMenuTasks.Size = new System.Drawing.Size(136, 98);
+            this.contextMenuTasks.Size = new System.Drawing.Size(170, 98);
             // 
             // downloadAndExecuteToolStripMenuItem
             // 
             this.downloadAndExecuteToolStripMenuItem.Name = "downloadAndExecuteToolStripMenuItem";
-            this.downloadAndExecuteToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.downloadAndExecuteToolStripMenuItem.Text = "发送文件至硬盘";
+            this.downloadAndExecuteToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.downloadAndExecuteToolStripMenuItem.Text = "Send file to disk";
             this.downloadAndExecuteToolStripMenuItem.Click += new System.EventHandler(this.DownloadAndExecuteToolStripMenuItem_Click);
             // 
             // sENDFILETOMEMORYToolStripMenuItem1
             // 
             this.sENDFILETOMEMORYToolStripMenuItem1.Name = "sENDFILETOMEMORYToolStripMenuItem1";
-            this.sENDFILETOMEMORYToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
-            this.sENDFILETOMEMORYToolStripMenuItem1.Text = "注入文件至内存";
+            this.sENDFILETOMEMORYToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
+            this.sENDFILETOMEMORYToolStripMenuItem1.Text = "Send file to memory";
             this.sENDFILETOMEMORYToolStripMenuItem1.Click += new System.EventHandler(this.SENDFILETOMEMORYToolStripMenuItem1_Click);
             // 
             // uPDATEToolStripMenuItem1
             // 
             this.uPDATEToolStripMenuItem1.Name = "uPDATEToolStripMenuItem1";
-            this.uPDATEToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
-            this.uPDATEToolStripMenuItem1.Text = "升级所有客户端";
+            this.uPDATEToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
+            this.uPDATEToolStripMenuItem1.Text = "Update all clients";
             this.uPDATEToolStripMenuItem1.Click += new System.EventHandler(this.UPDATEToolStripMenuItem1_Click);
             // 
             // toolStripSeparator4
@@ -695,8 +695,8 @@
             // dELETETASKToolStripMenuItem
             // 
             this.dELETETASKToolStripMenuItem.Name = "dELETETASKToolStripMenuItem";
-            this.dELETETASKToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.dELETETASKToolStripMenuItem.Text = "删除任务";
+            this.dELETETASKToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.dELETETASKToolStripMenuItem.Text = "Delete";
             this.dELETETASKToolStripMenuItem.Click += new System.EventHandler(this.DELETETASKToolStripMenuItem_Click);
             // 
             // performanceCounter1
@@ -725,68 +725,75 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem,
-            this.帮助ToolStripMenuItem});
+            this.FileToolStripMenuItem,
+            this.HelpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(867, 25);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // 文件ToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.新建客户端ToolStripMenuItem,
-            this.屏蔽客户端ToolStripMenuItem,
-            this.设置ToolStripMenuItem,
-            this.退出ToolStripMenuItem});
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.文件ToolStripMenuItem.Text = "文件";
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BuilderToolStripMenuItem,
+            this.BlockToolStripMenuItem,
+            this.SettingToolStripMenuItem,
+            this.ExitToolStripMenuItem});
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
+            this.FileToolStripMenuItem.Text = "File";
             // 
-            // 新建客户端ToolStripMenuItem
+            // BuilderToolStripMenuItem
             // 
-            this.新建客户端ToolStripMenuItem.Name = "新建客户端ToolStripMenuItem";
-            this.新建客户端ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.新建客户端ToolStripMenuItem.Text = "新建客户端";
-            this.新建客户端ToolStripMenuItem.Click += new System.EventHandler(this.builderToolStripMenuItem1_Click);
+            this.BuilderToolStripMenuItem.Name = "BuilderToolStripMenuItem";
+            this.BuilderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BuilderToolStripMenuItem.Text = "Builder";
+            this.BuilderToolStripMenuItem.Click += new System.EventHandler(this.builderToolStripMenuItem1_Click);
             // 
-            // 屏蔽客户端ToolStripMenuItem
+            // BlockToolStripMenuItem
             // 
-            this.屏蔽客户端ToolStripMenuItem.Name = "屏蔽客户端ToolStripMenuItem";
-            this.屏蔽客户端ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.屏蔽客户端ToolStripMenuItem.Text = "屏蔽客户端";
-            this.屏蔽客户端ToolStripMenuItem.Click += new System.EventHandler(this.屏蔽客户端ToolStripMenuItem_Click);
+            this.BlockToolStripMenuItem.Name = "BlockToolStripMenuItem";
+            this.BlockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BlockToolStripMenuItem.Text = "Block";
+            this.BlockToolStripMenuItem.Click += new System.EventHandler(this.BlockToolStripMenuItem_Click);
             // 
-            // 退出ToolStripMenuItem
+            // SettingToolStripMenuItem
             // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
+            this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
+            this.SettingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SettingToolStripMenuItem.Text = "Setting";
+            this.SettingToolStripMenuItem.Click += new System.EventHandler(this.SettingToolStripMenuItem_Click);
             // 
-            // 帮助ToolStripMenuItem
+            // ExitToolStripMenuItem
             // 
-            this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文档ToolStripMenuItem,
-            this.关于ToolStripMenuItem});
-            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.帮助ToolStripMenuItem.Text = "帮助";
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem.Text = "Exit";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
-            // 文档ToolStripMenuItem
+            // HelpToolStripMenuItem
             // 
-            this.文档ToolStripMenuItem.Name = "文档ToolStripMenuItem";
-            this.文档ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.文档ToolStripMenuItem.Text = "文档";
-            this.文档ToolStripMenuItem.Click += new System.EventHandler(this.文档ToolStripMenuItem_Click);
+            this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DocumentToolStripMenuItem,
+            this.AboutToolStripMenuItem});
+            this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
+            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
+            this.HelpToolStripMenuItem.Text = "Help";
             // 
-            // 关于ToolStripMenuItem
+            // DocumentToolStripMenuItem
             // 
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.关于ToolStripMenuItem.Text = "关于";
-            this.关于ToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
+            this.DocumentToolStripMenuItem.Name = "DocumentToolStripMenuItem";
+            this.DocumentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DocumentToolStripMenuItem.Text = "Document";
+            this.DocumentToolStripMenuItem.Click += new System.EventHandler(this.DocumentToolStripMenuItem_Click);
+            // 
+            // AboutToolStripMenuItem
+            // 
+            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AboutToolStripMenuItem.Text = "About";
+            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // splitContainer1
             // 
@@ -829,7 +836,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(859, 195);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "客户端";
+            this.tabPage1.Text = "Clients";
             // 
             // listView1
             // 
@@ -867,17 +874,17 @@
             // 
             // lv_ip
             // 
-            this.lv_ip.Text = "IP 地址";
+            this.lv_ip.Text = "IP Port";
             this.lv_ip.Width = 121;
             // 
             // lv_country
             // 
-            this.lv_country.Text = "国家";
+            this.lv_country.Text = "Country";
             this.lv_country.Width = 124;
             // 
             // lv_group
             // 
-            this.lv_group.Text = "分组";
+            this.lv_group.Text = "Group";
             // 
             // lv_hwid
             // 
@@ -886,32 +893,32 @@
             // 
             // lv_user
             // 
-            this.lv_user.Text = "用户名";
+            this.lv_user.Text = "User";
             this.lv_user.Width = 117;
             // 
             // lv_os
             // 
-            this.lv_os.Text = "系统版本";
+            this.lv_os.Text = "OS version";
             this.lv_os.Width = 179;
             // 
             // lv_version
             // 
-            this.lv_version.Text = "客户端版本";
+            this.lv_version.Text = "Client version";
             this.lv_version.Width = 126;
             // 
             // lv_ins
             // 
-            this.lv_ins.Text = "安装时间";
+            this.lv_ins.Text = "Installed time";
             this.lv_ins.Width = 120;
             // 
             // lv_admin
             // 
-            this.lv_admin.Text = "权限";
+            this.lv_admin.Text = "Permission";
             this.lv_admin.Width = 166;
             // 
             // lv_av
             // 
-            this.lv_av.Text = "安全软件";
+            this.lv_av.Text = "Anti-virus";
             this.lv_av.Width = 136;
             // 
             // lv_ping
@@ -920,7 +927,7 @@
             // 
             // lv_act
             // 
-            this.lv_act.Text = "活动窗口";
+            this.lv_act.Text = "Activity Program";
             this.lv_act.Width = 350;
             // 
             // tabPage3
@@ -931,7 +938,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(859, 195);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "屏幕墙";
+            this.tabPage3.Text = "Screens";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // listView3
@@ -958,7 +965,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage4.Size = new System.Drawing.Size(859, 195);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "自动任务";
+            this.tabPage4.Text = "Auto Task";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // listView4
@@ -981,12 +988,12 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "任务";
+            this.columnHeader4.Text = "Task";
             this.columnHeader4.Width = 97;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "执行次数";
+            this.columnHeader5.Text = "Run times";
             this.columnHeader5.Width = 116;
             // 
             // listView2
@@ -1012,20 +1019,13 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "时间";
+            this.columnHeader1.Text = "Time";
             this.columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "日志";
+            this.columnHeader2.Text = "Logs";
             this.columnHeader2.Width = 705;
-            // 
-            // 设置ToolStripMenuItem
-            // 
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.设置ToolStripMenuItem.Text = "设置";
-            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1092,37 +1092,37 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuClient;
-        private System.Windows.Forms.ToolStripMenuItem 远程管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 命令行ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 桌面ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 摄像头ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 进程ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 窗口通知ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 控制功能ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 发送文件ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 至硬盘ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 至内存ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 发送通知ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 聊天ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 访问网站ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 修改壁纸ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 键盘记录ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 锁屏ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 开启ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关闭ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 系统管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 客户端ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关闭ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 重启ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 升级ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 卸载ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 储存文件夹ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 系统ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关机ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 重启ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 注销ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uAC提权ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RemoteManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RemoteShellToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RemoteScreenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RemoteCameraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileManagerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ProcrssManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ProgramNotificationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RemoteControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SendFileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem SendFileToDiskToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SendFileToMemoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MessageBoxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ChatToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem VisteWebsiteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ChangeWallpaperToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem KeyloggerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem LockScreenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StartToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem StopToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem SystemControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClientControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StopToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem RestartToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem UpdateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UninstallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClientFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SystemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ShutDownToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RebootToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LogoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BypassUACAToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -1147,35 +1147,35 @@
         public System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 新建客户端ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 文档ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 开启ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 关闭ToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem 屏蔽客户端ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 文件查找ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BuilderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DocumentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StartToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem StopToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem BlockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileSearchToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader lv_group;
-        private System.Windows.Forms.ToolStripMenuItem 详细信息ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 恶意功能ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InformationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MalwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dDOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 勒索ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 加密ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 解密ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关闭WDToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 录音ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 无提示不过360ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 有提示ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 安装ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 过360启动项ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 密码恢复ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 过360核晶ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关闭UACToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 打开CD槽ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem win7ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RansomwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EncryptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DecryptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DisableWDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SilentCleanupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RunasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InstallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SchtaskInstallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PasswordRecoveryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FodhelperToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DisableUACToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpenCDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CompMgmtLauncherToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SettingToolStripMenuItem;
     }
 }
 

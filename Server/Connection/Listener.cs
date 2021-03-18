@@ -24,7 +24,7 @@ namespace Server.Connection
                 };
                 Server.Bind(ipEndPoint);
                 Server.Listen(500);
-                new HandleLogs().Addmsg($"接收端口: {port}", Color.Green);
+                new HandleLogs().Addmsg($"Listenning to: {port}", Color.Green);
                 Server.BeginAccept(EndAccept, null);
             }
             catch (Exception ex)

@@ -52,7 +52,7 @@
             this.groupBox1.Size = new System.Drawing.Size(543, 213);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "屏蔽名单";
+            this.groupBox1.Text = "Blocklist";
             // 
             // listBlocked
             // 
@@ -94,9 +94,9 @@
             this.label1.Location = new System.Drawing.Point(4, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 12);
+            this.label1.Size = new System.Drawing.Size(101, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "输入HWID或IP";
+            this.label1.Text = "Input HWID or IP";
             // 
             // txtBlock
             // 
@@ -117,7 +117,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormBlockClients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "屏蔽客户端";
+            this.Text = "Block";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBlockClients_FormClosed);
             this.Load += new System.EventHandler(this.FormBlockClients_Load);
             this.groupBox1.ResumeLayout(false);

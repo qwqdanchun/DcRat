@@ -92,7 +92,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormShell";
-            this.Text = "远程Shell";
+            this.Text = "Remote Shell";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormShell_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

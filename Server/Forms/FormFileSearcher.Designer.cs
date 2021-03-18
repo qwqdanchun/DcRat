@@ -46,7 +46,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "格式:";
+            this.label1.Text = "Type:";
             // 
             // txtExtnsions
             // 
@@ -74,9 +74,9 @@
             this.label2.Location = new System.Drawing.Point(8, 72);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 12);
+            this.label2.Size = new System.Drawing.Size(59, 12);
             this.label2.TabIndex = 3;
-            this.label2.Text = "最大上传大小:";
+            this.label2.Text = "Max size:";
             // 
             // numericUpDown1
             // 

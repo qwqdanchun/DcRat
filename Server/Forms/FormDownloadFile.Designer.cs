@@ -43,9 +43,9 @@
             this.label1.Location = new System.Drawing.Point(8, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 12);
+            this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "下载:";
+            this.label1.Text = "Downloaad:";
             // 
             // timer1
             // 
@@ -70,7 +70,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 12);
             this.label3.TabIndex = 0;
-            this.label3.Text = "文件:";
+            this.label3.Text = "File:";
             // 
             // labelfile
             // 
@@ -97,7 +97,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormDownloadFile";
-            this.Text = "下载";
+            this.Text = "Download";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SocketDownload_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

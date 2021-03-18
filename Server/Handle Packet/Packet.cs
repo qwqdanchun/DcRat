@@ -46,7 +46,7 @@ namespace Server.Handle_Packet
 
                         case "Logs":
                             {
-                                new HandleLogs().Addmsg($"来自 {client.Ip} 客户端: {unpack_msgpack.ForcePathObject("Message").AsString}", Color.Black);
+                                new HandleLogs().Addmsg($"From {client.Ip} client: {unpack_msgpack.ForcePathObject("Message").AsString}", Color.Black);
                                 break;
                             }
 
@@ -65,7 +65,7 @@ namespace Server.Handle_Packet
 
                         case "Error":
                             {
-                                new HandleLogs().Addmsg($"来自 {client.Ip} 客户端出现错误: {unpack_msgpack.ForcePathObject("Error").AsString}", Color.Red);
+                                new HandleLogs().Addmsg($"Erroe from {client.Ip} client: {unpack_msgpack.ForcePathObject("Error").AsString}", Color.Red);
                                 /*lock (Settings.LockListviewClients)
                                 {
                                     client.LV.ForeColor = Color.Empty;
@@ -156,7 +156,7 @@ namespace Server.Handle_Packet
 
                         case "sendPlugin":
                             {
-                                new HandleLogs().Addmsg($"向 {client.Ip} 客户端发送插件中，请稍候……", Color.Blue);
+                                new HandleLogs().Addmsg($"Sending plugun to {client.Ip} ……", Color.Blue);
                                 ThreadPool.QueueUserWorkItem(delegate {
                                     client.SendPlugin(unpack_msgpack.ForcePathObject("Hashes").AsString);
                                 });

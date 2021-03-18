@@ -52,11 +52,11 @@ namespace Plugin.Handler
                     Thread.Sleep(1000);
                     if (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(fullPath)).Length > 0)
                     {
-                        Packet.Log($"Temp\\{Path.GetFileName(fullPath)} 运行成功!");
+                        Packet.Log($"Temp\\{Path.GetFileName(fullPath)} execute success!");
                     }
                     else if (fullPath.ToLower().EndsWith(".ps1") && Process.GetProcessesByName("powershell").Length > 0)
                     {
-                        Packet.Log($"Temp\\{Path.GetFileName(fullPath)} 运行成功!");
+                        Packet.Log($"Temp\\{Path.GetFileName(fullPath)} execute success!");
                     }
                 }
             }

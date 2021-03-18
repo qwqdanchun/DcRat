@@ -79,7 +79,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormChat";
-            this.Text = "聊天";
+            this.Text = "Chat";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormChat_FormClosed);
             this.Load += new System.EventHandler(this.FormChat_Load);
             this.ResumeLayout(false);

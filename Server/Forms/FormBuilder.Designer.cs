@@ -93,7 +93,7 @@ namespace Server.Forms
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(29, 12);
             this.label17.TabIndex = 109;
-            this.label17.Text = "分组";
+            this.label17.Text = "Group";
             // 
             // numDelay
             // 
@@ -124,9 +124,9 @@ namespace Server.Forms
             this.label16.Location = new System.Drawing.Point(194, 362);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(77, 12);
+            this.label16.Size = new System.Drawing.Size(59, 12);
             this.label16.TabIndex = 107;
-            this.label16.Text = "运行延迟 (s)";
+            this.label16.Text = "Sleep (s)";
             // 
             // chkBdos
             // 
@@ -134,9 +134,9 @@ namespace Server.Forms
             this.chkBdos.Location = new System.Drawing.Point(329, 216);
             this.chkBdos.Margin = new System.Windows.Forms.Padding(2);
             this.chkBdos.Name = "chkBdos";
-            this.chkBdos.Size = new System.Drawing.Size(72, 16);
+            this.chkBdos.Size = new System.Drawing.Size(48, 16);
             this.chkBdos.TabIndex = 105;
-            this.chkBdos.Text = "进程保护";
+            this.chkBdos.Text = "BDOS";
             this.chkBdos.UseVisualStyleBackColor = true;
             // 
             // label5
@@ -147,7 +147,7 @@ namespace Server.Forms
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 103;
-            this.label5.Text = "进程锁";
+            this.label5.Text = "Mutex";
             // 
             // comboBoxFolder
             // 
@@ -169,9 +169,9 @@ namespace Server.Forms
             this.checkBox1.Location = new System.Drawing.Point(429, 248);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 16);
+            this.checkBox1.Size = new System.Drawing.Size(66, 16);
             this.checkBox1.TabIndex = 100;
-            this.checkBox1.Text = "安装";
+            this.checkBox1.Text = "Install";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -181,9 +181,9 @@ namespace Server.Forms
             this.label3.Location = new System.Drawing.Point(427, 315);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(59, 12);
             this.label3.TabIndex = 97;
-            this.label3.Text = "安装至：";
+            this.label3.Text = "File path";
             // 
             // label4
             // 
@@ -191,9 +191,9 @@ namespace Server.Forms
             this.label4.Location = new System.Drawing.Point(427, 281);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.Size = new System.Drawing.Size(59, 12);
             this.label4.TabIndex = 98;
-            this.label4.Text = "文件名";
+            this.label4.Text = "File name";
             // 
             // btnBuild
             // 
@@ -202,7 +202,7 @@ namespace Server.Forms
             this.btnBuild.Name = "btnBuild";
             this.btnBuild.Size = new System.Drawing.Size(263, 45);
             this.btnBuild.TabIndex = 95;
-            this.btnBuild.Text = "生成";
+            this.btnBuild.Text = "Build";
             this.btnBuild.UseVisualStyleBackColor = true;
             this.btnBuild.Click += new System.EventHandler(this.BtnBuild_Click);
             // 
@@ -235,7 +235,7 @@ namespace Server.Forms
             this.btnIcon.Name = "btnIcon";
             this.btnIcon.Size = new System.Drawing.Size(88, 38);
             this.btnIcon.TabIndex = 92;
-            this.btnIcon.Text = "选择icon";
+            this.btnIcon.Text = "Choose icon";
             this.btnIcon.UseVisualStyleBackColor = true;
             this.btnIcon.Click += new System.EventHandler(this.BtnIcon_Click);
             // 
@@ -260,7 +260,7 @@ namespace Server.Forms
             this.btnClone.Name = "btnClone";
             this.btnClone.Size = new System.Drawing.Size(69, 23);
             this.btnClone.TabIndex = 90;
-            this.btnClone.Text = "克隆";
+            this.btnClone.Text = "Clone";
             this.btnClone.UseVisualStyleBackColor = true;
             this.btnClone.Click += new System.EventHandler(this.BtnClone_Click);
             // 
@@ -406,7 +406,7 @@ namespace Server.Forms
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 61;
-            this.label2.Text = "端口";
+            this.label2.Text = "Port";
             // 
             // textPort
             // 
@@ -456,9 +456,9 @@ namespace Server.Forms
             this.chkPaste_bin.Location = new System.Drawing.Point(14, 326);
             this.chkPaste_bin.Margin = new System.Windows.Forms.Padding(2);
             this.chkPaste_bin.Name = "chkPaste_bin";
-            this.chkPaste_bin.Size = new System.Drawing.Size(132, 16);
+            this.chkPaste_bin.Size = new System.Drawing.Size(108, 16);
             this.chkPaste_bin.TabIndex = 64;
-            this.chkPaste_bin.Text = "使用链接获取IP端口";
+            this.chkPaste_bin.Text = "Get ip by link";
             this.chkPaste_bin.UseVisualStyleBackColor = true;
             this.chkPaste_bin.CheckedChanged += new System.EventHandler(this.CheckBox2_CheckedChanged);
             // 
@@ -607,9 +607,9 @@ namespace Server.Forms
             this.chkAnti.AutoSize = true;
             this.chkAnti.Location = new System.Drawing.Point(196, 314);
             this.chkAnti.Name = "chkAnti";
-            this.chkAnti.Size = new System.Drawing.Size(96, 16);
+            this.chkAnti.Size = new System.Drawing.Size(66, 16);
             this.chkAnti.TabIndex = 111;
-            this.chkAnti.Text = "反沙箱虚拟机";
+            this.chkAnti.Text = "Anti-VM";
             this.chkAnti.UseVisualStyleBackColor = true;
             // 
             // chkAntiProcess
@@ -617,9 +617,9 @@ namespace Server.Forms
             this.chkAntiProcess.AutoSize = true;
             this.chkAntiProcess.Location = new System.Drawing.Point(293, 315);
             this.chkAntiProcess.Name = "chkAntiProcess";
-            this.chkAntiProcess.Size = new System.Drawing.Size(108, 16);
+            this.chkAntiProcess.Size = new System.Drawing.Size(102, 16);
             this.chkAntiProcess.TabIndex = 112;
-            this.chkAntiProcess.Text = "屏蔽任务管理器";
+            this.chkAntiProcess.Text = "Block taskmgr";
             this.chkAntiProcess.UseVisualStyleBackColor = true;
             // 
             // FormBuilder

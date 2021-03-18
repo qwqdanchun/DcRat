@@ -100,44 +100,44 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(444, 7);
+            this.label6.Location = new System.Drawing.Point(444, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 10;
-            this.label6.Text = "键盘";
+            this.label6.Text = "Keyboard";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(363, 7);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(35, 12);
             this.label5.TabIndex = 9;
-            this.label5.Text = "鼠标";
+            this.label5.Text = "Mouse";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(272, 7);
+            this.label4.Location = new System.Drawing.Point(280, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.Size = new System.Drawing.Size(47, 12);
             this.label4.TabIndex = 8;
-            this.label4.Text = "截屏";
+            this.label4.Text = "Capture";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.Size = new System.Drawing.Size(35, 12);
             this.label3.TabIndex = 7;
-            this.label3.Text = "开关";
+            this.label3.Text = "Start";
             // 
             // btnKeyboard
             // 
             this.btnKeyboard.BackgroundImage = global::Server.Properties.Resources.keyboard;
             this.btnKeyboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKeyboard.Location = new System.Drawing.Point(478, 4);
+            this.btnKeyboard.Location = new System.Drawing.Point(502, 5);
             this.btnKeyboard.Margin = new System.Windows.Forms.Padding(2);
             this.btnKeyboard.Name = "btnKeyboard";
             this.btnKeyboard.Size = new System.Drawing.Size(21, 19);
@@ -149,7 +149,7 @@
             // 
             this.btnMouse.BackgroundImage = global::Server.Properties.Resources.mouse;
             this.btnMouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMouse.Location = new System.Drawing.Point(397, 4);
+            this.btnMouse.Location = new System.Drawing.Point(403, 4);
             this.btnMouse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMouse.Name = "btnMouse";
             this.btnMouse.Size = new System.Drawing.Size(21, 19);
@@ -161,7 +161,7 @@
             // 
             this.btnSave.BackgroundImage = global::Server.Properties.Resources.save_image;
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSave.Location = new System.Drawing.Point(315, 3);
+            this.btnSave.Location = new System.Drawing.Point(332, 3);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(21, 19);
@@ -172,12 +172,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(180, 7);
+            this.label2.Location = new System.Drawing.Point(188, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 4;
-            this.label2.Text = "屏幕";
+            this.label2.Text = "Screen";
             // 
             // numericUpDown2
             // 
@@ -188,7 +188,7 @@
             0,
             0,
             0});
-            this.numericUpDown2.Location = new System.Drawing.Point(213, 3);
+            this.numericUpDown2.Location = new System.Drawing.Point(233, 3);
             this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             0,
@@ -207,9 +207,9 @@
             this.label1.Location = new System.Drawing.Point(78, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(47, 12);
             this.label1.TabIndex = 2;
-            this.label1.Text = "质量";
+            this.label1.Text = "Quality";
             // 
             // numericUpDown1
             // 
@@ -220,7 +220,7 @@
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(111, 4);
+            this.numericUpDown1.Location = new System.Drawing.Point(129, 3);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             20,
@@ -279,7 +279,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(442, 280);
             this.Name = "FormRemoteDesktop";
-            this.Text = "远程桌面";
+            this.Text = "Remote Desktop";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormRemoteDesktop_FormClosed);
             this.Load += new System.EventHandler(this.FormRemoteDesktop_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormRemoteDesktop_KeyDown);

