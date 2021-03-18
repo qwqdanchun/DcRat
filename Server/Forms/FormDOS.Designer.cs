@@ -62,7 +62,7 @@
             this.groupBox1.Size = new System.Drawing.Size(288, 121);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "目标";
+            this.groupBox1.Text = "Target";
             // 
             // label2
             // 
@@ -114,7 +114,7 @@
             this.groupBox2.Size = new System.Drawing.Size(288, 102);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "设置";
+            this.groupBox2.Text = "Setting";
             // 
             // label4
             // 
@@ -132,9 +132,9 @@
             this.label3.Location = new System.Drawing.Point(11, 51);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.Size = new System.Drawing.Size(47, 12);
             this.label3.TabIndex = 4;
-            this.label3.Text = "超时";
+            this.label3.Text = "Timeout";
             // 
             // txtTimeout
             // 
@@ -156,7 +156,7 @@
             this.groupBox3.Size = new System.Drawing.Size(100, 227);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "命令";
+            this.groupBox3.Text = "Order";
             // 
             // btnStop
             // 
@@ -166,7 +166,7 @@
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(71, 85);
             this.btnStop.TabIndex = 1;
-            this.btnStop.Text = "停止";
+            this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.BtnStop_Click);
             // 
@@ -177,7 +177,7 @@
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(71, 83);
             this.btnAttack.TabIndex = 0;
-            this.btnAttack.Text = "攻击";
+            this.btnAttack.Text = "Start";
             this.btnAttack.UseVisualStyleBackColor = true;
             this.btnAttack.Click += new System.EventHandler(this.BtnAttack_Click);
             // 

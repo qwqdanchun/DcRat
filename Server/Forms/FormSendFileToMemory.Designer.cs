@@ -59,7 +59,7 @@
             this.groupBox1.Size = new System.Drawing.Size(213, 110);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "注入";
+            this.groupBox1.Text = "Inject";
             // 
             // button1
             // 
@@ -68,7 +68,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 20);
             this.button1.TabIndex = 1;
-            this.button1.Text = "选择";
+            this.button1.Text = "Select";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -80,7 +80,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "文件:";
+            this.label2.Text = "File:";
             // 
             // label3
             // 
@@ -88,9 +88,9 @@
             this.label3.Location = new System.Drawing.Point(4, 85);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 12);
+            this.label3.Size = new System.Drawing.Size(47, 12);
             this.label3.TabIndex = 1;
-            this.label3.Text = "注入:";
+            this.label3.Text = "Target:";
             this.label3.Visible = false;
             // 
             // label1
@@ -99,9 +99,9 @@
             this.label1.Location = new System.Drawing.Point(4, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "注入类型:";
+            this.label1.Text = "Type:";
             // 
             // comboBox2
             // 
@@ -192,7 +192,7 @@
             this.MinimizeBox = false;
             this.Name = "FormSendFileToMemory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "内存注入";
+            this.Text = "Injection";
             this.Load += new System.EventHandler(this.SendFileToMemory_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

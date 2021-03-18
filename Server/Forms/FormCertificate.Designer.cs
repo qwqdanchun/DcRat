@@ -48,7 +48,7 @@
             this.groupBox1.Size = new System.Drawing.Size(252, 164);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "新建证书";
+            this.groupBox1.Text = "New Certificate";
             // 
             // button1
             // 
@@ -76,9 +76,9 @@
             this.label1.Location = new System.Drawing.Point(102, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "证书名称";
+            this.label1.Text = "Sever name";
             // 
             // FormCertificate
             // 
@@ -92,7 +92,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormCertificate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "证书";
+            this.Text = "Certificate";
             this.Load += new System.EventHandler(this.FormCertificate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

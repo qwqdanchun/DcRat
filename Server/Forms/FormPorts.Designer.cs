@@ -46,7 +46,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(350, 30);
             this.button1.TabIndex = 0;
-            this.button1.Text = "启动";
+            this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -66,7 +66,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "端口";
+            this.label1.Text = "Port";
             // 
             // groupBox1
             // 
@@ -82,7 +82,7 @@
             this.groupBox1.Size = new System.Drawing.Size(350, 119);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "设置";
+            this.groupBox1.Text = "Setting";
             // 
             // listBox1
             // 
@@ -131,7 +131,7 @@
             this.Name = "FormPorts";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "监听端口";
+            this.Text = "Listen ports";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PortsFrm_FormClosed);
             this.Load += new System.EventHandler(this.PortsFrm_Load);

@@ -23,7 +23,7 @@ namespace Server.Forms
             {
                 if (textBox1.Text == null || textBox2.Text == null)
                 {
-                    MessageBox.Show("请填写WebHook地址及签名secret");
+                    MessageBox.Show("Input the WebHook and secret");
                 }
             }
             Properties.Settings.Default.DingDing = checkBox1.Checked;

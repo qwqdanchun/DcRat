@@ -68,7 +68,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "帧率";
+            this.label1.Text = "FPS:";
             // 
             // numericUpDown1
             // 
@@ -165,7 +165,7 @@
             this.labelWait.Name = "labelWait";
             this.labelWait.Size = new System.Drawing.Size(53, 20);
             this.labelWait.TabIndex = 6;
-            this.labelWait.Text = "等待...";
+            this.labelWait.Text = "Please wait...";
             // 
             // FormWebcam
             // 
@@ -178,7 +178,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormWebcam";
-            this.Text = "远程摄像头";
+            this.Text = "Remote Camera";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormWebcam_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

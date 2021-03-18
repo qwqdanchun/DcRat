@@ -56,7 +56,7 @@ namespace Server.Forms
                         }
                         Program.form1.listView1.BeginInvoke((MethodInvoker)(() =>
                         {
-                            MessageBox.Show(this, @"请注意保存证书备份，没有证书将无法链接客户端", "证书", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(this, @"Remember to save the BackupCertificate.zip", "Certificate", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }));
                     }

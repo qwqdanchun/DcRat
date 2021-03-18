@@ -42,12 +42,6 @@ namespace MessagePackLib.MessagePack
             return sb.ToString();
         }
 
-        /// <summary>
-        ///   交换byte数组数据
-        ///   可用于高低数据交换
-        /// </summary>
-        /// <param name="v">要交换的byte数组</param>
-        /// <returns>返回交换后的数据</returns>
         public static byte[] SwapBytes(byte[] v)
         {
             byte[] r = new byte[v.Length];

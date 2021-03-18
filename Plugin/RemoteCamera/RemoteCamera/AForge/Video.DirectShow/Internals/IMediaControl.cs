@@ -1,7 +1,7 @@
 // AForge Direct Show Library
 // AForge.NET framework
 //
-// Copyright © Andrew Kirillov, 2007
+// Copyright ?Andrew Kirillov, 2007
 // andrew.kirillov@gmail.com
 //
 

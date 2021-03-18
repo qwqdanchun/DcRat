@@ -160,7 +160,7 @@ namespace Server.Connection
                     SoundPlayer sp = new SoundPlayer(Server.Properties.Resources.offline);
                     sp.Load();
                     sp.Play();
-                    new HandleLogs().Addmsg($"客户端 {Ip} 已下线", Color.Red);
+                    new HandleLogs().Addmsg($"Client {Ip} disconnected.", Color.Red);
                 }));
             }
 
@@ -238,14 +238,14 @@ namespace Server.Connection
                         msgPack.ForcePathObject("Dll").SetAsBytes(Zip.Compress(File.ReadAllBytes(plugin)));
                         msgPack.ForcePathObject("Hash").SetAsString(GetHash.GetChecksum(plugin));
                         ThreadPool.QueueUserWorkItem(Send, msgPack.Encode2Bytes());
-                        new HandleLogs().Addmsg($"插件 {Path.GetFileName(plugin)} 发送至 {Ip}", Color.Blue);
+                        new HandleLogs().Addmsg($"Plugin {Path.GetFileName(plugin)} Sent to {Ip}", Color.Blue);
                         break;
                     }
                 }
             }
             catch (Exception ex)
             {
-                new HandleLogs().Addmsg($"客户端 {Ip} {ex.Message}", Color.Red);
+                new HandleLogs().Addmsg($"Clinet {Ip} {ex.Message}", Color.Red);
             }
         }
     }

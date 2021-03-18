@@ -79,8 +79,8 @@
             this.richTextBox1.ShortcutsEnabled = false;
             this.richTextBox1.Size = new System.Drawing.Size(228, 166);
             this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "\n作者：簞純 | qwqdanchun.\n\n交流加群：814084847\n\n作者博客：https://blog.qwqdanchun.com\n\n黑灰产、非法使用勿" +
-    "扰";
+            this.richTextBox1.Text = "\nAuther：簞純 | qwqdanchun.\n\nQQ group：814084847\n\nBlog：https://blog.qwqdanchun.com\n\nJ" +
+    "ust for education.";
             this.richTextBox1.ZoomFactor = 1.1F;
             // 
             // FormAbout
@@ -97,7 +97,7 @@
             this.Name = "FormAbout";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "关于";
+            this.Text = "About";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

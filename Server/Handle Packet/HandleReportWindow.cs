@@ -13,10 +13,10 @@ namespace Server.Handle_Packet
     {
         public HandleReportWindow(Clients client, string title)
         {
-            new HandleLogs().Addmsg($"客户端 {client.Ip} 打开了 [{title}]", Color.Blue);
+            new HandleLogs().Addmsg($"Client {client.Ip} opened [{title}]", Color.Blue);
             if (Properties.Settings.Default.Notification == true)
             {
-                Program.form1.notifyIcon1.BalloonTipText = $"客户端 {client.Ip} 打开了 [{title}]";
+                Program.form1.notifyIcon1.BalloonTipText = $"Client {client.Ip} opened [{title}]";
                 Program.form1.notifyIcon1.ShowBalloonTip(100);
             }
         }
