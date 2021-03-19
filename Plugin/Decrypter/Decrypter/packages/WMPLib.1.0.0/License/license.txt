@@ -1,2 +1,0 @@
-﻿Content is created using Microsoft's Runtime DLLs.
-All rights belong to Microsoft.
