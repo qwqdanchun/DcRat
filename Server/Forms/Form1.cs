@@ -731,7 +731,7 @@ namespace Server
             }
         }
 
-        private void ProcrssManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ProcessManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1796,6 +1796,5 @@ namespace Server
                 formSetting.ShowDialog();
             }
         }
-
     }
 }

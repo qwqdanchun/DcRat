@@ -10,6 +10,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using System.Threading;
+using Microsoft.Win32;
 
 namespace Client.Helper
 {
@@ -98,6 +99,19 @@ namespace Client.Helper
             }
             catch { }
             return "";
+        }
+
+        public static void ClearSetting()
+        {
+            //Silent Cleanup
+            RegistryKey key;
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Environment");
+            key.DeleteValue("windir");
+            key.Close();
+            //CompMgmtLauncher
+            Registry.CurrentUser.OpenSubKey("Software", true).OpenSubKey("Classes", true).DeleteSubKeyTree("mscfile");
+            //Fodhelper
+            Registry.CurrentUser.OpenSubKey("Software", true).OpenSubKey("Classes", true).DeleteSubKeyTree("ms-settings");
         }
     }
 }
