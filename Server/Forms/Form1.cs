@@ -469,7 +469,7 @@ namespace Server
 
                     MsgPack msgpack = new MsgPack();
                     msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\SendFile.dll"));
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\SendMemory.dll"));
                     msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
 
                     if (listView4.Items.Count > 0)
@@ -1813,7 +1813,7 @@ namespace Server
 
                 MsgPack msgpack = new MsgPack();
                 msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\SendFile.dll"));
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\SendMemory.dll"));
                 msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
 
                 if (listView4.Items.Count > 0)

