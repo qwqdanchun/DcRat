@@ -59,7 +59,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(288, 121);
+            this.groupBox1.Size = new System.Drawing.Size(387, 121);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Target";
@@ -98,7 +98,7 @@
             this.txtHost.Location = new System.Drawing.Point(55, 36);
             this.txtHost.Margin = new System.Windows.Forms.Padding(2);
             this.txtHost.Name = "txtHost";
-            this.txtHost.Size = new System.Drawing.Size(197, 21);
+            this.txtHost.Size = new System.Drawing.Size(287, 21);
             this.txtHost.TabIndex = 1;
             this.txtHost.Text = "www.baidu.com";
             // 
@@ -111,7 +111,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(288, 102);
+            this.groupBox2.Size = new System.Drawing.Size(387, 102);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Setting";
@@ -149,11 +149,11 @@
             // 
             this.groupBox3.Controls.Add(this.btnStop);
             this.groupBox3.Controls.Add(this.btnAttack);
-            this.groupBox3.Location = new System.Drawing.Point(300, 7);
+            this.groupBox3.Location = new System.Drawing.Point(399, 7);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(100, 227);
+            this.groupBox3.Size = new System.Drawing.Size(103, 227);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Order";
@@ -195,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 245);
+            this.ClientSize = new System.Drawing.Size(513, 245);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

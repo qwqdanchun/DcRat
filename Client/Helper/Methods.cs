@@ -103,10 +103,15 @@ namespace Client.Helper
 
         public static void ClearSetting()
         {
+
             //Silent Cleanup
             RegistryKey key;
             key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Environment");
-            key.DeleteValue("windir");
+            if (key.GetValue("windir") !=null) 
+            {
+                key.DeleteValue("windir"); 
+            }
+            
             key.Close();
             //CompMgmtLauncher
             Registry.CurrentUser.OpenSubKey("Software", true).OpenSubKey("Classes", true).DeleteSubKeyTree("mscfile");

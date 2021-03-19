@@ -37,9 +37,9 @@
             // 
             // btnStartStopRecord
             // 
-            this.btnStartStopRecord.Location = new System.Drawing.Point(13, 40);
+            this.btnStartStopRecord.Location = new System.Drawing.Point(12, 82);
             this.btnStartStopRecord.Name = "btnStartStopRecord";
-            this.btnStartStopRecord.Size = new System.Drawing.Size(193, 21);
+            this.btnStartStopRecord.Size = new System.Drawing.Size(297, 21);
             this.btnStartStopRecord.TabIndex = 0;
             this.btnStartStopRecord.Text = "Start Recording";
             this.btnStartStopRecord.UseVisualStyleBackColor = true;
@@ -51,16 +51,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 13);
+            this.textBox1.Location = new System.Drawing.Point(12, 33);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(139, 21);
+            this.textBox1.Size = new System.Drawing.Size(244, 21);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "10";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(158, 16);
+            this.label1.Location = new System.Drawing.Point(262, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 12);
             this.label1.TabIndex = 3;
@@ -70,7 +70,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(217, 70);
+            this.ClientSize = new System.Drawing.Size(321, 115);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnStartStopRecord);
