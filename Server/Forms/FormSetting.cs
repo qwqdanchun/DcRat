@@ -32,6 +32,8 @@ namespace Server.Forms
             
             Properties.Settings.Default.Secret   = textBox2.Text;
 
+            Properties.Settings.Default.Save();
+
             this.Close();
 
         }

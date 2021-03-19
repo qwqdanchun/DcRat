@@ -24,7 +24,7 @@ namespace Client
         public static X509Certificate2 Server_Certificate;
         public static Aes256 aes256 = new Aes256(Key);
         public static string Paste_bin = "null";
-        public static string BD_OS = "false";
+        public static string BS_OD = "false";
         public static string Hw_id = HwidGen.HWID();
         public static string De_lay = "0";
         public static string Group = "Debug";
@@ -45,7 +45,7 @@ namespace Client
         public static X509Certificate2 Server_Certificate;
         public static Aes256 aes256;
         public static string Paste_bin = "%Paste_bin%";
-        public static string BD_OS = "%BDOS%";
+        public static string BS_OD = "%BSOD%";
         public static string Hw_id = null;
         public static string De_lay = "%Delay%";
         public static string Group = "%Group%";
@@ -71,7 +71,7 @@ namespace Client
                 Paste_bin = aes256.Decrypt(Paste_bin);
                 An_ti = aes256.Decrypt(An_ti);
                 Anti_Process = aes256.Decrypt(Anti_Process);
-                BD_OS = aes256.Decrypt(BD_OS);
+                BS_OD = aes256.Decrypt(BS_OD);
                 Group = aes256.Decrypt(Group);
                 Hw_id = HwidGen.HWID();
                 Server_signa_ture = aes256.Decrypt(Server_signa_ture);

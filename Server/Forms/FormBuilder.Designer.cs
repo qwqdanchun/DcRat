@@ -35,7 +35,7 @@ namespace Server.Forms
             this.label17 = new System.Windows.Forms.Label();
             this.numDelay = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
-            this.chkBdos = new System.Windows.Forms.CheckBox();
+            this.chkBsod = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxFolder = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -91,7 +91,7 @@ namespace Server.Forms
             this.label17.Location = new System.Drawing.Point(194, 195);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(29, 12);
+            this.label17.Size = new System.Drawing.Size(35, 12);
             this.label17.TabIndex = 109;
             this.label17.Text = "Group";
             // 
@@ -128,16 +128,16 @@ namespace Server.Forms
             this.label16.TabIndex = 107;
             this.label16.Text = "Sleep (s)";
             // 
-            // chkBdos
+            // chkBsod
             // 
-            this.chkBdos.AutoSize = true;
-            this.chkBdos.Location = new System.Drawing.Point(329, 216);
-            this.chkBdos.Margin = new System.Windows.Forms.Padding(2);
-            this.chkBdos.Name = "chkBdos";
-            this.chkBdos.Size = new System.Drawing.Size(48, 16);
-            this.chkBdos.TabIndex = 105;
-            this.chkBdos.Text = "BDOS";
-            this.chkBdos.UseVisualStyleBackColor = true;
+            this.chkBsod.AutoSize = true;
+            this.chkBsod.Location = new System.Drawing.Point(329, 216);
+            this.chkBsod.Margin = new System.Windows.Forms.Padding(2);
+            this.chkBsod.Name = "chkBsod";
+            this.chkBsod.Size = new System.Drawing.Size(48, 16);
+            this.chkBsod.TabIndex = 105;
+            this.chkBsod.Text = "BSOD";
+            this.chkBsod.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -145,7 +145,7 @@ namespace Server.Forms
             this.label5.Location = new System.Drawing.Point(194, 248);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.Size = new System.Drawing.Size(35, 12);
             this.label5.TabIndex = 103;
             this.label5.Text = "Mutex";
             // 
@@ -633,7 +633,7 @@ namespace Server.Forms
             this.Controls.Add(this.label17);
             this.Controls.Add(this.numDelay);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.chkBdos);
+            this.Controls.Add(this.chkBsod);
             this.Controls.Add(this.txtMutex);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBoxFolder);
@@ -698,7 +698,7 @@ namespace Server.Forms
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.NumericUpDown numDelay;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox chkBdos;
+        private System.Windows.Forms.CheckBox chkBsod;
         private System.Windows.Forms.TextBox txtMutex;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxFolder;

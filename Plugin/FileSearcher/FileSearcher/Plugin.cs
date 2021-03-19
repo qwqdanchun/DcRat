@@ -16,16 +16,16 @@ namespace Plugin
         public static Socket Socket;
         public static Mutex AppMutex;
         public static string Mutex;
-        public static string BDOS;
+        public static string BSOD;
         public static string Install;
         public static string InstallFile;
 
-        public void Run(Socket socket, X509Certificate2 certificate, string hwid, byte[] msgPack, Mutex mutex, string mtx, string bdos, string install)
+        public void Run(Socket socket, X509Certificate2 certificate, string hwid, byte[] msgPack, Mutex mutex, string mtx, string bsod, string install)
         {
             Debug.WriteLine("Plugin Invoked");
             AppMutex = mutex;
             Mutex = mtx;
-            BDOS = bdos;
+            BSOD = bsod;
             Install = install;
             Socket = socket;
             Connection.ServerCertificate = certificate;
