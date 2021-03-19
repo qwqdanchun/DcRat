@@ -137,6 +137,7 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.autoKeyloggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -660,11 +661,12 @@
             this.downloadAndExecuteToolStripMenuItem,
             this.sENDFILETOMEMORYToolStripMenuItem1,
             this.uPDATEToolStripMenuItem1,
+            this.autoKeyloggerToolStripMenuItem,
             this.toolStripSeparator4,
             this.dELETETASKToolStripMenuItem});
             this.contextMenuTasks.Name = "contextMenuStrip4";
             this.contextMenuTasks.ShowImageMargin = false;
-            this.contextMenuTasks.Size = new System.Drawing.Size(170, 120);
+            this.contextMenuTasks.Size = new System.Drawing.Size(170, 142);
             // 
             // downloadAndExecuteToolStripMenuItem
             // 
@@ -1027,6 +1029,13 @@
             this.columnHeader2.Text = "Logs";
             this.columnHeader2.Width = 705;
             // 
+            // autoKeyloggerToolStripMenuItem
+            // 
+            this.autoKeyloggerToolStripMenuItem.Name = "autoKeyloggerToolStripMenuItem";
+            this.autoKeyloggerToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.autoKeyloggerToolStripMenuItem.Text = "Auto Keylogger";
+            this.autoKeyloggerToolStripMenuItem.Click += new System.EventHandler(this.autoKeyloggerToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1176,6 +1185,7 @@
         private System.Windows.Forms.ToolStripMenuItem OpenCDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CompMgmtLauncherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoKeyloggerToolStripMenuItem;
     }
 }
 

