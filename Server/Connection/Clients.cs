@@ -157,10 +157,14 @@ namespace Server.Connection
                         }
                     }
                     catch { }
-                    SoundPlayer sp = new SoundPlayer(Server.Properties.Resources.offline);
-                    sp.Load();
-                    sp.Play();
                     new HandleLogs().Addmsg($"Client {Ip} disconnected.", Color.Red);
+                    TimeZoneInfo local = TimeZoneInfo.Local;
+                    if (local.Id == "China Standard Time"&&Properties.Settings.Default.Notification == true)
+                    {
+                        SoundPlayer sp = new SoundPlayer(Server.Properties.Resources.offline);
+                        sp.Load();
+                        sp.Play();
+                    }
                 }));
             }
 

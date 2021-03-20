@@ -117,10 +117,14 @@ namespace Server.Handle_Packet
                         }
                     }
 
-                    new HandleLogs().Addmsg($"Client {client.Ip} connected", Color.Green);
-                    SoundPlayer sp = new SoundPlayer(Server.Properties.Resources.online);
-                    sp.Load();
-                    sp.Play();
+                    new HandleLogs().Addmsg($"Client {client.Ip} connected", Color.Green);                   
+                    TimeZoneInfo local = TimeZoneInfo.Local;
+                    if (local.Id == "China Standard Time"&& Properties.Settings.Default.Notification == true)
+                    {
+                        SoundPlayer sp = new SoundPlayer(Server.Properties.Resources.online);
+                        sp.Load();
+                        sp.Play();
+                    }                    
                 }));
             }
             catch { }

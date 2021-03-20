@@ -17,7 +17,7 @@ namespace Client.Algorithm
             private readonly byte[] _key;
             private readonly byte[] _authKey;
 
-            private static readonly byte[] Salt = Encoding.ASCII.GetBytes("qwqdanchun");
+            private static readonly byte[] Salt = Encoding.ASCII.GetBytes("DcRatByqwqdanchun");
 
         public Aes256(string masterKey)
             {
