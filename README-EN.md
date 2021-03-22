@@ -101,7 +101,9 @@ Press [here](https://github.com/qwqdanchun/DcRat/releases/) to download the last
 * SharpSploit - [@cobbr](https://github.com/cobbr/SharpSploit)
 * and some other projects
 
+## Donation
 
+BTC: 17BuN4qd7tQ6CQqCUAhRkhgjVpy41WRkTc
 
 ## License
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](/LICENSE)
