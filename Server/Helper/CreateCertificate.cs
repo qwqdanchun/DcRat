@@ -29,12 +29,13 @@ namespace Server.Helper
 
             var certificateGenerator = new X509V3CertificateGenerator();
 
-            var CN = new X509Name("CN=" + caName);
+            var issuer = new X509Name(@"CN=" + caName + ",OU=qwqdanchun,O=DcRat By qwqdanchun,L=SH,C=CN");
+            var certName = new X509Name(@"CN=DcRat");
             var SN = BigInteger.ProbablePrime(160, new SecureRandom());
 
             certificateGenerator.SetSerialNumber(SN);
-            certificateGenerator.SetSubjectDN(CN);
-            certificateGenerator.SetIssuerDN(CN);
+            certificateGenerator.SetSubjectDN(certName);
+            certificateGenerator.SetIssuerDN(issuer);
             certificateGenerator.SetNotAfter(DateTime.UtcNow.Subtract(new TimeSpan(-3650, 0, 0, 0)));
             certificateGenerator.SetNotBefore(DateTime.UtcNow.Subtract(new TimeSpan(285, 0, 0, 0)));
             certificateGenerator.SetPublicKey(keypair.Public);

