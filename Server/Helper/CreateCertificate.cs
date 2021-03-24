@@ -11,6 +11,7 @@ using Org.BouncyCastle.X509.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace Server.Helper
     {
         public static X509Certificate2 CreateCertificateAuthority(string caName, int keyStrength)
         {
-            var random = new SecureRandom(new CryptoApiRandomGenerator());
+            var random = new SecureRandom();
             var keyPairGen = new RsaKeyPairGenerator();
             keyPairGen.Init(new KeyGenerationParameters(random, keyStrength));
             AsymmetricCipherKeyPair keypair = keyPairGen.GenerateKeyPair();
@@ -29,13 +30,13 @@ namespace Server.Helper
             var certificateGenerator = new X509V3CertificateGenerator();
 
             var CN = new X509Name("CN=" + caName);
-            var SN = BigInteger.ProbablePrime(120, random);
+            var SN = BigInteger.ProbablePrime(160, new SecureRandom());
 
             certificateGenerator.SetSerialNumber(SN);
             certificateGenerator.SetSubjectDN(CN);
             certificateGenerator.SetIssuerDN(CN);
-            certificateGenerator.SetNotAfter(DateTime.MaxValue);
-            certificateGenerator.SetNotBefore(DateTime.UtcNow.Subtract(new TimeSpan(2, 0, 0, 0)));
+            certificateGenerator.SetNotAfter(DateTime.UtcNow.Subtract(new TimeSpan(-3650, 0, 0, 0)));
+            certificateGenerator.SetNotBefore(DateTime.UtcNow.Subtract(new TimeSpan(285, 0, 0, 0)));
             certificateGenerator.SetPublicKey(keypair.Public);
             certificateGenerator.AddExtension(X509Extensions.SubjectKeyIdentifier, false, new SubjectKeyIdentifierStructure(keypair.Public));
             certificateGenerator.AddExtension(X509Extensions.BasicConstraints, true, new BasicConstraints(true));

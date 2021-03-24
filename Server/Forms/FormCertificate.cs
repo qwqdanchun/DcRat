@@ -47,7 +47,7 @@ namespace Server.Forms
                     try
                     {
                         string backup = Application.StartupPath + "\\BackupCertificate.zip";
-                        Settings.ServerCertificate = Helper.CreateCertificate.CreateCertificateAuthority(textBox1.Text, 4096);
+                        Settings.ServerCertificate = Helper.CreateCertificate.CreateCertificateAuthority(textBox1.Text, 1024);
                         File.WriteAllBytes(Settings.CertificatePath, Settings.ServerCertificate.Export(X509ContentType.Pkcs12));
 
                         using (ZipArchive archive = ZipFile.Open(backup, ZipArchiveMode.Create))
