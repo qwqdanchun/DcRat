@@ -34,26 +34,35 @@ namespace Server.Forms
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!IsUpload)
+            if (FileSize >= 2147483647)
             {
-                labelsize.Text = $"{Methods.BytesToString(FileSize)} \\ {Methods.BytesToString(Client.BytesRecevied)}";
-                if (Client.BytesRecevied >= FileSize)
-                {
-                    labelsize.Text = "Downloaded";
-                    labelsize.ForeColor = Color.Green;
-                    timer1.Stop();
-                }
+                timer1.Stop();
+                MessageBox.Show("Don't support files larger than 2GB.");
+                this.Dispose();
             }
-            else
+            else 
             {
-                labelsize.Text = $"{Methods.BytesToString(FileSize)} \\ {Methods.BytesToString(BytesSent)}";
-                if (BytesSent >= FileSize)
+                if (!IsUpload)
                 {
-                    labelsize.Text = "Uploaded";
-                    labelsize.ForeColor = Color.Green;
-                    timer1.Stop();
+                    labelsize.Text = $"{Methods.BytesToString(FileSize)} \\ {Methods.BytesToString(Client.BytesRecevied)}";
+                    if (Client.BytesRecevied >= FileSize)
+                    {
+                        labelsize.Text = "Downloaded";
+                        labelsize.ForeColor = Color.Green;
+                        timer1.Stop();
+                    }
                 }
-            }
+                else
+                {
+                    labelsize.Text = $"{Methods.BytesToString(FileSize)} \\ {Methods.BytesToString(BytesSent)}";
+                    if (BytesSent >= FileSize)
+                    {
+                        labelsize.Text = "Uploaded";
+                        labelsize.ForeColor = Color.Green;
+                        timer1.Stop();
+                    }
+                }
+            }            
         }
 
         private void SocketDownload_FormClosed(object sender, FormClosedEventArgs e)
