@@ -103,20 +103,31 @@ namespace Client.Helper
 
         public static void ClearSetting()
         {
-
-            //Silent Cleanup
-            RegistryKey key;
-            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Environment");
-            if (key.GetValue("windir") !=null) 
+            try 
             {
-                key.DeleteValue("windir"); 
+                //Silent Cleanup
+                RegistryKey key;
+                key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Environment");
+                if (key.GetValue("windir") != null)
+                {
+                    key.DeleteValue("windir");
+                }
+
+                key.Close();
             }
-            
-            key.Close();
-            //CompMgmtLauncher
-            Registry.CurrentUser.OpenSubKey("Software", true).OpenSubKey("Classes", true).DeleteSubKeyTree("mscfile");
-            //Fodhelper
-            Registry.CurrentUser.OpenSubKey("Software", true).OpenSubKey("Classes", true).DeleteSubKeyTree("ms-settings");
+            catch { }
+            try
+            {
+                //CompMgmtLauncher
+                Registry.CurrentUser.OpenSubKey("Software", true).OpenSubKey("Classes", true).DeleteSubKeyTree("mscfile");
+            }
+            catch { }
+            try
+            {
+                //Fodhelper
+                Registry.CurrentUser.OpenSubKey("Software", true).OpenSubKey("Classes", true).DeleteSubKeyTree("ms-settings");
+            }
+            catch { }
         }
     }
 }

