@@ -123,6 +123,7 @@
             this.lv_group = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lv_hwid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lv_user = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lv_camera = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lv_os = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lv_version = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lv_ins = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -139,7 +140,7 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_camera = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.fakeBinderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -672,11 +673,12 @@
             this.sENDFILETOMEMORYToolStripMenuItem1,
             this.uPDATEToolStripMenuItem1,
             this.autoKeyloggerToolStripMenuItem,
+            this.fakeBinderToolStripMenuItem,
             this.toolStripSeparator4,
             this.dELETETASKToolStripMenuItem});
             this.contextMenuTasks.Name = "contextMenuStrip4";
             this.contextMenuTasks.ShowImageMargin = false;
-            this.contextMenuTasks.Size = new System.Drawing.Size(170, 120);
+            this.contextMenuTasks.Size = new System.Drawing.Size(170, 164);
             // 
             // downloadAndExecuteToolStripMenuItem
             // 
@@ -916,6 +918,10 @@
             this.lv_user.Text = "User";
             this.lv_user.Width = 117;
             // 
+            // lv_camera
+            // 
+            this.lv_camera.Text = "Camera";
+            // 
             // lv_os
             // 
             this.lv_os.Text = "OS version";
@@ -1047,9 +1053,12 @@
             this.columnHeader2.Text = "Logs";
             this.columnHeader2.Width = 705;
             // 
-            // lv_camera
+            // fakeBinderToolStripMenuItem
             // 
-            this.lv_camera.Text = "Camera";
+            this.fakeBinderToolStripMenuItem.Name = "fakeBinderToolStripMenuItem";
+            this.fakeBinderToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.fakeBinderToolStripMenuItem.Text = "Fake Binder";
+            this.fakeBinderToolStripMenuItem.Click += new System.EventHandler(this.fakeBinderToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1203,6 +1212,7 @@
         private System.Windows.Forms.ToolStripMenuItem autoKeyloggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SchtaskUninstallToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader lv_camera;
+        private System.Windows.Forms.ToolStripMenuItem fakeBinderToolStripMenuItem;
     }
 }
 

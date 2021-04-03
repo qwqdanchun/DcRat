@@ -13,6 +13,9 @@ using Server.Algorithm;
 using Microsoft.VisualBasic;
 using System.Collections.Generic;
 using System.Media;
+using Server.Helper;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace Server.Connection
 {
@@ -165,6 +168,13 @@ namespace Server.Connection
                         sp.Load();
                         sp.Play();
                     }
+
+                    foreach (AsyncTask asyncTask in Form1.getTasks.ToList())
+                    {
+                        asyncTask.doneClient.Remove(ID);                        
+                    }
+
+
                 }));
             }
 
@@ -174,6 +184,18 @@ namespace Server.Connection
                 TcpClient?.Dispose();
             }
             catch { }
+        }
+
+        public bool GetListview(string id)
+        {
+            foreach (ListViewItem item in Program.form1.listView4.Items)
+            {
+                if (item.ToolTipText == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void Send(object msg)

