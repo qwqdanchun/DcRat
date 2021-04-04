@@ -37,6 +37,7 @@
             this.RemoteCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FileManagerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ProcessManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.netstatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProgramNotificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StartToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,7 +142,7 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.netstatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fromUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -224,6 +225,13 @@
             this.ProcessManagerToolStripMenuItem.Text = "Process Manager";
             this.ProcessManagerToolStripMenuItem.Click += new System.EventHandler(this.ProcessManagerToolStripMenuItem_Click);
             // 
+            // netstatToolStripMenuItem
+            // 
+            this.netstatToolStripMenuItem.Name = "netstatToolStripMenuItem";
+            this.netstatToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.netstatToolStripMenuItem.Text = "Netstat";
+            this.netstatToolStripMenuItem.Click += new System.EventHandler(this.netstatToolStripMenuItem_Click);
+            // 
             // RecordToolStripMenuItem
             // 
             this.RecordToolStripMenuItem.Name = "RecordToolStripMenuItem";
@@ -271,6 +279,7 @@
             // SendFileToolStripMenuItem1
             // 
             this.SendFileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fromUrlToolStripMenuItem,
             this.SendFileToDiskToolStripMenuItem,
             this.SendFileToMemoryToolStripMenuItem});
             this.SendFileToolStripMenuItem1.Name = "SendFileToolStripMenuItem1";
@@ -1062,12 +1071,12 @@
             this.columnHeader2.Text = "Logs";
             this.columnHeader2.Width = 705;
             // 
-            // netstatToolStripMenuItem
+            // fromUrlToolStripMenuItem
             // 
-            this.netstatToolStripMenuItem.Name = "netstatToolStripMenuItem";
-            this.netstatToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.netstatToolStripMenuItem.Text = "Netstat";
-            this.netstatToolStripMenuItem.Click += new System.EventHandler(this.netstatToolStripMenuItem_Click);
+            this.fromUrlToolStripMenuItem.Name = "fromUrlToolStripMenuItem";
+            this.fromUrlToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.fromUrlToolStripMenuItem.Text = "From Url";
+            this.fromUrlToolStripMenuItem.Click += new System.EventHandler(this.fromUrlToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1223,6 +1232,7 @@
         private System.Windows.Forms.ColumnHeader lv_camera;
         private System.Windows.Forms.ToolStripMenuItem fakeBinderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem netstatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fromUrlToolStripMenuItem;
     }
 }
 

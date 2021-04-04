@@ -77,6 +77,12 @@ namespace Plugin
                             break;
                         }
 
+                    case "downloadFromUrl":
+                        {
+                            new HandleDownloadFromUrl().Start(unpack_msgpack.ForcePathObject("url").AsString);
+                            break;
+                        }
+
                 }
             }
             catch (Exception ex)

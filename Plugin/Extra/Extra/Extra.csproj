@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
+    <Compile Include="Handler\HandleDownloadFromUrl.cs" />
     <Compile Include="Handler\HandleOpenCD.cs" />
     <Compile Include="Handler\HandleDisableUAC.cs" />
     <Compile Include="Handler\HandleBlankScreen.cs" />
