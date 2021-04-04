@@ -113,6 +113,12 @@
     <Compile Include="Algorithm\GetHash.cs" />
     <Compile Include="Algorithm\Sha256.cs" />
     <Compile Include="Algorithm\Zip.cs" />
+    <Compile Include="Forms\FormNetstat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNetstat.designer.cs">
+      <DependentUpon>FormNetstat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,7 @@
     <Compile Include="Handle Packet\HandleAudio.cs" />
     <Compile Include="Handle Packet\HandlePassword.cs" />
     <Compile Include="Handle Packet\HandleInformation.cs" />
+    <Compile Include="Handle Packet\HandleNetstat.cs" />
     <Compile Include="Handle Packet\HandleRecovery.cs" />
     <Compile Include="Handle Packet\HandlerFileSearcher.cs" />
     <Compile Include="Handle Packet\HandleChat.cs" />
@@ -309,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormKeylogger.resx">
       <DependentUpon>FormKeylogger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNetstat.resx">
+      <DependentUpon>FormNetstat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPorts.resx">
       <DependentUpon>FormPorts.cs</DependentUpon>
