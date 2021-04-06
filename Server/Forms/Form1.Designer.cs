@@ -44,6 +44,7 @@
             this.StopToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoteControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SendFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fromUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SendFileToDiskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SendFileToMemoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MessageBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,7 +143,7 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.fromUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendFileFromUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -173,7 +174,7 @@
             this.InstallToolStripMenuItem,
             this.InformationToolStripMenuItem});
             this.contextMenuClient.Name = "contextMenuStrip1";
-            this.contextMenuClient.Size = new System.Drawing.Size(181, 202);
+            this.contextMenuClient.Size = new System.Drawing.Size(179, 180);
             // 
             // RemoteManagerToolStripMenuItem
             // 
@@ -187,7 +188,7 @@
             this.RecordToolStripMenuItem,
             this.ProgramNotificationToolStripMenuItem});
             this.RemoteManagerToolStripMenuItem.Name = "RemoteManagerToolStripMenuItem";
-            this.RemoteManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.RemoteManagerToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.RemoteManagerToolStripMenuItem.Text = "Remote Manager";
             // 
             // RemoteShellToolStripMenuItem
@@ -273,7 +274,7 @@
             this.KeyloggerToolStripMenuItem1,
             this.FileSearchToolStripMenuItem});
             this.RemoteControlToolStripMenuItem.Name = "RemoteControlToolStripMenuItem";
-            this.RemoteControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.RemoteControlToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.RemoteControlToolStripMenuItem.Text = "Remote Control";
             // 
             // SendFileToolStripMenuItem1
@@ -285,6 +286,13 @@
             this.SendFileToolStripMenuItem1.Name = "SendFileToolStripMenuItem1";
             this.SendFileToolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
             this.SendFileToolStripMenuItem1.Text = "Send File";
+            // 
+            // fromUrlToolStripMenuItem
+            // 
+            this.fromUrlToolStripMenuItem.Name = "fromUrlToolStripMenuItem";
+            this.fromUrlToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.fromUrlToolStripMenuItem.Text = "From Url";
+            this.fromUrlToolStripMenuItem.Click += new System.EventHandler(this.fromUrlToolStripMenuItem_Click);
             // 
             // SendFileToDiskToolStripMenuItem
             // 
@@ -352,7 +360,7 @@
             this.DisableUACToolStripMenuItem,
             this.OpenCDToolStripMenuItem});
             this.MalwareToolStripMenuItem.Name = "MalwareToolStripMenuItem";
-            this.MalwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.MalwareToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.MalwareToolStripMenuItem.Text = "Malware";
             // 
             // dDOSToolStripMenuItem
@@ -419,7 +427,7 @@
             this.StartToolStripMenuItem2,
             this.StopToolStripMenuItem3});
             this.LockScreenToolStripMenuItem.Name = "LockScreenToolStripMenuItem";
-            this.LockScreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.LockScreenToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.LockScreenToolStripMenuItem.Text = "Lock Screen";
             // 
             // StartToolStripMenuItem2
@@ -442,7 +450,7 @@
             this.ClientControlToolStripMenuItem,
             this.SystemToolStripMenuItem});
             this.SystemControlToolStripMenuItem.Name = "SystemControlToolStripMenuItem";
-            this.SystemControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SystemControlToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.SystemControlToolStripMenuItem.Text = "System Control";
             // 
             // ClientControlToolStripMenuItem
@@ -531,7 +539,7 @@
             this.RunasToolStripMenuItem,
             this.CompMgmtLauncherToolStripMenuItem});
             this.BypassUACAToolStripMenuItem.Name = "BypassUACAToolStripMenuItem";
-            this.BypassUACAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BypassUACAToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.BypassUACAToolStripMenuItem.Text = "Bypass UAC";
             // 
             // SilentCleanupToolStripMenuItem
@@ -568,7 +576,7 @@
             this.SchtaskInstallToolStripMenuItem,
             this.SchtaskUninstallToolStripMenuItem});
             this.InstallToolStripMenuItem.Name = "InstallToolStripMenuItem";
-            this.InstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.InstallToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.InstallToolStripMenuItem.Text = "Install";
             // 
             // SchtaskInstallToolStripMenuItem
@@ -588,7 +596,7 @@
             // InformationToolStripMenuItem
             // 
             this.InformationToolStripMenuItem.Name = "InformationToolStripMenuItem";
-            this.InformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.InformationToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.InformationToolStripMenuItem.Text = "Information";
             this.InformationToolStripMenuItem.Click += new System.EventHandler(this.InformationToolStripMenuItem_Click);
             // 
@@ -680,6 +688,7 @@
             // 
             this.contextMenuTasks.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuTasks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sendFileFromUrlToolStripMenuItem,
             this.downloadAndExecuteToolStripMenuItem,
             this.sENDFILETOMEMORYToolStripMenuItem1,
             this.uPDATEToolStripMenuItem1,
@@ -689,7 +698,7 @@
             this.dELETETASKToolStripMenuItem});
             this.contextMenuTasks.Name = "contextMenuStrip4";
             this.contextMenuTasks.ShowImageMargin = false;
-            this.contextMenuTasks.Size = new System.Drawing.Size(170, 142);
+            this.contextMenuTasks.Size = new System.Drawing.Size(170, 186);
             // 
             // downloadAndExecuteToolStripMenuItem
             // 
@@ -1071,12 +1080,12 @@
             this.columnHeader2.Text = "Logs";
             this.columnHeader2.Width = 705;
             // 
-            // fromUrlToolStripMenuItem
+            // sendFileFromUrlToolStripMenuItem
             // 
-            this.fromUrlToolStripMenuItem.Name = "fromUrlToolStripMenuItem";
-            this.fromUrlToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.fromUrlToolStripMenuItem.Text = "From Url";
-            this.fromUrlToolStripMenuItem.Click += new System.EventHandler(this.fromUrlToolStripMenuItem_Click);
+            this.sendFileFromUrlToolStripMenuItem.Name = "sendFileFromUrlToolStripMenuItem";
+            this.sendFileFromUrlToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.sendFileFromUrlToolStripMenuItem.Text = "Send file from url";
+            this.sendFileFromUrlToolStripMenuItem.Click += new System.EventHandler(this.sendFileFromUrlToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1233,6 +1242,7 @@
         private System.Windows.Forms.ToolStripMenuItem fakeBinderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem netstatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fromUrlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sendFileFromUrlToolStripMenuItem;
     }
 }
 
