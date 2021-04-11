@@ -386,6 +386,7 @@
     <None Include="Resources\icon.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\DcRat_png.png" />
     <None Include="Resources\Keylogger.exe" />
     <None Include="Resources\online.wav" />
     <None Include="Resources\offline.wav" />

