@@ -1,6 +1,13 @@
 # DcRat
 
+[![Downloads](https://img.shields.io/github/downloads/qwqdanchun/DcRat/total.svg)](https://github.com/qwqdanchun/DcRat/releases)
+[![License](https://img.shields.io/github/license/qwqdanchun/DcRat.svg)](LICENSE)
+
 **DcRat is a simple remote tool written in C#**
+
+## Screenshots
+
+![UI](IMG/UI.gif)
 
 ## Introduction
 ##### Features
