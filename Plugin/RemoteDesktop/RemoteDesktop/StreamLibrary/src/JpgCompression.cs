@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
@@ -17,6 +18,24 @@ namespace Plugin.StreamLibrary.src
             this.encoderParams = new EncoderParameters(2);
             this.encoderParams.Param[0] = parameter;
             this.encoderParams.Param[1] = new EncoderParameter(System.Drawing.Imaging.Encoder.Compression, (long)2);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (encoderParams != null)
+                {
+                    encoderParams.Dispose();
+                }
+            }
         }
 
         public byte[] Compress(Bitmap bmp)
