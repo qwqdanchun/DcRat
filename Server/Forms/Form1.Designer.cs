@@ -100,6 +100,8 @@
             this.sendFileFromUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadAndExecuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sENDFILETOMEMORYToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.disableUACToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.disableWDToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.installSchtaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uPDATEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.autoKeyloggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,8 +147,7 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.disableUACToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.disableWDToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConnectTimeout = new System.Windows.Forms.Timer(this.components);
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -704,7 +705,7 @@
             this.dELETETASKToolStripMenuItem});
             this.contextMenuTasks.Name = "contextMenuStrip4";
             this.contextMenuTasks.ShowImageMargin = false;
-            this.contextMenuTasks.Size = new System.Drawing.Size(170, 252);
+            this.contextMenuTasks.Size = new System.Drawing.Size(170, 230);
             // 
             // sendFileFromUrlToolStripMenuItem
             // 
@@ -726,6 +727,20 @@
             this.sENDFILETOMEMORYToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
             this.sENDFILETOMEMORYToolStripMenuItem1.Text = "Send file to memory";
             this.sENDFILETOMEMORYToolStripMenuItem1.Click += new System.EventHandler(this.SENDFILETOMEMORYToolStripMenuItem1_Click);
+            // 
+            // disableUACToolStripMenuItem1
+            // 
+            this.disableUACToolStripMenuItem1.Name = "disableUACToolStripMenuItem1";
+            this.disableUACToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
+            this.disableUACToolStripMenuItem1.Text = "Disable UAC";
+            this.disableUACToolStripMenuItem1.Click += new System.EventHandler(this.disableUACToolStripMenuItem1_Click);
+            // 
+            // disableWDToolStripMenuItem1
+            // 
+            this.disableWDToolStripMenuItem1.Name = "disableWDToolStripMenuItem1";
+            this.disableWDToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
+            this.disableWDToolStripMenuItem1.Text = "Disable WD";
+            this.disableWDToolStripMenuItem1.Click += new System.EventHandler(this.disableWDToolStripMenuItem1_Click);
             // 
             // installSchtaskToolStripMenuItem
             // 
@@ -1100,19 +1115,11 @@
             this.columnHeader2.Text = "Logs";
             this.columnHeader2.Width = 705;
             // 
-            // disableUACToolStripMenuItem1
+            // ConnectTimeout
             // 
-            this.disableUACToolStripMenuItem1.Name = "disableUACToolStripMenuItem1";
-            this.disableUACToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
-            this.disableUACToolStripMenuItem1.Text = "Disable UAC";
-            this.disableUACToolStripMenuItem1.Click += new System.EventHandler(this.disableUACToolStripMenuItem1_Click);
-            // 
-            // disableWDToolStripMenuItem1
-            // 
-            this.disableWDToolStripMenuItem1.Name = "disableWDToolStripMenuItem1";
-            this.disableWDToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
-            this.disableWDToolStripMenuItem1.Text = "Disable WD";
-            this.disableWDToolStripMenuItem1.Click += new System.EventHandler(this.disableWDToolStripMenuItem1_Click);
+            this.ConnectTimeout.Enabled = true;
+            this.ConnectTimeout.Interval = 5000;
+            this.ConnectTimeout.Tick += new System.EventHandler(this.ConnectTimeout_Tick);
             // 
             // Form1
             // 
@@ -1273,6 +1280,7 @@
         private System.Windows.Forms.ToolStripMenuItem installSchtaskToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disableUACToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem disableWDToolStripMenuItem1;
+        private System.Windows.Forms.Timer ConnectTimeout;
     }
 }
 

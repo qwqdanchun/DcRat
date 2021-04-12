@@ -6,6 +6,7 @@ using System.Threading;
 using Server.Algorithm;
 using System.IO;
 using System.Diagnostics;
+using System;
 
 namespace Server.Handle_Packet
 {
@@ -35,12 +36,14 @@ namespace Server.Handle_Packet
                         case "Ping":
                             {
                                 new HandlePing().Ping(client, unpack_msgpack);
+                                client.LastPing = DateTime.Now;
                                 break;
                             }
 
                         case "Po_ng":
                             {
                                 new HandlePing().Po_ng(client, unpack_msgpack);
+                                client.LastPing = DateTime.Now;
                                 break;
                             }
 
@@ -60,6 +63,7 @@ namespace Server.Handle_Packet
                         case "Received":
                             {
                                 new HandleListView().Received(client);
+                                client.LastPing = DateTime.Now;
                                 break;
                             }
 

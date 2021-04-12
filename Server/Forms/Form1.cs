@@ -364,7 +364,7 @@ namespace Server
         private async void TimerTask_Tick(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 Clients[] clients = GetAllClients();
                 if (getTasks.Count > 0 && clients.Length > 0)
                     foreach (AsyncTask asyncTask in getTasks.ToList())
@@ -2159,6 +2159,21 @@ namespace Server
                 MessageBox.Show(ex.Message);
                 return;
             }
+        }
+
+        private void ConnectTimeout_Tick(object sender, EventArgs e)
+        {
+            Clients[] clients = GetAllClients();
+            if (clients.Length > 0)
+            {
+                foreach (Clients client in clients)
+                {
+                    if (Methods.DiffSeconds(client.LastPing,DateTime.Now) > 20)
+                    {
+                        client.Disconnected();
+                    }
+                }
+            }                
         }
     }
 }

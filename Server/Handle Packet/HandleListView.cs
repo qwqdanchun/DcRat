@@ -89,6 +89,7 @@ namespace Server.Handle_Packet
                 client.LV.ToolTipText += "[Paste_bin] " + unpack_msgpack.ForcePathObject("Paste_bin").AsString;
                 client.ID = unpack_msgpack.ForcePathObject("HWID").AsString;
                 client.LV.UseItemStyleForSubItems = false;
+                client.LastPing = DateTime.Now;
                 Program.form1.Invoke((MethodInvoker)(() =>
                 {
                 lock (Settings.LockListviewClients)
@@ -96,7 +97,7 @@ namespace Server.Handle_Packet
                     Program.form1.listView1.Items.Add(client.LV);
                     Program.form1.listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                     Program.form1.lv_act.Width = 500;
-                }
+                }                    
 
                 if (Properties.Settings.Default.Notification == true)
                 {

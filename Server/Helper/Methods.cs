@@ -33,7 +33,11 @@ namespace Server.Helper
                 o.Opacity += 0.05;
             }
         }
-
+        public static double DiffSeconds(DateTime startTime, DateTime endTime)
+        {
+            TimeSpan secondSpan = new TimeSpan(endTime.Ticks - startTime.Ticks);
+            return Math.Abs(secondSpan.TotalSeconds);
+        }
         public static Random Random = new Random();
         public static string GetRandomString(int length)
         {

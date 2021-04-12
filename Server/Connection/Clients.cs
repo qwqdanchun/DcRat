@@ -34,6 +34,7 @@ namespace Server.Connection
         public long BytesRecevied { get; set; }
         public string Ip { get; set; }
         public bool Admin { get; set; }
+        public DateTime LastPing { get; set; }
 
         public Clients(Socket socket)
         {
