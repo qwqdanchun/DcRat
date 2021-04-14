@@ -1,7 +1,11 @@
 # DcRat
 
-[![Downloads](https://img.shields.io/github/downloads/qwqdanchun/DcRat/total.svg)](https://github.com/qwqdanchun/DcRat/releases)
 [![License](https://img.shields.io/github/license/qwqdanchun/DcRat.svg)](LICENSE)
+![GitHub last commit](https://img.shields.io/github/last-commit/qwqdanchun/DcRat)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/qwqdanchun/DcRat)
+[![Downloads](https://img.shields.io/github/downloads/qwqdanchun/DcRat/total.svg)](https://github.com/qwqdanchun/DcRat/releases)
+![Issues](https://img.shields.io/github/issues/qwqdanchun/DcRat)
+![Donate](https://img.shields.io/badge/btc-17BuN4qd7tQ6CQqCUAhRkhgjVpy41WRkTc-blueviolet)
 
 **DcRat is a simple remote tool written in C#**
 
@@ -63,7 +67,7 @@
 
 |Project|Runtime|
 |  ----  | ----  |
-|Server|.NET Framework 4.5|
+|Server|.NET Framework 4.61|
 |Client and others|.NET Framework 4.0|
 
 
