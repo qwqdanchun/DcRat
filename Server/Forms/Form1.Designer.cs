@@ -35,6 +35,7 @@
             this.RemoteShellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoteScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoteCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.remoteRegeditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FileManagerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ProcessManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.netstatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,6 +149,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ConnectTimeout = new System.Windows.Forms.Timer(this.components);
+            this.normalInstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalUninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -178,7 +181,7 @@
             this.InstallToolStripMenuItem,
             this.InformationToolStripMenuItem});
             this.contextMenuClient.Name = "contextMenuStrip1";
-            this.contextMenuClient.Size = new System.Drawing.Size(179, 180);
+            this.contextMenuClient.Size = new System.Drawing.Size(181, 202);
             // 
             // RemoteManagerToolStripMenuItem
             // 
@@ -186,13 +189,14 @@
             this.RemoteShellToolStripMenuItem,
             this.RemoteScreenToolStripMenuItem,
             this.RemoteCameraToolStripMenuItem,
+            this.remoteRegeditToolStripMenuItem,
             this.FileManagerToolStripMenuItem1,
             this.ProcessManagerToolStripMenuItem,
             this.netstatToolStripMenuItem,
             this.RecordToolStripMenuItem,
             this.ProgramNotificationToolStripMenuItem});
             this.RemoteManagerToolStripMenuItem.Name = "RemoteManagerToolStripMenuItem";
-            this.RemoteManagerToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.RemoteManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RemoteManagerToolStripMenuItem.Text = "Remote Manager";
             // 
             // RemoteShellToolStripMenuItem
@@ -215,6 +219,13 @@
             this.RemoteCameraToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.RemoteCameraToolStripMenuItem.Text = "Remote Camera";
             this.RemoteCameraToolStripMenuItem.Click += new System.EventHandler(this.RemoteCameraToolStripMenuItem_Click);
+            // 
+            // remoteRegeditToolStripMenuItem
+            // 
+            this.remoteRegeditToolStripMenuItem.Name = "remoteRegeditToolStripMenuItem";
+            this.remoteRegeditToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.remoteRegeditToolStripMenuItem.Text = "Remote Regedit";
+            this.remoteRegeditToolStripMenuItem.Click += new System.EventHandler(this.remoteRegeditToolStripMenuItem_Click);
             // 
             // FileManagerToolStripMenuItem1
             // 
@@ -278,7 +289,7 @@
             this.KeyloggerToolStripMenuItem1,
             this.FileSearchToolStripMenuItem});
             this.RemoteControlToolStripMenuItem.Name = "RemoteControlToolStripMenuItem";
-            this.RemoteControlToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.RemoteControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RemoteControlToolStripMenuItem.Text = "Remote Control";
             // 
             // SendFileToolStripMenuItem1
@@ -364,7 +375,7 @@
             this.DisableUACToolStripMenuItem,
             this.OpenCDToolStripMenuItem});
             this.MalwareToolStripMenuItem.Name = "MalwareToolStripMenuItem";
-            this.MalwareToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.MalwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.MalwareToolStripMenuItem.Text = "Malware";
             // 
             // dDOSToolStripMenuItem
@@ -431,7 +442,7 @@
             this.StartToolStripMenuItem2,
             this.StopToolStripMenuItem3});
             this.LockScreenToolStripMenuItem.Name = "LockScreenToolStripMenuItem";
-            this.LockScreenToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.LockScreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.LockScreenToolStripMenuItem.Text = "Lock Screen";
             // 
             // StartToolStripMenuItem2
@@ -454,7 +465,7 @@
             this.ClientControlToolStripMenuItem,
             this.SystemToolStripMenuItem});
             this.SystemControlToolStripMenuItem.Name = "SystemControlToolStripMenuItem";
-            this.SystemControlToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.SystemControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SystemControlToolStripMenuItem.Text = "System Control";
             // 
             // ClientControlToolStripMenuItem
@@ -543,7 +554,7 @@
             this.RunasToolStripMenuItem,
             this.CompMgmtLauncherToolStripMenuItem});
             this.BypassUACAToolStripMenuItem.Name = "BypassUACAToolStripMenuItem";
-            this.BypassUACAToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.BypassUACAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BypassUACAToolStripMenuItem.Text = "Bypass UAC";
             // 
             // SilentCleanupToolStripMenuItem
@@ -578,29 +589,31 @@
             // 
             this.InstallToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SchtaskInstallToolStripMenuItem,
-            this.SchtaskUninstallToolStripMenuItem});
+            this.SchtaskUninstallToolStripMenuItem,
+            this.normalInstallToolStripMenuItem,
+            this.normalUninstallToolStripMenuItem});
             this.InstallToolStripMenuItem.Name = "InstallToolStripMenuItem";
-            this.InstallToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.InstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.InstallToolStripMenuItem.Text = "Install";
             // 
             // SchtaskInstallToolStripMenuItem
             // 
             this.SchtaskInstallToolStripMenuItem.Name = "SchtaskInstallToolStripMenuItem";
-            this.SchtaskInstallToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.SchtaskInstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SchtaskInstallToolStripMenuItem.Text = "Schtask Install";
             this.SchtaskInstallToolStripMenuItem.Click += new System.EventHandler(this.SchtaskInstallToolStripMenuItem_Click);
             // 
             // SchtaskUninstallToolStripMenuItem
             // 
             this.SchtaskUninstallToolStripMenuItem.Name = "SchtaskUninstallToolStripMenuItem";
-            this.SchtaskUninstallToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.SchtaskUninstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SchtaskUninstallToolStripMenuItem.Text = "Schtask Uninstall";
             this.SchtaskUninstallToolStripMenuItem.Click += new System.EventHandler(this.SchtaskUninstallToolStripMenuItem_Click);
             // 
             // InformationToolStripMenuItem
             // 
             this.InformationToolStripMenuItem.Name = "InformationToolStripMenuItem";
-            this.InformationToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.InformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.InformationToolStripMenuItem.Text = "Information";
             this.InformationToolStripMenuItem.Click += new System.EventHandler(this.InformationToolStripMenuItem_Click);
             // 
@@ -1121,6 +1134,20 @@
             this.ConnectTimeout.Interval = 5000;
             this.ConnectTimeout.Tick += new System.EventHandler(this.ConnectTimeout_Tick);
             // 
+            // normalInstallToolStripMenuItem
+            // 
+            this.normalInstallToolStripMenuItem.Name = "normalInstallToolStripMenuItem";
+            this.normalInstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.normalInstallToolStripMenuItem.Text = "Normal Install";
+            this.normalInstallToolStripMenuItem.Click += new System.EventHandler(this.normalInstallToolStripMenuItem_Click);
+            // 
+            // normalUninstallToolStripMenuItem
+            // 
+            this.normalUninstallToolStripMenuItem.Name = "normalUninstallToolStripMenuItem";
+            this.normalUninstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.normalUninstallToolStripMenuItem.Text = "Normal Uninstall";
+            this.normalUninstallToolStripMenuItem.Click += new System.EventHandler(this.normalUninstallToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1281,6 +1308,9 @@
         private System.Windows.Forms.ToolStripMenuItem disableUACToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem disableWDToolStripMenuItem1;
         private System.Windows.Forms.Timer ConnectTimeout;
+        private System.Windows.Forms.ToolStripMenuItem remoteRegeditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalInstallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalUninstallToolStripMenuItem;
     }
 }
 

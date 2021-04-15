@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
-    <Compile Include="Handler\HandleStartBypass.cs" />
+    <Compile Include="Handler\HandleStartUp.cs" />
     <Compile Include="Handler\HandlePcOptions.cs" />
     <Compile Include="Handler\HandleReportWindow.cs" />
     <Compile Include="Handler\HandleThumbnails.cs" />

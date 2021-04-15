@@ -300,36 +300,36 @@
     <Compile Include="Handle Packet\Packet.cs" />
     <Compile Include="Handle Packet\HandleProcessManager.cs" />
     <Compile Include="Helper\AsyncTask.cs" />
-    <Compile Include="Helper\ByteConverter.cs" />
+    <Compile Include="Helper\Controls\ByteConverter.cs" />
     <Compile Include="Helper\DingDing.cs" />
     <Compile Include="Helper\CreateCertificate.cs" />
-    <Compile Include="Helper\HexEditor\ByteCollection.cs" />
-    <Compile Include="Helper\HexEditor\Caret.cs" />
-    <Compile Include="Helper\HexEditor\EditView.cs" />
-    <Compile Include="Helper\HexEditor\HexEditor.cs">
+    <Compile Include="Helper\Controls\HexEditor\ByteCollection.cs" />
+    <Compile Include="Helper\Controls\HexEditor\Caret.cs" />
+    <Compile Include="Helper\Controls\HexEditor\EditView.cs" />
+    <Compile Include="Helper\Controls\HexEditor\HexEditor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Helper\HexEditor\HexViewHandler.cs" />
-    <Compile Include="Helper\HexEditor\IKeyMouseEventHandler.cs" />
-    <Compile Include="Helper\HexEditor\StringViewHandler.cs" />
+    <Compile Include="Helper\Controls\HexEditor\HexViewHandler.cs" />
+    <Compile Include="Helper\Controls\HexEditor\IKeyMouseEventHandler.cs" />
+    <Compile Include="Helper\Controls\HexEditor\StringViewHandler.cs" />
     <Compile Include="Helper\IconInjector.cs" />
     <Compile Include="Helper\ListViewColumnSorter.cs" />
     <Compile Include="Helper\ListviewDoubleBuffer.cs" />
-    <Compile Include="Helper\ListViewEx.cs">
+    <Compile Include="Helper\Controls\ListViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Helper\Methods.cs" />
     <Compile Include="Helper\ReferenceLoader.cs" />
-    <Compile Include="Helper\Regedit.cs" />
-    <Compile Include="Helper\RegistryKeyExtensions.cs" />
-    <Compile Include="Helper\RegistryTreeView.cs">
+    <Compile Include="Helper\Controls\Regedit.cs" />
+    <Compile Include="Helper\Controls\RegistryKeyExtensions.cs" />
+    <Compile Include="Helper\Controls\RegistryTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Helper\RegistryValueLstItem.cs" />
-    <Compile Include="Helper\WordTextBox.cs">
+    <Compile Include="Helper\Controls\RegistryValueLstItem.cs" />
+    <Compile Include="Helper\Controls\WordTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Helper\WordTextBox.Designer.cs">
+    <Compile Include="Helper\Controls\WordTextBox.Designer.cs">
       <DependentUpon>WordTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="MessagePack\BytesTools.cs" />

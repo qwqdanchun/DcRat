@@ -47,7 +47,7 @@ namespace Miscellaneous.Handler
                 Thread.Sleep(1);
                 if (CanWrite)
                 {
-                    if (Input == "exit".ToLower())
+                    if (Input.ToLower() == "exit")
                     {
                         break;
                     }
