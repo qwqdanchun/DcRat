@@ -177,6 +177,10 @@ namespace Server
                 toolStripStatusLabel2.ForeColor = Color.Black;
             }
 
+            //Disable contact information to promote this rat on some forums
+            if (Application.StartupPath.Contains("52pojie"))
+                AboutToolStripMenuItem.Visible = false;
+
             new Thread(() =>
             {
                 Connect();
