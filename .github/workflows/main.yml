@@ -44,7 +44,7 @@ jobs:
     # Build Artifact
     - name: Build Artifact
       shell: cmd
-      run: call .\.github\ArtifactBuild.cmd
+      run: call .\ArtifactBuild.cmd
       
     # Delete-tag-and-release
     - name: Delete-tag-and-release
