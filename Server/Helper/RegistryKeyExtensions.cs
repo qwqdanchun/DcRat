@@ -1,8 +1,13 @@
-﻿using System;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Server.Helper
 {
+    /// <summary>
+    /// Provides extensions for registry key and value operations.
+    /// </summary>
     public static class RegistryKeyExtensions
     {
         public static string RegistryTypeToString(this RegistryValueKind valueKind, object valueData)
@@ -26,6 +31,30 @@ namespace Server.Helper
                 case RegistryValueKind.Unknown:
                 default:
                     return string.Empty;
+            }
+        }
+
+        public static RegistryKey OpenReadonlySubKeySafe(this RegistryKey key, string name)
+        {
+            try
+            {
+                return key.OpenSubKey(name, false);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static RegistryKey OpenWritableSubKeySafe(this RegistryKey key, string name)
+        {
+            try
+            {
+                return key.OpenSubKey(name, true);
+            }
+            catch
+            {
+                return null;
             }
         }
 

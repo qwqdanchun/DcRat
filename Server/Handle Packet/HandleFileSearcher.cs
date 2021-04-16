@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Server.Handle_Packet
 {
-    public class HandlerFileSearcher
+    public class HandleFileSearcher
     {
         public async void SaveZipFile(Clients client, MsgPack unpack_msgpack)
         {
