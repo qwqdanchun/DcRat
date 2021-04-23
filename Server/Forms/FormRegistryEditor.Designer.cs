@@ -618,7 +618,6 @@ namespace Server.Forms
             this.Name = "FormRegistryEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registry Editor []";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormRegistryEditor_FormClosed);
             this.Load += new System.EventHandler(this.FrmRegistryEditor_Load);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();

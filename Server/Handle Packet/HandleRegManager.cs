@@ -1,4 +1,5 @@
-﻿using Server.Connection;
+﻿using ProtoBuf;
+using Server.Connection;
 using Server.Forms;
 using Server.Helper;
 using Server.MessagePack;
@@ -10,6 +11,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Server.Helper.RegistrySeeker;
 
 namespace Server.Handle_Packet
 {
@@ -43,14 +45,16 @@ namespace Server.Handle_Packet
                                 string rootKey = unpack_msgpack.ForcePathObject("RootKey").AsString;
                                 byte[] Matchesbyte = unpack_msgpack.ForcePathObject("Matches").GetAsBytes();
 
-                                BinaryFormatter formatter = new BinaryFormatter();
-                                MemoryStream mStream = new MemoryStream();
-                                mStream.Write(Matchesbyte, 0, Matchesbyte.Length);
-                                mStream.Flush();
-                                mStream.Seek(0, SeekOrigin.Begin);
-                                RegistrySeeker seeker = (RegistrySeeker)formatter.Deserialize(mStream);
+                                //BinaryFormatter formatter = new BinaryFormatter();
+                                //MemoryStream mStream = new MemoryStream();
+                                //mStream.Write(Matchesbyte, 0, Matchesbyte.Length);
+                                //mStream.Flush();
+                                //mStream.Seek(0, SeekOrigin.Begin);
 
-                                FM.AddKeys(rootKey, seeker.Matches);
+
+                                //RegistrySeeker seeker;
+                                //seeker = DeSerialize(Matchesbyte);
+                                FM.AddKeys(rootKey, DeSerialize(Matchesbyte));
                             }
                             break;
                         }
@@ -58,6 +62,15 @@ namespace Server.Handle_Packet
                 }
             }
             catch { }
+        }
+
+        public static RegSeekerMatch[]  DeSerialize(byte[] bytes)
+        {
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                RegSeekerMatch[] Matches = Serializer.Deserialize<RegSeekerMatch[]>(ms);
+                return Matches;
+            }
         }
     }
 }

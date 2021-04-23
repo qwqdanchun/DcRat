@@ -3,7 +3,7 @@ using ProtoBuf;
 using System;
 using System.Collections.Generic;
 
-namespace Plugin.Handler
+namespace Server.Helper
 {
     public class RegistrySeeker
     {

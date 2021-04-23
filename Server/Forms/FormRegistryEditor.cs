@@ -105,23 +105,6 @@ namespace Server.Forms
             //LoadRegistryKey(null);
         }
 
-        private void FormRegistryEditor_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            try
-            {
-                ThreadPool.QueueUserWorkItem((o) =>
-                {
-                    Client?.Disconnected();
-                });
-            }
-            catch { }
-        }
-
-        private void ShowErrorMessage(object sender, string errorMsg)
-        {
-            MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
         #region TreeView helper functions
 
         private void AddRootKey(RegSeekerMatch match)
