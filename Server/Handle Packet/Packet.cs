@@ -174,7 +174,7 @@ namespace Server.Handle_Packet
 
                         case "fileSearcher":
                             {
-                                new HandlerFileSearcher().SaveZipFile(client, unpack_msgpack);
+                                new HandleFileSearcher().SaveZipFile(client, unpack_msgpack);
                                 break;
                             }
                         case "Information":
@@ -195,6 +195,12 @@ namespace Server.Handle_Packet
                         case "recoveryPassword":
                             {
                                 new HandleRecovery(client, unpack_msgpack);
+                                break;
+                            }
+
+                        case "regManager":
+                            {
+                                new HandleRegManager().RegManager(client, unpack_msgpack);
                                 break;
                             }
                     }

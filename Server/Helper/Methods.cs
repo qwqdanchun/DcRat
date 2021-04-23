@@ -1,8 +1,9 @@
 ﻿using Microsoft.VisualBasic;
-using ProtoBuf;
+using Microsoft.Win32;
 using Server.Algorithm;
 using Server.Handle_Packet;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -121,21 +122,4 @@ namespace Server.Helper
     }
 
 
-    [ProtoContract]
-    public class RegSeekerMatch
-    {
-        [ProtoMember(1)]
-        public string Key { get; set; }
-
-        [ProtoMember(2)]
-        public RegValueData[] Data { get; set; }
-
-        [ProtoMember(3)]
-        public bool HasSubKeys { get; set; }
-
-        public override string ToString()
-        {
-            return $"({Key}:{Data})";
-        }
-    }
 }

