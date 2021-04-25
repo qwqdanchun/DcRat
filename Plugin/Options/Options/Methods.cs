@@ -22,7 +22,10 @@ namespace Plugin
                 Connection.SslClient?.Close();
                 Connection.TcpClient?.Close();
             }
-            catch { }
+            catch(Exception ex) 
+            {
+                Packet.Error(ex.Message);
+            }
         }
 
         public static bool IsAdmin()
