@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Win32;
-using ProtoBuf;
+using static Server.Helper.RegistrySeeker;
 
 namespace Server.Helper
 {
@@ -42,16 +42,5 @@ namespace Server.Helper
                     return string.Empty;
             }
         }
-    }
-    public class RegValueData
-    {
-        [ProtoMember(1)]
-        public string Name { get; set; }
-
-        [ProtoMember(2)]
-        public RegistryValueKind Kind { get; set; }
-
-        [ProtoMember(3)]
-        public byte[] Data { get; set; }
     }
 }

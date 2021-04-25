@@ -2190,17 +2190,17 @@ namespace Server
 
                 foreach (Clients client in GetSelectedClients())
                 {
-                    FormFileManager fileManager = (FormFileManager)Application.OpenForms["remoteRegedit:" + client.ID];
-                    if (fileManager == null)
+                    FormRegistryEditor registryEditor = (FormRegistryEditor)Application.OpenForms["remoteRegedit:" + client.ID];
+                    if (registryEditor == null)
                     {
-                        fileManager = new FormFileManager
+                        registryEditor = new FormRegistryEditor
                         {
                             Name = "remoteRegedit:" + client.ID,
                             Text = "remoteRegedit:" + client.ID,
-                            F = this,
-                            FullPath = Path.Combine(Application.StartupPath, "ClientsFolder", client.ID)
+                            Client = client,
+                            F = this
                         };
-                        fileManager.Show();
+                        registryEditor.Show();
                         ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
                     }
                 }

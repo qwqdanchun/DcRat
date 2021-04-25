@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using static Server.Helper.RegistrySeeker;
 
 namespace Server.Helper
 {
