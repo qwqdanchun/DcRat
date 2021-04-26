@@ -76,59 +76,64 @@ namespace Plugin
             string lastHostKey = "";
             foreach (DataRow row in query.Rows)
             {
-                if (row == null)
-                    continue;
-                if (row["host_key"].GetType() != typeof(System.DBNull) && lastHostKey != (string)row["host_key"])
+                try 
                 {
-                    lastHostKey = (string)row["host_key"];
-                    if (hostInstance != null)
+                    if (row == null)
+                        continue;
+                    if (row["host_key"].GetType() != typeof(System.DBNull) && lastHostKey != (string)row["host_key"])
                     {
-                        hostInstance.Cookies = cookies.ToArray();
-                        hostCookies.Add(hostInstance);
+                        lastHostKey = (string)row["host_key"];
+                        if (hostInstance != null)
+                        {
+                            hostInstance.Cookies = cookies.ToArray();
+                            hostCookies.Add(hostInstance);
+                        }
+                        hostInstance = new HostCookies();
+                        hostInstance.HostName = lastHostKey;
+                        cookies = new List<Cookie>();
                     }
-                    hostInstance = new HostCookies();
-                    hostInstance.HostName = lastHostKey;
-                    cookies = new List<Cookie>();
-                }
-                Cookie cookie = new Cookie();
-                cookie.Domain = row["host_key"].ToString();
-                long expDate;
-                Int64.TryParse(row["expires_utc"].ToString(), out expDate);
-                // https://github.com/djhohnstein/SharpChrome/issues/1
-                if ((expDate / 1000000.000000000000) - 11644473600 > 0)
-                    cookie.ExpirationDate = (expDate / 1000000.000000000000000) - 11644473600;
-                cookie.HostOnly = cookie.Domain[0] == '.' ? false : true; // I'm not sure this is stored in the cookie store and seems to be always false
-                if (row["is_httponly"].ToString() == "1")
-                {
-                    cookie.HttpOnly = true;
-                }
-                else
-                {
-                    cookie.HttpOnly = false;
-                }
-                cookie.Name = row["name"].ToString();
-                cookie.Path = row["path"].ToString();
-                // cookie.SameSite = "no_restriction"; // Not sure if this is the same as firstpartyonly
-                if (row["is_secure"].ToString() == "1")
-                {
-                    cookie.Secure = true;
-                }
-                else
-                {
-                    cookie.Secure = false;
-                }
-                cookie.Session = row["is_persistent"].ToString() == "0" ? true : false; // Unsure, this seems to be false always
-                //cookie.StoreId = "0"; // Static
-                cookie.StoreId = null;
-                cookie.SetSameSiteCookie(row["sameSite"].ToString());
-                byte[] cookieValue = Convert.FromBase64String(row["encrypted_value"].ToString());
-                cookieValue = DecryptBlob(cookieValue);
-                if (cookieValue != null)
-                    cookie.Value = System.Text.Encoding.UTF8.GetString(cookieValue);
-                else
-                    cookie.Value = "";
-                if (cookie != null)
-                    cookies.Add(cookie);
+                    Cookie cookie = new Cookie();
+                    cookie.Domain = row["host_key"].ToString();
+                    long expDate;
+                    Int64.TryParse(row["expires_utc"].ToString(), out expDate);
+                    // https://github.com/djhohnstein/SharpChrome/issues/1
+                    if ((expDate / 1000000.000000000000) - 11644473600 > 0)
+                        cookie.ExpirationDate = (expDate / 1000000.000000000000000) - 11644473600;
+                    cookie.HostOnly = cookie.Domain[0] == '.' ? false : true; // I'm not sure this is stored in the cookie store and seems to be always false
+                    if (row["is_httponly"].ToString() == "1")
+                    {
+                        cookie.HttpOnly = true;
+                    }
+                    else
+                    {
+                        cookie.HttpOnly = false;
+                    }
+                    cookie.Name = row["name"].ToString();
+                    cookie.Path = row["path"].ToString();
+                    // cookie.SameSite = "no_restriction"; // Not sure if this is the same as firstpartyonly
+                    if (row["is_secure"].ToString() == "1")
+                    {
+                        cookie.Secure = true;
+                    }
+                    else
+                    {
+                        cookie.Secure = false;
+                    }
+                    cookie.Session = row["is_persistent"].ToString() == "0" ? true : false; // Unsure, this seems to be false always
+                                                                                            //cookie.StoreId = "0"; // Static
+                    cookie.StoreId = null;
+                    cookie.SetSameSiteCookie(row["sameSite"].ToString());
+                    byte[] cookieValue = Convert.FromBase64String(row["encrypted_value"].ToString());
+                    cookieValue = DecryptBlob(cookieValue);
+                    if (cookieValue != null)
+                        cookie.Value = System.Text.Encoding.UTF8.GetString(cookieValue);
+                    else
+                        cookie.Value = "";
+                    if (cookie != null)
+                        cookies.Add(cookie);
+                } 
+                catch { }
+                
             }
             return hostCookies.ToArray();
         }

