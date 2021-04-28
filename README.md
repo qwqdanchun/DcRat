@@ -90,6 +90,13 @@
 - Hidden VNC
 - Hidden RDP
 - Hidden Browser
+- Client Map
+- Real time Microphone
+- Some fun function
+- Information Collection(Maybe with UI)
+- Support unicode in Remote Shell
+- Support Folder Download
+- Support more ways to install Clients
 -  ……
 
 
