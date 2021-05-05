@@ -29,6 +29,7 @@ namespace Server.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegValueEditMultiString));
             this.cancelButton = new System.Windows.Forms.Button();
             this.valueDataTxtBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
@@ -118,6 +119,7 @@ namespace Server.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.valueNameTxtBox);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRegValueEditMultiString";
             this.Text = "FormRegValueEditMultiString";
             this.ResumeLayout(false);
