@@ -62,10 +62,6 @@
             this.DisableWDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PasswordRecoveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DisableUACToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OpenCDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LockScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.StartToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.StopToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.SystemControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClientControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StopToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,6 +81,9 @@
             this.InstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SchtaskInstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SchtaskUninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalInstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalUninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.justForFunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -149,8 +148,6 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ConnectTimeout = new System.Windows.Forms.Timer(this.components);
-            this.normalInstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.normalUninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -175,10 +172,10 @@
             this.RemoteManagerToolStripMenuItem,
             this.RemoteControlToolStripMenuItem,
             this.MalwareToolStripMenuItem,
-            this.LockScreenToolStripMenuItem,
             this.SystemControlToolStripMenuItem,
             this.BypassUACAToolStripMenuItem,
             this.InstallToolStripMenuItem,
+            this.justForFunToolStripMenuItem,
             this.InformationToolStripMenuItem});
             this.contextMenuClient.Name = "contextMenuStrip1";
             this.contextMenuClient.Size = new System.Drawing.Size(181, 202);
@@ -197,7 +194,7 @@
             this.ProgramNotificationToolStripMenuItem});
             this.RemoteManagerToolStripMenuItem.Name = "RemoteManagerToolStripMenuItem";
             this.RemoteManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.RemoteManagerToolStripMenuItem.Text = "Remote Manager";
+            this.RemoteManagerToolStripMenuItem.Text = "Surveillance";
             // 
             // RemoteShellToolStripMenuItem
             // 
@@ -290,7 +287,7 @@
             this.FileSearchToolStripMenuItem});
             this.RemoteControlToolStripMenuItem.Name = "RemoteControlToolStripMenuItem";
             this.RemoteControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.RemoteControlToolStripMenuItem.Text = "Remote Control";
+            this.RemoteControlToolStripMenuItem.Text = "Control";
             // 
             // SendFileToolStripMenuItem1
             // 
@@ -372,8 +369,7 @@
             this.RansomwareToolStripMenuItem,
             this.DisableWDToolStripMenuItem,
             this.PasswordRecoveryToolStripMenuItem,
-            this.DisableUACToolStripMenuItem,
-            this.OpenCDToolStripMenuItem});
+            this.DisableUACToolStripMenuItem});
             this.MalwareToolStripMenuItem.Name = "MalwareToolStripMenuItem";
             this.MalwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.MalwareToolStripMenuItem.Text = "Malware";
@@ -429,36 +425,6 @@
             this.DisableUACToolStripMenuItem.Text = "Disable UAC";
             this.DisableUACToolStripMenuItem.Click += new System.EventHandler(this.DisableUACToolStripMenuItem_Click);
             // 
-            // OpenCDToolStripMenuItem
-            // 
-            this.OpenCDToolStripMenuItem.Name = "OpenCDToolStripMenuItem";
-            this.OpenCDToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.OpenCDToolStripMenuItem.Text = "OpenCD";
-            this.OpenCDToolStripMenuItem.Click += new System.EventHandler(this.OpenCDToolStripMenuItem_Click);
-            // 
-            // LockScreenToolStripMenuItem
-            // 
-            this.LockScreenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StartToolStripMenuItem2,
-            this.StopToolStripMenuItem3});
-            this.LockScreenToolStripMenuItem.Name = "LockScreenToolStripMenuItem";
-            this.LockScreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.LockScreenToolStripMenuItem.Text = "Lock Screen";
-            // 
-            // StartToolStripMenuItem2
-            // 
-            this.StartToolStripMenuItem2.Name = "StartToolStripMenuItem2";
-            this.StartToolStripMenuItem2.Size = new System.Drawing.Size(103, 22);
-            this.StartToolStripMenuItem2.Text = "Start";
-            this.StartToolStripMenuItem2.Click += new System.EventHandler(this.StartToolStripMenuItem2_Click);
-            // 
-            // StopToolStripMenuItem3
-            // 
-            this.StopToolStripMenuItem3.Name = "StopToolStripMenuItem3";
-            this.StopToolStripMenuItem3.Size = new System.Drawing.Size(103, 22);
-            this.StopToolStripMenuItem3.Text = "Stop";
-            this.StopToolStripMenuItem3.Click += new System.EventHandler(this.StopToolStripMenuItem3_Click);
-            // 
             // SystemControlToolStripMenuItem
             // 
             this.SystemControlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -477,7 +443,7 @@
             this.UninstallToolStripMenuItem,
             this.ClientFolderToolStripMenuItem});
             this.ClientControlToolStripMenuItem.Name = "ClientControlToolStripMenuItem";
-            this.ClientControlToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ClientControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ClientControlToolStripMenuItem.Text = "Client Control";
             // 
             // StopToolStripMenuItem1
@@ -522,7 +488,7 @@
             this.RebootToolStripMenuItem,
             this.LogoutToolStripMenuItem});
             this.SystemToolStripMenuItem.Name = "SystemToolStripMenuItem";
-            this.SystemToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.SystemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SystemToolStripMenuItem.Text = "System";
             // 
             // ShutDownToolStripMenuItem
@@ -599,16 +565,37 @@
             // SchtaskInstallToolStripMenuItem
             // 
             this.SchtaskInstallToolStripMenuItem.Name = "SchtaskInstallToolStripMenuItem";
-            this.SchtaskInstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SchtaskInstallToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.SchtaskInstallToolStripMenuItem.Text = "Schtask Install";
             this.SchtaskInstallToolStripMenuItem.Click += new System.EventHandler(this.SchtaskInstallToolStripMenuItem_Click);
             // 
             // SchtaskUninstallToolStripMenuItem
             // 
             this.SchtaskUninstallToolStripMenuItem.Name = "SchtaskUninstallToolStripMenuItem";
-            this.SchtaskUninstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SchtaskUninstallToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.SchtaskUninstallToolStripMenuItem.Text = "Schtask Uninstall";
             this.SchtaskUninstallToolStripMenuItem.Click += new System.EventHandler(this.SchtaskUninstallToolStripMenuItem_Click);
+            // 
+            // normalInstallToolStripMenuItem
+            // 
+            this.normalInstallToolStripMenuItem.Name = "normalInstallToolStripMenuItem";
+            this.normalInstallToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.normalInstallToolStripMenuItem.Text = "Normal Install";
+            this.normalInstallToolStripMenuItem.Click += new System.EventHandler(this.normalInstallToolStripMenuItem_Click);
+            // 
+            // normalUninstallToolStripMenuItem
+            // 
+            this.normalUninstallToolStripMenuItem.Name = "normalUninstallToolStripMenuItem";
+            this.normalUninstallToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.normalUninstallToolStripMenuItem.Text = "Normal Uninstall";
+            this.normalUninstallToolStripMenuItem.Click += new System.EventHandler(this.normalUninstallToolStripMenuItem_Click);
+            // 
+            // justForFunToolStripMenuItem
+            // 
+            this.justForFunToolStripMenuItem.Name = "justForFunToolStripMenuItem";
+            this.justForFunToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.justForFunToolStripMenuItem.Text = "Just For Fun";
+            this.justForFunToolStripMenuItem.Click += new System.EventHandler(this.justForFunToolStripMenuItem_Click);
             // 
             // InformationToolStripMenuItem
             // 
@@ -1134,20 +1121,6 @@
             this.ConnectTimeout.Interval = 5000;
             this.ConnectTimeout.Tick += new System.EventHandler(this.ConnectTimeout_Tick);
             // 
-            // normalInstallToolStripMenuItem
-            // 
-            this.normalInstallToolStripMenuItem.Name = "normalInstallToolStripMenuItem";
-            this.normalInstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.normalInstallToolStripMenuItem.Text = "Normal Install";
-            this.normalInstallToolStripMenuItem.Click += new System.EventHandler(this.normalInstallToolStripMenuItem_Click);
-            // 
-            // normalUninstallToolStripMenuItem
-            // 
-            this.normalUninstallToolStripMenuItem.Name = "normalUninstallToolStripMenuItem";
-            this.normalUninstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.normalUninstallToolStripMenuItem.Text = "Normal Uninstall";
-            this.normalUninstallToolStripMenuItem.Click += new System.EventHandler(this.normalUninstallToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1229,9 +1202,6 @@
         private System.Windows.Forms.ToolStripMenuItem VisteWebsiteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ChangeWallpaperToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem KeyloggerToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem LockScreenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem StartToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem StopToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem SystemControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ClientControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem StopToolStripMenuItem1;
@@ -1294,7 +1264,6 @@
         private System.Windows.Forms.ToolStripMenuItem PasswordRecoveryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FodhelperToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DisableUACToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem OpenCDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CompMgmtLauncherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoKeyloggerToolStripMenuItem;
@@ -1311,6 +1280,7 @@
         private System.Windows.Forms.ToolStripMenuItem remoteRegeditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalInstallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalUninstallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem justForFunToolStripMenuItem;
     }
 }
 

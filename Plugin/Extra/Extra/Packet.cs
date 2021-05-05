@@ -47,18 +47,6 @@ namespace Plugin
                             break;
                         }
 
-                    case "blankscreen+":
-                        {
-                            new HandleBlankScreen().Run();
-                            break;
-                        }
-
-                    case "blankscreen-":
-                        {
-                            new HandleBlankScreen().Stop();
-                            break;
-                        }
-
                     case "disableDefedner":
                         {
                             new HandleDisableDefender().Run();
@@ -68,12 +56,6 @@ namespace Plugin
                     case "disableUAC":
                         {
                             new HandleDisableUAC().Run();
-                            break;
-                        }
-
-                    case "openCD":
-                        {
-                            new HandleOpenCD().Run();
                             break;
                         }
 

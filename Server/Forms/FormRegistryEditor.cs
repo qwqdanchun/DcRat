@@ -784,5 +784,13 @@ namespace Server.Forms
             }
             catch { this.Close(); }
         }
+
+        private void FormRegistryEditor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ThreadPool.QueueUserWorkItem((o) =>
+            {
+                Client?.Disconnected();
+            });
+        }
     }
 }

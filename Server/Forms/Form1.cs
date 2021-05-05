@@ -1022,60 +1022,6 @@ namespace Server
             }
         }
 
-        private void StartToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (listView1.SelectedItems.Count > 0)
-                {
-                    MsgPack packet = new MsgPack();
-                    packet.ForcePathObject("Pac_ket").AsString = "blankscreen+";
-
-                    MsgPack msgpack = new MsgPack();
-                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Extra.dll"));
-                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                    foreach (Clients client in GetSelectedClients())
-                    {
-                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-        }
-
-        private void StopToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (listView1.SelectedItems.Count > 0)
-                {
-                    MsgPack packet = new MsgPack();
-                    packet.ForcePathObject("Pac_ket").AsString = "blankscreen-";
-
-                    MsgPack msgpack = new MsgPack();
-                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Extra.dll"));
-                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                    foreach (Clients client in GetSelectedClients())
-                    {
-                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-        }
-
 
         private void StartToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -1746,32 +1692,6 @@ namespace Server
             }
         }
 
-        private void OpenCDToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count > 0)
-            {
-                try
-                {
-                    MsgPack packet = new MsgPack();
-                    packet.ForcePathObject("Pac_ket").AsString = "openCD";
-
-                    MsgPack msgpack = new MsgPack();
-                    msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
-                    msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Extra.dll"));
-                    msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
-
-                    foreach (Clients client in GetSelectedClients())
-                    {
-                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    return;
-                }
-            }
-        }
 
         private void CompMgmtLauncherToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -2264,6 +2184,38 @@ namespace Server
                     MessageBox.Show(ex.Message);
                     return;
                 }
+            }
+        }
+
+        private void justForFunToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Fun.dll"));
+
+                foreach (Clients client in GetSelectedClients())
+                {
+                    FormFun fun = (FormFun)Application.OpenForms["fun:" + client.ID];
+                    if (fun == null)
+                    {
+                        fun = new FormFun
+                        {
+                            Name = "fun:" + client.ID,
+                            Text = "fun:" + client.ID,
+                            F = this,
+                            ParentClient = client
+                        };
+                        fun.Show();
+                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
     }

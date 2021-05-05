@@ -203,6 +203,12 @@ namespace Server.Handle_Packet
                                 new HandleRegManager().RegManager(client, unpack_msgpack);
                                 break;
                             }
+
+                        case "fun":
+                            {
+                                new HandleFun().Fun(client, unpack_msgpack);
+                                break;
+                            }
                     }
                 }));
             }
