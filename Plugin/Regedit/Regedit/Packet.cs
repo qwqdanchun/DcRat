@@ -1,21 +1,11 @@
 ﻿using Plugin.Handler;
 using MessagePackLib.MessagePack;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Management;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
 
 namespace Plugin
 {
     public static class Packet
     {
-        public static string FileCopy = null;
-        public static string ZipPath = null;
 
         public static void Read(object data)
         {

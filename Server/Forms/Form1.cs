@@ -2197,7 +2197,8 @@ namespace Server
                         {
                             Name = "remoteRegedit:" + client.ID,
                             Text = "remoteRegedit:" + client.ID,
-                            Client = client,
+                            //Client = client,
+                            ParentClient = client,
                             F = this
                         };
                         registryEditor.Show();

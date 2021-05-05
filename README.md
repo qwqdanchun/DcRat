@@ -27,6 +27,7 @@
 - Remote shell
 - Remote desktop
 - Remote camera
+- Registry Editor
 - File management
 - Process management
 - Netstat
@@ -84,7 +85,6 @@
 
 ##### TODO
 
-- Registry Editor
 - Password recovery and other stealer (only chrome and edge are supported now)
 - Reverse Proxy
 - Hidden VNC
