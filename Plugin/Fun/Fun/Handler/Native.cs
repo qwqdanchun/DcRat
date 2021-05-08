@@ -15,6 +15,23 @@ namespace Plugin.Handler
 
 
         [DllImport("user32.dll")]
+        public static extern IntPtr CreateDesktop(string lpszDesktop, IntPtr lpszDevice, IntPtr pDevmode, int dwFlags, uint dwDesiredAccess, IntPtr lpsa);
+
+        [DllImport("user32.dll")]
+        public static extern bool SwitchDesktop(IntPtr hDesktop);
+
+        [DllImport("user32.dll")]
+        public static extern bool CloseDesktop(IntPtr handle);
+
+        [DllImport("user32.dll")]
+        public static extern bool SetThreadDesktop(IntPtr hDesktop);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetThreadDesktop(int dwThreadId);
+
+        [DllImport("kernel32.dll")]
+        public static extern int GetCurrentThreadId();
+        [DllImport("user32.dll")]
         public static extern IntPtr FindWindow(string className, string windowText);
 
         [DllImport("user32.dll")]

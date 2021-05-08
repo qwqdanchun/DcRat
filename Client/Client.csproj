@@ -60,7 +60,7 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>Client.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
