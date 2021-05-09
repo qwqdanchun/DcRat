@@ -37,6 +37,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.9.0.0, Culture=neutral, PublicKeyToken=e25603a88b3aa7da, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\TaskScheduler.2.9.0\lib\net40\Microsoft.Win32.TaskScheduler.dll</HintPath>
     </Reference>
