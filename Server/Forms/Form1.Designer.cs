@@ -148,6 +148,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ConnectTimeout = new System.Windows.Forms.Timer(this.components);
+            this.runShellcodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -279,6 +280,7 @@
             // 
             this.RemoteControlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SendFileToolStripMenuItem1,
+            this.runShellcodeToolStripMenuItem,
             this.MessageBoxToolStripMenuItem,
             this.ChatToolStripMenuItem1,
             this.VisteWebsiteToolStripMenuItem1,
@@ -443,7 +445,7 @@
             this.UninstallToolStripMenuItem,
             this.ClientFolderToolStripMenuItem});
             this.ClientControlToolStripMenuItem.Name = "ClientControlToolStripMenuItem";
-            this.ClientControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ClientControlToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.ClientControlToolStripMenuItem.Text = "Client Control";
             // 
             // StopToolStripMenuItem1
@@ -488,7 +490,7 @@
             this.RebootToolStripMenuItem,
             this.LogoutToolStripMenuItem});
             this.SystemToolStripMenuItem.Name = "SystemToolStripMenuItem";
-            this.SystemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SystemToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.SystemToolStripMenuItem.Text = "System";
             // 
             // ShutDownToolStripMenuItem
@@ -1121,6 +1123,13 @@
             this.ConnectTimeout.Interval = 5000;
             this.ConnectTimeout.Tick += new System.EventHandler(this.ConnectTimeout_Tick);
             // 
+            // runShellcodeToolStripMenuItem
+            // 
+            this.runShellcodeToolStripMenuItem.Name = "runShellcodeToolStripMenuItem";
+            this.runShellcodeToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.runShellcodeToolStripMenuItem.Text = "Run Shellcode";
+            this.runShellcodeToolStripMenuItem.Click += new System.EventHandler(this.runShellcodeToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1281,6 +1290,7 @@
         private System.Windows.Forms.ToolStripMenuItem normalInstallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalUninstallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem justForFunToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem runShellcodeToolStripMenuItem;
     }
 }
 
