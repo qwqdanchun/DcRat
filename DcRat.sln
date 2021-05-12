@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regedit", "Plugin\Regedit\R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fun", "Plugin\Fun\Fun\Fun.csproj", "{8BF244EB-0CA3-403E-A076-F1D77731A728}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseProxy", "Plugin\ReverseProxy\ReverseProxy\ReverseProxy.csproj", "{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -253,6 +255,14 @@ Global
 		{8BF244EB-0CA3-403E-A076-F1D77731A728}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BF244EB-0CA3-403E-A076-F1D77731A728}.Release|x86.ActiveCfg = Release|Any CPU
 		{8BF244EB-0CA3-403E-A076-F1D77731A728}.Release|x86.Build.0 = Release|Any CPU
+		{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C}.Debug|x86.Build.0 = Debug|Any CPU
+		{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C}.Release|x86.ActiveCfg = Release|Any CPU
+		{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -279,6 +289,7 @@ Global
 		{EFFE3048-E904-48FD-B8C0-290E8E9290FB} = {0DE8DA5D-061D-4649-8A56-48729CF1F789}
 		{AB6CDF36-F336-4F14-8D69-3C190B7DEC65} = {0DE8DA5D-061D-4649-8A56-48729CF1F789}
 		{8BF244EB-0CA3-403E-A076-F1D77731A728} = {0DE8DA5D-061D-4649-8A56-48729CF1F789}
+		{B5C5BDD1-568E-44F6-91FF-B26962AF9A6C} = {0DE8DA5D-061D-4649-8A56-48729CF1F789}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C926148-C492-48B3-8F82-7EBB235A9866}
