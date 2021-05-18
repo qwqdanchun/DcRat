@@ -297,6 +297,12 @@
     <Compile Include="Forms\FormRegistryEditor.Designer.cs">
       <DependentUpon>FormRegistryEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmReverseProxy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmReverseProxy.designer.cs">
+      <DependentUpon>FrmReverseProxy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Handle Packet\HandleAudio.cs" />
     <Compile Include="Handle Packet\HandleFun.cs" />
     <Compile Include="Handle Packet\HandlePassword.cs" />
@@ -354,6 +360,8 @@
     <Compile Include="Helper\RegistryKeyExtensions.cs" />
     <Compile Include="Helper\RegistryKeyHelper.cs" />
     <Compile Include="Helper\RegistrySeeker.cs" />
+    <Compile Include="Helper\ReverseProxy\ReverseProxyClient.cs" />
+    <Compile Include="Helper\ReverseProxy\ReverseProxyServer.cs" />
     <Compile Include="MessagePack\BytesTools.cs" />
     <Compile Include="MessagePack\MsgPack.cs" />
     <Compile Include="MessagePack\MsgPackType.cs" />
@@ -457,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormRegistryEditor.resx">
       <DependentUpon>FormRegistryEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmReverseProxy.resx">
+      <DependentUpon>FrmReverseProxy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -250,5 +250,17 @@ namespace Server.Properties {
                 this["Secret"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3128")]
+        public decimal ReverseProxyPort {
+            get {
+                return ((decimal)(this["ReverseProxyPort"]));
+            }
+            set {
+                this["ReverseProxyPort"] = value;
+            }
+        }
     }
 }

