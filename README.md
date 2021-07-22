@@ -1,4 +1,4 @@
-# As the recent preparation for postgraduate examination, this project only fixes bugs in half a year, and will not update the function|由于近期准备考研，此项目半年内仅修复bug，不会更新功能
+# As the recent preparation for postgraduate examination, this project only fixes bugs, and will not update the function in half a year|由于近期准备考研，此项目半年内仅修复bug，不会更新功能
 # DcRat
 
 [![License](https://img.shields.io/github/license/qwqdanchun/DcRat.svg)](LICENSE)
