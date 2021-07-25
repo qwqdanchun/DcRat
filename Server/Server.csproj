@@ -82,6 +82,9 @@
       <HintPath>Resources\IconExtractor.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
+    <Reference Include="IP2Region, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IP2Region.1.2.0\lib\net46\IP2Region.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -492,6 +495,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ip2region.db" />
     <None Include="Resources\keyboard-on.png" />
     <None Include="Resources\keyboard.png" />
     <None Include="Resources\7z.dll" />

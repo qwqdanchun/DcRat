@@ -60,6 +60,8 @@ namespace Server
 
                 if (!Directory.Exists(Path.Combine(Application.StartupPath, "Stub")))
                     Directory.CreateDirectory(Path.Combine(Application.StartupPath, "Stub"));
+                if (!File.Exists(Path.Combine(Application.StartupPath, "Plugins\\ip2region.db")))
+                    File.WriteAllBytes(Path.Combine(Application.StartupPath, "Plugins\\ip2region.db"),Properties.Resources.ip2region);
             }
             catch (Exception ex)
             {

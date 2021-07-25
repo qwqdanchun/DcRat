@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Media;
 using Server.Helper;
+using IP2Region;
 
 namespace Server.Handle_Packet
 {
@@ -48,10 +49,31 @@ namespace Server.Handle_Packet
                     Text = string.Format("{0}:{1}", client.Ip, client.TcpClient.LocalEndPoint.ToString().Split(':')[1]),
                 };
                 string[] ipinf;
+                string address = "";
                 try
                 {
-                    ipinf = Program.form1.cGeoMain.GetIpInf(client.TcpClient.RemoteEndPoint.ToString().Split(':')[0]).Split(':');
-                    client.LV.SubItems.Add(ipinf[1]);
+                    if (TimeZoneInfo.Local.Id == "China Standard Time")
+                    {
+                        using (var _search = new DbSearcher(Environment.CurrentDirectory + @"\Plugins\ip2region.db"))
+                        {
+                            string temp = _search.MemorySearch(client.TcpClient.RemoteEndPoint.ToString().Split(':')[0]).Region;
+                            for (int i = 0; i < 5; i++)
+                            {
+                                if (i == 1)
+                                    continue;
+                                if (temp.Split('|')[i] != "" || temp.Split('|')[i] != " ")
+                                {
+                                    address = address + temp.Split('|')[i] + " ";
+                                }
+                            }
+                        }
+                        client.LV.SubItems.Add(address);
+                    }
+                    else
+                    {
+                        ipinf = Program.form1.cGeoMain.GetIpInf(client.TcpClient.RemoteEndPoint.ToString().Split(':')[0]).Split(':');
+                        client.LV.SubItems.Add(ipinf[1]);
+                    }
                 }
                 catch
                 {
