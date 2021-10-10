@@ -48,6 +48,7 @@
             this.fromUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SendFileToDiskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SendFileToMemoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runShellcodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MessageBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChatToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.VisteWebsiteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,7 +149,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ConnectTimeout = new System.Windows.Forms.Timer(this.components);
-            this.runShellcodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuClient.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuLogs.SuspendLayout();
@@ -322,6 +323,13 @@
             this.SendFileToMemoryToolStripMenuItem.Text = "Send File To Memory";
             this.SendFileToMemoryToolStripMenuItem.Click += new System.EventHandler(this.SendFileToMemoryToolStripMenuItem_Click);
             // 
+            // runShellcodeToolStripMenuItem
+            // 
+            this.runShellcodeToolStripMenuItem.Name = "runShellcodeToolStripMenuItem";
+            this.runShellcodeToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.runShellcodeToolStripMenuItem.Text = "Run Shellcode";
+            this.runShellcodeToolStripMenuItem.Click += new System.EventHandler(this.runShellcodeToolStripMenuItem_Click);
+            // 
             // MessageBoxToolStripMenuItem
             // 
             this.MessageBoxToolStripMenuItem.Name = "MessageBoxToolStripMenuItem";
@@ -441,45 +449,46 @@
             this.ClientControlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StopToolStripMenuItem1,
             this.RestartToolStripMenuItem1,
+            this.noSystemToolStripMenuItem,
             this.UpdateToolStripMenuItem,
             this.UninstallToolStripMenuItem,
             this.ClientFolderToolStripMenuItem});
             this.ClientControlToolStripMenuItem.Name = "ClientControlToolStripMenuItem";
-            this.ClientControlToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ClientControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ClientControlToolStripMenuItem.Text = "Client Control";
             // 
             // StopToolStripMenuItem1
             // 
             this.StopToolStripMenuItem1.Name = "StopToolStripMenuItem1";
-            this.StopToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
+            this.StopToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.StopToolStripMenuItem1.Text = "Stop";
             this.StopToolStripMenuItem1.Click += new System.EventHandler(this.StopToolStripMenuItem1_Click);
             // 
             // RestartToolStripMenuItem1
             // 
             this.RestartToolStripMenuItem1.Name = "RestartToolStripMenuItem1";
-            this.RestartToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
+            this.RestartToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.RestartToolStripMenuItem1.Text = "Restart";
             this.RestartToolStripMenuItem1.Click += new System.EventHandler(this.RestartToolStripMenuItem1_Click);
             // 
             // UpdateToolStripMenuItem
             // 
             this.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem";
-            this.UpdateToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.UpdateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.UpdateToolStripMenuItem.Text = "Update";
             this.UpdateToolStripMenuItem.Click += new System.EventHandler(this.UpdateToolStripMenuItem_Click);
             // 
             // UninstallToolStripMenuItem
             // 
             this.UninstallToolStripMenuItem.Name = "UninstallToolStripMenuItem";
-            this.UninstallToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.UninstallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.UninstallToolStripMenuItem.Text = "Uninstall";
             this.UninstallToolStripMenuItem.Click += new System.EventHandler(this.UninstallToolStripMenuItem_Click);
             // 
             // ClientFolderToolStripMenuItem
             // 
             this.ClientFolderToolStripMenuItem.Name = "ClientFolderToolStripMenuItem";
-            this.ClientFolderToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.ClientFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ClientFolderToolStripMenuItem.Text = "Client Folder";
             this.ClientFolderToolStripMenuItem.Click += new System.EventHandler(this.ClientFolderToolStripMenuItem_Click);
             // 
@@ -490,7 +499,7 @@
             this.RebootToolStripMenuItem,
             this.LogoutToolStripMenuItem});
             this.SystemToolStripMenuItem.Name = "SystemToolStripMenuItem";
-            this.SystemToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.SystemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SystemToolStripMenuItem.Text = "System";
             // 
             // ShutDownToolStripMenuItem
@@ -1123,12 +1132,12 @@
             this.ConnectTimeout.Interval = 5000;
             this.ConnectTimeout.Tick += new System.EventHandler(this.ConnectTimeout_Tick);
             // 
-            // runShellcodeToolStripMenuItem
+            // noSystemToolStripMenuItem
             // 
-            this.runShellcodeToolStripMenuItem.Name = "runShellcodeToolStripMenuItem";
-            this.runShellcodeToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.runShellcodeToolStripMenuItem.Text = "Run Shellcode";
-            this.runShellcodeToolStripMenuItem.Click += new System.EventHandler(this.runShellcodeToolStripMenuItem_Click);
+            this.noSystemToolStripMenuItem.Name = "noSystemToolStripMenuItem";
+            this.noSystemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.noSystemToolStripMenuItem.Text = "No System";
+            this.noSystemToolStripMenuItem.Click += new System.EventHandler(this.noSystemToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1291,6 +1300,7 @@
         private System.Windows.Forms.ToolStripMenuItem normalUninstallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem justForFunToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runShellcodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem noSystemToolStripMenuItem;
     }
 }
 

