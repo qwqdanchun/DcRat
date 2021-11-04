@@ -601,7 +601,8 @@ public Pgno[] aOverflow;         /* Cache of overflow page locations */
     **   seek the cursor to the saved position.
     **
     ** CURSOR_FAULT:
-    **   A unrecoverable error (an I/O error or a malloc failure) has occurred
+    **   A unrecover
+    *able error (an I/O error or a malloc failure) has occurred
     **   on a different connection that shares the BtShared cache with this
     **   cursor.  The error has left the cache in an inconsistent state.
     **   Do nothing else with this cursor.  Any attempt to use the cursor

@@ -307,6 +307,7 @@
       <DependentUpon>FrmReverseProxy.cs</DependentUpon>
     </Compile>
     <Compile Include="Handle Packet\HandleAudio.cs" />
+    <Compile Include="Handle Packet\HandleDiscordRecovery.cs" />
     <Compile Include="Handle Packet\HandleFun.cs" />
     <Compile Include="Handle Packet\HandlePassword.cs" />
     <Compile Include="Handle Packet\HandleInformation.cs" />

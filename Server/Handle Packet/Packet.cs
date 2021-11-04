@@ -197,6 +197,11 @@ namespace Server.Handle_Packet
                                 new HandleRecovery(client, unpack_msgpack);
                                 break;
                             }
+                        case "discordRecovery":
+                            {
+                                new HandleDiscordRecovery(client, unpack_msgpack);
+                                break;
+                            }
 
                         case "regManager":
                             {
