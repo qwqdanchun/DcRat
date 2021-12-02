@@ -6,7 +6,6 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/qwqdanchun/DcRat)
 [![Downloads](https://img.shields.io/github/downloads/qwqdanchun/DcRat/total.svg)](https://github.com/qwqdanchun/DcRat/releases)
 ![Issues](https://img.shields.io/github/issues/qwqdanchun/DcRat)
-![Donate](https://img.shields.io/badge/btc-17BuN4qd7tQ6CQqCUAhRkhgjVpy41WRkTc-blueviolet)
 
 **DcRat is a simple remote tool written in C#**
 
@@ -127,10 +126,6 @@ I (qwqdanchun) am not responsible for any actions and/or damages caused by your 
 * SimpleMsgPack.Net - [@ymofen](https://github.com/ymofen/SimpleMsgPack.Net/)
 * SharpSploit - [@cobbr](https://github.com/cobbr/SharpSploit)
 * and some other projects
-
-## Donation
-
-BTC: 17BuN4qd7tQ6CQqCUAhRkhgjVpy41WRkTc
 
 ## License
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](/LICENSE)
