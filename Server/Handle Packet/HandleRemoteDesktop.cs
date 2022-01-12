@@ -35,8 +35,11 @@ namespace Server.Handle_Packet
                         byte[] RdpStream = unpack_msgpack.ForcePathObject("Stream").GetAsBytes();
                         lock (RD.syncPicbox)
                         {
-                            using (MemoryStream stream = new MemoryStream(RdpStream))
-                                RD.GetImage = RD.decoder.DecodeData(stream);
+                            using (MemoryStream stream = new MemoryStream(RdpStream)){
+                                var StreamDecodeData = RD.decoder.DecodeData(stream);
+                                RD.GetImage = StreamDecodeData;
+                                RD.rdSize = StreamDecodeData.Size;
+                            }
 
                             RD.pictureBox1.Image = RD.GetImage;
                             RD.FPS++;
