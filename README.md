@@ -6,6 +6,6 @@ Because I've heard more and more abuses of DcRat.I decided that i won't update t
 
 #
 
-New Version Preview: https://www.bilibili.com/video/BV1kD4y1F7uY
+New Version Preview: https://www.bilibili.com/video/BV1kD4y1F7uY  
 (Won't Open Source. Also Won't sell.)
 
